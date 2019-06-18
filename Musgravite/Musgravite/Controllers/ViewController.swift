@@ -28,10 +28,6 @@ class ViewController: UIViewController {
         if !HomepageVM.hasBeenLaunched() {
             launchOnboardingExperience()
         }
-        
-        if !FirebaseController.userIsLoggedIn() && HomepageVM.hasBeenLaunched() {
-            launchAuthenticationExperience()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

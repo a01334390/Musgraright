@@ -6,7 +6,6 @@
 //  Copyright © 2019 Aabo Technologies. All rights reserved.
 //
 
-import Foundation
 import Firebase
 
 class FirebaseController {

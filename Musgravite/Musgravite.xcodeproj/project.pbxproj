@@ -142,6 +142,7 @@
 		BD56825B22B7161600263E46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD8D891322B8B13700A8EC23 /* XIBs */,
 				BD56824622B715E200263E46 /* Main.storyboard */,
 				BD56824E22B715E300263E46 /* LaunchScreen.storyboard */,
 			);
@@ -163,6 +164,13 @@
 				BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD8D891322B8B13700A8EC23 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -28,6 +28,13 @@ public class HomepageVM {
         return self.createRootPage()
     }
     
+    static func getTodaysDate() -> String {
+        let currentDate = Date()
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .full
+        return dateFormat.string(from: currentDate)
+    }
+    
     //MARK: BLTNBoard Page Items
     
     static func createRootPage() -> BLTNPageItem {
