@@ -16,6 +16,7 @@
 		BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824E22B715E300263E46 /* LaunchScreen.storyboard */; };
 		BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */; };
 		BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890322B8498300A8EC23 /* Extensions.swift */; };
+		BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		BD56825122B715E300263E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD8D890322B8498300A8EC23 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBulletinBoard.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				BD8D890322B8498300A8EC23 /* Extensions.swift */,
+				BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,7 +168,6 @@
 				BD56823C22B715E200263E46 /* Frameworks */,
 				BD56823D22B715E200263E46 /* Resources */,
 				795C7E9D8D34E4AE9B4DEEF3 /* [CP] Embed Pods Frameworks */,
-				7DED2A8F79F7EFC233F442AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +235,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Musgravite/Pods-Musgravite-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -241,6 +244,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -248,30 +252,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Musgravite/Pods-Musgravite-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7DED2A8F79F7EFC233F442AD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Musgravite/Pods-Musgravite-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Musgravite/Pods-Musgravite-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A12F9AFA6579ACF0580508F5 /* [CP] Check Pods Manifest.lock */ = {
@@ -304,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
+				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,

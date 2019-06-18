@@ -7,44 +7,48 @@
 //
 
 import UIKit
-import FirebaseUI
+import BLTNBoard
 
 class ViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    @IBAction func loginTapped(_ sender: Any) {
-        // Get the default auth UI Object
-        let authUI = FUIAuth.defaultAuthUI()
-        guard authUI != nil else {
-            return
+    func createOnboardingUsername() -> BLTNPageItem {
+        let firstPage = BLTNPageItem(title: "Bienvenido a Musgravite")
+        firstPage.image = UIImage(named: "buletin-1")
+        firstPage.descriptionText = "Descubre los laboratorios que existen en CEDETEC y crea tu siguiente innovacion"
+        firstPage.actionButtonTitle = "Configurar"
+        firstPage.appearance.actionButtonTitleColor = .white
+        firstPage.appearance.actionButtonColor = .purple
+        firstPage.alternativeButtonTitle = "Ahora no"
+        firstPage.requiresCloseButton = false
+        firstPage.isDismissable = false
+//        firstPage.next = createOnboardingUsername()
+        firstPage.actionHandler = { item in
+//            self.selection.selectionChanged()
+            item.manager?.displayNextItem()
         }
-        // Set ourselves as the delegate
-        authUI?.delegate = self
-        authUI?.providers = [FUIEmailAuth()]
-        // Get a reference to the auth UI view controller
-        let authViewController = authUI!.authViewController()
-        
-        // Show it
-        present(authViewController, animated: true, completion: nil)
+        firstPage.alternativeHandler = { item in
+//            self.selection.selectionChanged()
+            item.manager?.dismissBulletin(animated: true)
+        }
+        print("ok")
+        return firstPage
     }
     
-}
-
-extension ViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        // Check if there was an error
-        guard error == nil else {
-            // Log the error
-            print(error ?? "An error has occured in Musgravite")
-            return
-        }
+    /* Bulletin board */
+    lazy var bulletinManager: BLTNItemManager = {
+        let introPage = createOnboardingUsername()
+        print("ok")
+        return BLTNItemManager(rootItem: introPage)
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        //authDataResult?.user.uid
-        
-        performSegue(withIdentifier: "goHome", sender: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        bulletinManager.backgroundViewStyle = .dimmed
+        bulletinManager.showBulletin(above: self)
     }
 }
 

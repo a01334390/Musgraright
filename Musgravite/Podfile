@@ -7,6 +7,6 @@ target 'Musgravite' do
 
   # Pods for Musgravite
 	pod 'Firebase/Core'
-	pod 'FirebaseUI/Email'
-
+	pod 'Firebase/Auth'
+	pod 'BulletinBoard'
 end
