@@ -31,7 +31,7 @@ public class HomepageVM {
     static func getTodaysDate() -> String {
         let currentDate = Date()
         let dateFormat = DateFormatter()
-        dateFormat.dateStyle = .full
+        dateFormat.dateStyle = .medium
         return dateFormat.string(from: currentDate)
     }
     
@@ -170,6 +170,27 @@ public class HomepageVM {
             item.manager?.displayNextItem()
         }
         return firstPage
+    }
+    
+    //MARK: Main Menu Elements
+    
+    static func getMenuElements() -> [MainMenuItem] {
+        var menuElements:[MainMenuItem]?
+        //Menu Elements
+        let images:[String] = ["blueprint"]
+        let titles:[String] = ["Proyectos"]
+        let description:[String] = ["Unete a un proyecto y crea tu siguiente innovacion"]
+        
+        for index in stride(from: 0, to: images.count, by: 1) {
+            let item = MainMenuItem(image: images[index], title: titles[index], itemDescription: description[index])
+            if (menuElements?.append(item)) == nil {
+                menuElements = [item]
+            } else {
+                menuElements?.append(item)
+            }
+        }
+        
+        return menuElements ?? [MainMenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde")]
     }
     
 }

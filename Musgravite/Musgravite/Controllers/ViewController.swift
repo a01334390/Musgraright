@@ -10,10 +10,13 @@ import UIKit
 import BLTNBoard
 import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     //MARK: Variables and Managers
     
     var handle: AuthStateDidChangeListenerHandle?
+    var menuItems:[MainMenuItem]?
+    @IBOutlet weak var topBar: TopBarSuperview!
     
     // BulletinBoard Manager
     var bulletinManager:BLTNItemManager?
@@ -31,11 +34,30 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //Get Menu Items
+        menuItems = HomepageVM.getMenuElements()
+        // Firebase Authentication Listener
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user == nil {
+            if user == nil && HomepageVM.hasBeenLaunched() {
                 self.launchAuthenticationExperience()
             }
         }
+        // Get required information
+        topBar.dateLabel.text = HomepageVM.getTodaysDate()
+    }
+    
+    //MARK: CollectionView Methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return menuItems?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeScreenCollectionViewCell", for: indexPath) as! HomeScreenCollectionViewCell
+        cell.bigImage.image = menuItems![indexPath.item].image
+        cell.title.text = menuItems![indexPath.item].title
+        cell.menuDescription.text = menuItems![indexPath.item].itemDescription
+        return cell
     }
     
     //MARK: Helper Functions

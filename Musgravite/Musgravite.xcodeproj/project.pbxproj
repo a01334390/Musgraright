@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		45C354023AA046526B011EC4 /* Pods_Musgravite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */; };
+		BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF06922B9829700FEECE3 /* TopBarSuperview.swift */; };
+		BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF06B22B982DC00FEECE3 /* TopBar.xib */; };
+		BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */; };
+		BD3AF07122B9A27C00FEECE3 /* MainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD3AF06922B9829700FEECE3 /* TopBarSuperview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarSuperview.swift; sourceTree = "<group>"; };
+		BD3AF06B22B982DC00FEECE3 /* TopBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
+		BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItem.swift; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,14 @@
 				E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BD3AF06D22B991B600FEECE3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BD56823622B715E200263E46 = {
@@ -142,6 +158,7 @@
 		BD56825B22B7161600263E46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD3AF06D22B991B600FEECE3 /* Cells */,
 				BD8D891322B8B13700A8EC23 /* XIBs */,
 				BD56824622B715E200263E46 /* Main.storyboard */,
 				BD56824E22B715E300263E46 /* LaunchScreen.storyboard */,
@@ -152,6 +169,7 @@
 		BD8D88FE22B83AA000A8EC23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +187,8 @@
 		BD8D891322B8B13700A8EC23 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				BD3AF06922B9829700FEECE3 /* TopBarSuperview.swift */,
+				BD3AF06B22B982DC00FEECE3 /* TopBar.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -236,6 +256,7 @@
 				BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */,
 				BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */,
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
+				BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */,
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,12 +321,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3AF07122B9A27C00FEECE3 /* MainMenuItem.swift in Sources */,
 				BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */,
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
+				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
+				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 			);
