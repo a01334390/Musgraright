@@ -11,3 +11,16 @@ import UIKit
 extension UIView {
     
 }
+extension UIColor {
+    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    }
+    
+    static func mainGreen() -> UIColor {
+        return UIColor.rgb(red: 109, green: 215, blue: 130)
+    }
+    
+    static func mainBlue() -> UIColor {
+        return UIColor.rgb(red: 135, green: 174, blue: 100)
+    }
+}

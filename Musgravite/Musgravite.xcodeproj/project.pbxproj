@@ -17,6 +17,7 @@
 		BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */; };
 		BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890322B8498300A8EC23 /* Extensions.swift */; };
 		BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */; };
+		BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890D22B8742300A8EC23 /* HomepageVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD8D890322B8498300A8EC23 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBulletinBoard.swift; sourceTree = "<group>"; };
+		BD8D890D22B8742300A8EC23 /* HomepageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVM.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		BD56825A22B7160F00263E46 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BD8D890D22B8742300A8EC23 /* HomepageVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
+				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

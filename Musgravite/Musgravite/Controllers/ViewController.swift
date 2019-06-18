@@ -10,36 +10,12 @@ import UIKit
 import BLTNBoard
 
 class ViewController: UIViewController {
+    //MARK: Variables and Managers
     
-    func createOnboardingUsername() -> BLTNPageItem {
-        let firstPage = BLTNPageItem(title: "Bienvenido a Musgravite")
-        firstPage.image = UIImage(named: "buletin-1")
-        firstPage.descriptionText = "Descubre los laboratorios que existen en CEDETEC y crea tu siguiente innovacion"
-        firstPage.actionButtonTitle = "Configurar"
-        firstPage.appearance.actionButtonTitleColor = .white
-        firstPage.appearance.actionButtonColor = .purple
-        firstPage.alternativeButtonTitle = "Ahora no"
-        firstPage.requiresCloseButton = false
-        firstPage.isDismissable = false
-//        firstPage.next = createOnboardingUsername()
-        firstPage.actionHandler = { item in
-//            self.selection.selectionChanged()
-            item.manager?.displayNextItem()
-        }
-        firstPage.alternativeHandler = { item in
-//            self.selection.selectionChanged()
-            item.manager?.dismissBulletin(animated: true)
-        }
-        print("ok")
-        return firstPage
-    }
+    // BulletinBoard Manager
+    var bulletinManager:BLTNItemManager?
     
-    /* Bulletin board */
-    lazy var bulletinManager: BLTNItemManager = {
-        let introPage = createOnboardingUsername()
-        print("ok")
-        return BLTNItemManager(rootItem: introPage)
-    }()
+    //MARK: UIView Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +23,22 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        bulletinManager.backgroundViewStyle = .dimmed
-        bulletinManager.showBulletin(above: self)
+        if !HomepageVM.hasBeenLaunched() {
+            launchOnboardingExperience()
+        }
+    }
+    
+    //MARK: Helper Functions
+    /**
+        Launches the Onboarding Experience and requests permission
+     */
+    private func launchOnboardingExperience() {
+        bulletinManager = {
+            let introPage = HomepageVM.createRootPage()
+            return BLTNItemManager(rootItem: introPage)
+        }()
+        bulletinManager?.backgroundViewStyle = .dimmed
+        bulletinManager?.showBulletin(above: self)
     }
 }
 
