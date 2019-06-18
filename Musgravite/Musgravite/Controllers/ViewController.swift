@@ -8,9 +8,12 @@
 
 import UIKit
 import BLTNBoard
+import Firebase
 
 class ViewController: UIViewController {
     //MARK: Variables and Managers
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     // BulletinBoard Manager
     var bulletinManager:BLTNItemManager?
@@ -19,12 +22,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if !HomepageVM.hasBeenLaunched() {
             launchOnboardingExperience()
+        }
+        
+        if !FirebaseController.userIsLoggedIn() && HomepageVM.hasBeenLaunched() {
+            launchAuthenticationExperience()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user == nil {
+                self.launchAuthenticationExperience()
+            }
         }
     }
     
@@ -37,8 +51,18 @@ class ViewController: UIViewController {
             let introPage = HomepageVM.createRootPage()
             return BLTNItemManager(rootItem: introPage)
         }()
-        bulletinManager?.backgroundViewStyle = .dimmed
+        bulletinManager?.backgroundViewStyle = .blurredLight
         bulletinManager?.showBulletin(above: self)
     }
+    
+    private func launchAuthenticationExperience() {
+        bulletinManager = {
+            let introPage = HomepageVM.createGetEmailPage()
+            return BLTNItemManager(rootItem: introPage)
+        }()
+        bulletinManager?.backgroundViewStyle = .blurredLight
+        bulletinManager?.showBulletin(above: self)
+    }
+    
 }
 

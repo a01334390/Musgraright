@@ -1,19 +1,21 @@
 //
-//  TextFieldBulletinPage.swift
+//  PasswordFieldBulletinBoard.swift
 //  Musgravite
 //
-//  Created by Fernando Martin Garcia Del Angel on 11/11/18.
-//  Copyright © 2018 Aabo Technologies. All rights reserved.
+//  Created by Fernando Martin Garcia Del Angel on 6/17/19.
+//  Copyright © 2019 Aabo Technologies. All rights reserved.
 //
+
 import Foundation
 import BLTNBoard
 
-class TextFieldBulletinPage: BLTNPageItem {
+class PasswordFieldBulletinPage: BLTNPageItem {
     @objc public var textField: UITextField!
     @objc public var textInputHandler: ((BLTNActionItem, String?) -> Void)? = nil
     
     override func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
-        textField = interfaceBuilder.makeTextField(placeholder: "borre@itesm.mx", returnKey: .done, delegate: self)
+        textField = interfaceBuilder.makeTextField(placeholder: "Contraseña", returnKey: .done, delegate: self)
+        textField.isSecureTextEntry = true
         return [textField]
     }
     
@@ -29,7 +31,7 @@ class TextFieldBulletinPage: BLTNPageItem {
     
 }
 
-extension TextFieldBulletinPage: UITextFieldDelegate {
+extension PasswordFieldBulletinPage: UITextFieldDelegate {
     
     @objc open func isInputValid(text: String?) -> Bool {
         if text == nil || text!.isEmpty {
@@ -52,9 +54,9 @@ extension TextFieldBulletinPage: UITextFieldDelegate {
         if isInputValid(text: textField.text) {
             textInputHandler?(self, textField.text)
         } else {
-            descriptionLabel!.textColor = .red
+            descriptionLabel!.textColor = .yellow
             descriptionLabel!.text = "Debes ingresar texto para continuar"
-            textField.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+            textField.backgroundColor = UIColor.yellow.withAlphaComponent(0.3)
         }
         
     }

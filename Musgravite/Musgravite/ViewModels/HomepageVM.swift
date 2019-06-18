@@ -8,8 +8,14 @@
 
 import UIKit
 import BLTNBoard
+import CoreLocation
 
 public class HomepageVM {
+    
+    //MARK: Library variables
+    
+    
+    //MARK: Helper functions
     
     /**
         Checks if this is the first time the App has been launched, otherwise, it doesn't do much
@@ -28,19 +34,135 @@ public class HomepageVM {
         let firstPage = BLTNPageItem(title: "Bienvenido a Musgravite")
         firstPage.image = UIImage(named: "bulletin-1")
         firstPage.descriptionText = "Descubre los laboratorios que existen en tu Campus y crea tu siguiente proyecto"
-        firstPage.actionButtonTitle = "Crear cuenta"
+        firstPage.actionButtonTitle = "Empezar"
         firstPage.appearance.actionButtonTitleColor = .white
-        firstPage.appearance.actionButtonColor = UIColor.mainGreen()
-        firstPage.alternativeButtonTitle = "Iniciar sesión"
         firstPage.requiresCloseButton = false
         firstPage.isDismissable = false
         firstPage.actionHandler = { item in
-            item.manager?.displayNextItem()
-        }
-        firstPage.alternativeHandler = { item in
+            firstPage.next = createGetEmailPage()
             item.manager?.displayNextItem()
         }
         
         return firstPage
     }
+    
+    static func createGetEmailPage() -> BLTNPageItem {
+        let page = TextFieldBulletinPage(title: "¿Cuál es tu correo electrónico?")
+        page.isDismissable = false
+        page.descriptionText = "Para empezar, requerimos tu correo electrónico"
+        page.actionButtonTitle = "Continuar"
+        
+        page.textInputHandler = {(item,text) in
+            item.manager?.displayActivityIndicator()
+            FirebaseController.userIsRegistered(text!, completionBlock: ({(success) in
+                page.next = createGetPasswordPage(!success, text!)
+                item.manager?.displayNextItem()
+            }))
+        }
+        return page
+    }
+    
+    static func createGetPasswordPage(_ signup: Bool,_ email:String) -> BLTNPageItem {
+        let page = PasswordFieldBulletinPage(title: "Ingresa tu contraseña")
+        page.isDismissable = false
+        if signup {
+            page.descriptionText = "Ingresa una contraseña para crear tu perfil"
+            page.actionButtonTitle = "Crear cuenta"
+        } else {
+            page.descriptionText = "Ingresa tu contraseña para iniciar sesion"
+            page.actionButtonTitle = "Iniciar sesión"
+        }
+        
+        page.textInputHandler = {(item,text) in
+            item.manager?.displayActivityIndicator()
+            if signup {
+                FirebaseController.signUp(email, text!, completionBlock: ({ (success) in
+                    if success {
+                        page.next = createLocationServicesPage()
+                    } else {
+                        page.next = createErrorPage()
+                    }
+                    item.manager?.displayNextItem()
+                }))
+            } else {
+                FirebaseController.signIn(email, text!, completionBlock: ({(success) in
+                    if success {
+                        page.next = createSuccessPage()
+                    } else {
+                        page.next = createErrorPage()
+                    }
+                    item.manager?.displayNextItem()
+                }))
+            }
+            
+        }
+        return page
+    }
+    
+    static func createSuccessPage() -> BLTNPageItem {
+        let page = BLTNPageItem(title: "Configuracion completa")
+        page.image = UIImage(named: "bulletin-2")
+        page.imageAccessibilityLabel = "Checkmark"
+        page.appearance.actionButtonColor = UIColor(red:0.04, green:0.40, blue:0.14, alpha:1.0)
+        page.appearance.imageViewTintColor = UIColor(red:0.04, green:0.40, blue:0.14, alpha:1.0)
+        page.appearance.actionButtonTitleColor = .white
+        page.descriptionText = "Musgravite esta lista para usarse, ¡A crear algo nuevo!"
+        page.actionButtonTitle = "Empecemos"
+        page.requiresCloseButton = false
+        page.isDismissable = true
+        page.dismissalHandler = { item in
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
+        page.actionHandler = { item in
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            item.manager?.dismissBulletin(animated: true)
+        }
+        
+        return page
+    
+    }
+    
+    static func createErrorPage() -> BLTNPageItem {
+        let page = BLTNPageItem(title: "Oops!")
+        page.image = UIImage(named: "bulletin-3")
+        page.imageAccessibilityLabel = "Cross"
+        page.appearance.actionButtonColor = UIColor(red:1, green:0, blue:0, alpha:1.0)
+        page.appearance.imageViewTintColor = UIColor(red:1, green:0, blue:0, alpha:1.0)
+        page.appearance.actionButtonTitleColor = .white
+        page.descriptionText = "Hubo un problema con la autenticación, vuelvelo a intentar"
+        page.actionButtonTitle = "Vamos"
+        page.requiresCloseButton = false
+        page.isDismissable = false
+        
+        page.actionHandler = { item in
+            item.manager?.popItem()
+        }
+        
+        return page
+    }
+    
+    static func createLocationServicesPage() -> BLTNPageItem {
+        let locationManager = CLLocationManager()
+        let firstPage = BLTNPageItem(title: "Servicios de Localizacion")
+        firstPage.image = UIImage(named: "bulletin-4")
+        firstPage.descriptionText = "Para personalizar tu experiencia necesitamos tu localizacion. Esta informacion sera enviada a nuestros servidores de forma anonima. Puedes cambiar de opinion mas adelante en las preferencias de la aplicacion."
+        firstPage.actionButtonTitle = "Activar Localizacion"
+        firstPage.alternativeButtonTitle = "Ahora no"
+        firstPage.requiresCloseButton = false
+        firstPage.isDismissable = false
+        firstPage.appearance.shouldUseCompactDescriptionText = true
+        firstPage.next = createSuccessPage()
+        firstPage.actionHandler = { item in
+            /* Request Location */
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            item.manager?.displayNextItem()
+        }
+        firstPage.alternativeHandler = { item in
+            item.manager?.displayNextItem()
+        }
+        return firstPage
+    }
+    
 }
