@@ -7,8 +7,11 @@
 //
 
 import Firebase
+import FirebaseFirestore
 
 class FirebaseController {
+    
+    //MARK: Authentication methods
     static func signUp(_ email:String,_ password:String, completionBlock: @escaping (_ success: Bool) -> Void){
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
             if let user = authResult?.user {
@@ -54,4 +57,30 @@ class FirebaseController {
             print("An error happened: %@",error)
         }
     }
+    
+    //MARK: Firestore Methods
+    
+    static func getCoursesData(completionBlock: @escaping (_ success: [Curso]?) -> Void) {
+        Firestore.firestore().collection("cursos").getDocuments(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                var cursos:[Curso]?
+                for document in querySnapshot!.documents {
+                    let curso = Curso(document.documentID,
+                                      document.data()["nombre"] as! String,
+                                      document.data()["grupos"] as! DocumentReference,
+                                      (document.data()["salon"]! as! NSString).integerValue,
+                                      document.data()["edificio"] as! String)
+                    if cursos == nil {
+                        cursos = [curso]
+                    } else {
+                        cursos!.append(curso)
+                    }
+                }
+                completionBlock(cursos)
+            }
+        })
+    }
+    
 }

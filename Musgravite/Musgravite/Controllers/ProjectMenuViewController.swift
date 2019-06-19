@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ProjectMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        SVProgressHUD.show(withStatus: "Descargando cursos")
+        FirebaseController.getCoursesData(completionBlock: ({(cursos) in
+            print(cursos!)
+            SVProgressHUD.dismiss()
+        }))
     }
     
 
