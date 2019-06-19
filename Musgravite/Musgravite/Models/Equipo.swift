@@ -18,4 +18,12 @@ class Equipo {
         self.nombre = nombre
         self.integrantes = integrantes
     }
+    
+    func firestoreReady() -> [String:Any]{
+        let dictionary: [String:Any] = [
+            "nombre": self.nombre!,
+            "integrantes": self.integrantes!
+        ]
+        return dictionary
+    }
 }

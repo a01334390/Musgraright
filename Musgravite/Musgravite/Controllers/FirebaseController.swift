@@ -128,4 +128,57 @@ class FirebaseController {
         })
     }
     
+    static func addTeamToGroup(_ team: Equipo,_ grupoID: String, completionBlock: @escaping(_ success: Bool) -> Void) {
+        self.createNewTeam(team, completionBlock: ({(teamID) in
+            if teamID != nil {
+                let groupREF = Firestore.firestore().collection("grupos").document(grupoID)
+                groupREF.updateData([
+                    "equipos" : FieldValue.arrayUnion([teamID!])
+                ]) { err in
+                    if err != nil {
+                        completionBlock(false)
+                    } else {
+                        completionBlock(true)
+                    }
+                }
+            } else {
+                completionBlock(false)
+            }
+        }))
+    }
+    
+    private static func createNewTeam(_ team: Equipo, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
+        var ref:DocumentReference? = nil
+        ref = Firestore.firestore().collection("equipos").addDocument(data: team.firestoreReady()) { err in
+            if err != nil {
+                completionBlock(nil)
+            } else {
+                completionBlock(ref)
+            }
+        }
+    }
+    
+    static func addParticipantToTeam(_ teamID: String, _ participantID:String, completionBlock: @escaping(_ success: Bool) -> Void) {
+        Firestore.firestore().collection("equipos").document(teamID).updateData([
+            "integrantes" : FieldValue.arrayUnion([participantID])
+        ]) { err in
+            if err != nil {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
+            }
+        }
+    }
+    
+    static func removeParticipantFromTeam(_ teamID: String, _ participantID:String, completionBlock: @escaping(_ success: Bool) -> Void){
+        Firestore.firestore().collection("equipos").document(teamID).updateData(["integrantes" : FieldValue.arrayRemove([participantID])]) { err in
+            if err != nil {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
+            }
+        }
+    }
 }
+
+
