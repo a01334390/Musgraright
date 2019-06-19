@@ -27,6 +27,7 @@
 		BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */; };
 		BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D891122B8915000A8EC23 /* FirebaseController.swift */; };
 		BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA238F22B9CDAF000DDE76 /* Curso.swift */; };
+		BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239222B9DFAC000DDE76 /* Grupo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldBulletinPage.swift; sourceTree = "<group>"; };
 		BD8D891122B8915000A8EC23 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		BDDA238F22B9CDAF000DDE76 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
+		BDDA239222B9DFAC000DDE76 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */,
 				BDDA238F22B9CDAF000DDE76 /* Curso.swift */,
+				BDDA239222B9DFAC000DDE76 /* Grupo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
+				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
 				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 			);

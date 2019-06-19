@@ -83,4 +83,19 @@ class FirebaseController {
         })
     }
     
+    static func getGroupsData(_ grupo:DocumentReference, completionBlock: @escaping (_ success: Grupo?) -> Void) {
+        Firestore.firestore().collection("grupos").document(grupo.documentID).getDocument(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                let document = querySnapshot!.data()
+                let grupo = Grupo(querySnapshot!.documentID,
+                                  querySnapshot?.data()!["equipos"] as! [DocumentReference],
+                                  document!["horaInicio"] as! Int,
+                                  document!["duracion"] as! Int)
+                completionBlock(grupo)
+            }
+        })
+    }
+    
 }
