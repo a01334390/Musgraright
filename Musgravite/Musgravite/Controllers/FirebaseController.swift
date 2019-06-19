@@ -98,4 +98,17 @@ class FirebaseController {
         })
     }
     
+    static func getTeamData(_ team:DocumentReference, completionBlock: @escaping(_ success: Equipo?) -> Void) {
+        Firestore.firestore().collection("equipos").document(team.documentID).getDocument(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                let equipo = Equipo(querySnapshot!.documentID,
+                                    querySnapshot?.data()!["nombre"] as! String,
+                                    querySnapshot?.data()!["integrantes"] as! [String])
+                completionBlock(equipo)
+            }
+        })
+    }
+    
 }

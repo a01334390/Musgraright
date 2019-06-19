@@ -22,10 +22,12 @@ class ProjectMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         SVProgressHUD.show(withStatus: "Descargando cursos")
         FirebaseController.getCoursesData(completionBlock: ({(cursos) in
-            print(cursos![0].grupos!.documentID)
             SVProgressHUD.show(withStatus: "Descargando grupos")
             FirebaseController.getGroupsData(cursos![0].grupos!, completionBlock: ({(grupo) in
-                print(grupo!)
+                SVProgressHUD.show(withStatus: "Descargando equipos")
+                FirebaseController.getTeamData(grupo!.equipos![0], completionBlock: ({(success) in
+                    print(success)
+                }))
                 SVProgressHUD.dismiss()
             }))
         }))
