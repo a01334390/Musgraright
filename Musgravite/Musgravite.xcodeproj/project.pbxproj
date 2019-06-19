@@ -12,6 +12,8 @@
 		BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF06B22B982DC00FEECE3 /* TopBar.xib */; };
 		BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */; };
 		BD3AF07122B9A27C00FEECE3 /* MainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */; };
+		BD3AF07322B9B20B00FEECE3 /* ProjectMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */; };
+		BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07422B9B21600FEECE3 /* ProjectMenuVM.swift */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		BD3AF06B22B982DC00FEECE3 /* TopBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
 		BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItem.swift; sourceTree = "<group>"; };
+		BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuViewController.swift; sourceTree = "<group>"; };
+		BD3AF07422B9B21600FEECE3 /* ProjectMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuVM.swift; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +137,9 @@
 		BD56825822B715FF00263E46 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD8D891122B8915000A8EC23 /* FirebaseController.swift */,
 				BD56824422B715E200263E46 /* ViewController.swift */,
+				BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				BD8D890D22B8742300A8EC23 /* HomepageVM.swift */,
-				BD8D891122B8915000A8EC23 /* FirebaseController.swift */,
+				BD3AF07422B9B21600FEECE3 /* ProjectMenuVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -322,8 +328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD3AF07122B9A27C00FEECE3 /* MainMenuItem.swift in Sources */,
+				BD3AF07322B9B20B00FEECE3 /* ProjectMenuViewController.swift in Sources */,
 				BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */,
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
+				BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,

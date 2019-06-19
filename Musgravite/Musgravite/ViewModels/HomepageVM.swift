@@ -180,9 +180,10 @@ public class HomepageVM {
         let images:[String] = ["blueprint"]
         let titles:[String] = ["Proyectos"]
         let description:[String] = ["Unete a un proyecto y crea tu siguiente innovacion"]
+        let destinationSegues:[String] = ["HomeProject"]
         
         for index in stride(from: 0, to: images.count, by: 1) {
-            let item = MainMenuItem(image: images[index], title: titles[index], itemDescription: description[index])
+            let item = MainMenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index])
             if (menuElements?.append(item)) == nil {
                 menuElements = [item]
             } else {
@@ -190,7 +191,7 @@ public class HomepageVM {
             }
         }
         
-        return menuElements ?? [MainMenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde")]
+        return menuElements ?? [MainMenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "")]
     }
     
 }

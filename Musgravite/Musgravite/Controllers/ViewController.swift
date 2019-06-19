@@ -44,6 +44,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         // Get required information
         topBar.dateLabel.text = HomepageVM.getTodaysDate()
+        // Remove the navigation Bar
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     //MARK: CollectionView Methods
@@ -58,6 +64,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.title.text = menuItems![indexPath.item].title
         cell.menuDescription.text = menuItems![indexPath.item].itemDescription
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: menuItems![indexPath.item].destinationSegue!, sender: self)
     }
     
     //MARK: Helper Functions

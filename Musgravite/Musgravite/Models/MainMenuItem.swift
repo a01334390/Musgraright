@@ -13,18 +13,20 @@ class MainMenuItem {
     var image:UIImage?
     var title:String?
     var itemDescription:String?
+    var destinationSegue:String?
     //MARK: Public Variables
-    private var cell:UICollectionViewCell?
     
-    init(image:String, title:String, itemDescription:String){
+    init(image:String, title:String, itemDescription:String, destinationSegue:String){
         self.image = UIImage(named: image)
         self.title = title
         self.itemDescription = itemDescription
+        self.destinationSegue = destinationSegue
     }
     
-    init(title:String,itemDescription:String){
+    init(title:String,itemDescription:String, destinationSegue:String){
         self.image = UIImage(named: "blueprint")
         self.title = title
         self.itemDescription = itemDescription
+        self.destinationSegue = destinationSegue
     }
 }
