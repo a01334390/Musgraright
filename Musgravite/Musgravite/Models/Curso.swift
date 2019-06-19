@@ -12,16 +12,12 @@ import FirebaseFirestore
 class Curso {
      var documentID:String?
      var nombre:String?
-     var grupos:DocumentReference?
-     var salon:Int?
-     var edificio:String?
+     var grupos:[DocumentReference]?
 
-    init(_ documentID:String, _ nombre:String,_ grupos:DocumentReference,_ salon:Int,_ edificio:String) {
+    init(_ documentID:String, _ nombre:String,_ grupos:[DocumentReference]) {
         self.documentID = documentID
         self.nombre = nombre
         self.grupos = grupos
-        self.salon = salon
-        self.edificio = edificio
     }
     
 }

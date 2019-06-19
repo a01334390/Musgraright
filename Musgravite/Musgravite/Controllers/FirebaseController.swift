@@ -60,30 +60,47 @@ class FirebaseController {
     
     //MARK: Firestore Methods
     
-    static func getCoursesData(completionBlock: @escaping (_ success: [Curso]?) -> Void) {
-        Firestore.firestore().collection("cursos").getDocuments(completion: {(querySnapshot,error) in
+    static func getClassroomData(completionBlock: @escaping (_ success: [Salon]?) -> Void){
+        Firestore.firestore().collection("salon").getDocuments(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
-                var cursos:[Curso]?
+                var salones:[Salon]?
                 for document in querySnapshot!.documents {
-                    let curso = Curso(document.documentID,
-                                      document.data()["nombre"] as! String,
-                                      document.data()["grupos"] as! DocumentReference,
-                                      (document.data()["salon"]! as! NSString).integerValue,
-                                      document.data()["edificio"] as! String)
-                    if cursos == nil {
-                        cursos = [curso]
+                    let salon = Salon(document.documentID,
+                                      document.data()["cursos"] as! [DocumentReference],
+                                      document.data()["edificio"] as! String,
+                                      document["numero"] as! Int,
+                                      document["tipo"] as! Int)
+                    if salones == nil {
+                        salones = [salon]
                     } else {
-                        cursos!.append(curso)
+                        salones!.append(salon)
                     }
                 }
-                completionBlock(cursos)
+                completionBlock(salones)
             }
         })
     }
     
-    static func getGroupsData(_ grupo:DocumentReference, completionBlock: @escaping (_ success: Grupo?) -> Void) {
+    static func getCourseData(_ curso: DocumentReference, completionBlock: @escaping (_ success: Curso?) -> Void) {
+        Firestore.firestore().collection("cursos").document(curso.documentID).getDocument(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                if let document = querySnapshot {
+                    let curso = Curso(document.documentID,
+                                      document.data()!["nombre"] as! String,
+                                      document.data()!["grupos"] as! [DocumentReference])
+                    completionBlock(curso)
+                } else {
+                    completionBlock(nil)
+                }
+            }
+        })
+    }
+    
+    static func getGroupData(_ grupo:DocumentReference, completionBlock: @escaping (_ success: Grupo?) -> Void) {
         Firestore.firestore().collection("grupos").document(grupo.documentID).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)

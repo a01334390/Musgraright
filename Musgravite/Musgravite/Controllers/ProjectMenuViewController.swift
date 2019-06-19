@@ -20,16 +20,20 @@ class ProjectMenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        SVProgressHUD.show(withStatus: "Descargando cursos")
-        FirebaseController.getCoursesData(completionBlock: ({(cursos) in
-            SVProgressHUD.show(withStatus: "Descargando grupos")
-            FirebaseController.getGroupsData(cursos![0].grupos!, completionBlock: ({(grupo) in
-                SVProgressHUD.show(withStatus: "Descargando equipos")
-                FirebaseController.getTeamData(grupo!.equipos![0], completionBlock: ({(success) in
-                    print(success)
+        SVProgressHUD.show(withStatus: "Descargando salones")
+        FirebaseController.getClassroomData(completionBlock: ({(salones) in
+            SVProgressHUD.show(withStatus: "Descargando cursos")
+            FirebaseController.getCourseData(salones![0].cursos![0], completionBlock: ({(curso) in
+                SVProgressHUD.show(withStatus: "Descargando grupos")
+                FirebaseController.getGroupData(curso!.grupos![0], completionBlock: ({(grupo) in
+                    SVProgressHUD.show(withStatus: "Descargando equipos")
+                    FirebaseController.getTeamData(grupo!.equipos![0], completionBlock: ({(equipo) in
+                        print(equipo!.nombre as! String)
+                    }))
+                    SVProgressHUD.dismiss()
                 }))
-                SVProgressHUD.dismiss()
             }))
+            
         }))
     }
     
