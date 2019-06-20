@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: Variables and Managers
     
     var handle: AuthStateDidChangeListenerHandle?
-    var menuItems:[MainMenuItem]?
+    var menuItems:[MenuItem]?
     @IBOutlet weak var topBar: TopBarSuperview!
     
     // BulletinBoard Manager

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenuItem {
+class MenuItem {
     //MARK: Private Variables
     var image:UIImage?
     var title:String?
@@ -16,14 +16,14 @@ class MainMenuItem {
     var destinationSegue:String?
     //MARK: Public Variables
     
-    init(image:String, title:String, itemDescription:String, destinationSegue:String){
+    init(image:String, title:String, itemDescription:String = "", destinationSegue:String){
         self.image = UIImage(named: image)
         self.title = title
         self.itemDescription = itemDescription
         self.destinationSegue = destinationSegue
     }
     
-    init(title:String,itemDescription:String, destinationSegue:String){
+    init(title:String,itemDescription:String = "", destinationSegue:String){
         self.image = UIImage(named: "blueprint")
         self.title = title
         self.itemDescription = itemDescription

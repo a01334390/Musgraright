@@ -174,8 +174,8 @@ public class HomepageVM {
     
     //MARK: Main Menu Elements
     
-    static func getMenuElements() -> [MainMenuItem] {
-        var menuElements:[MainMenuItem]?
+    static func getMenuElements() -> [MenuItem] {
+        var menuElements:[MenuItem]?
         //Menu Elements
         let images:[String] = ["blueprint"]
         let titles:[String] = ["Proyectos"]
@@ -183,15 +183,15 @@ public class HomepageVM {
         let destinationSegues:[String] = ["HomeProject"]
         
         for index in stride(from: 0, to: images.count, by: 1) {
-            let item = MainMenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index])
-            if (menuElements?.append(item)) == nil {
+            let item = MenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index])
+            if menuElements == nil {
                 menuElements = [item]
             } else {
                 menuElements?.append(item)
             }
         }
         
-        return menuElements ?? [MainMenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "")]
+        return menuElements ?? [MenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "")]
     }
     
 }

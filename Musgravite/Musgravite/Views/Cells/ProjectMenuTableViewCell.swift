@@ -11,6 +11,7 @@ import UIKit
 class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var menuItems:[MenuItem]?
     
     //MARK: UITableView Protocols
     
@@ -31,11 +32,13 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     //MARK: UICollectionView Protocols
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return menuItems?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectMenuCVC", for: indexPath as IndexPath) as! ProjectMenuCollectionViewCell
+        cell.bigImage.image = menuItems![indexPath.item].image!
+        cell.title.text = menuItems![indexPath.item].title!
         return cell
     }
 }

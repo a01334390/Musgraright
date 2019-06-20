@@ -12,6 +12,8 @@ import SVProgressHUD
 class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var menuItems:[MenuItem]?
+    var statsItems:[Any]?
     //MARK: UIView Controller Methods
     
     override func viewDidLoad() {
@@ -23,8 +25,12 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // TableView Custom Cells
         self.tableView.register(UINib.init(nibName: "ProjectStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectStatsTVC")
         self.tableView.register(UINib.init(nibName: "ProjectMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectMenuTVC")
+        
+        // Menu Items query
+        menuItems = ProjectMenuVM.getMenuElements()
     }
     
     //MARK: UITableView Controller Methods
@@ -39,8 +45,10 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
             tableView.rowHeight = 200
             return tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
         case 1:
-            tableView.rowHeight = 750
-            return tableView.dequeueReusableCell(withIdentifier: "ProjectMenuTVC", for: indexPath as IndexPath) as! ProjectMenuTableViewCell
+            tableView.rowHeight = CGFloat((Int((menuItems!.count / 2)) * 250) + 20)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectMenuTVC", for: indexPath as IndexPath) as! ProjectMenuTableViewCell
+            cell.menuItems = menuItems
+            return cell
         default:
             return UITableViewCell()
         }
