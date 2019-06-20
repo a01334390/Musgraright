@@ -40,11 +40,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if user == nil && HomepageVM.hasBeenLaunched() {
                 self.launchAuthenticationExperience()
+            } else {
+                // Get required information
+                self.topBar.dateLabel.text = HomepageVM.getTodaysDate()
+                self.topBar.greetingLabel.text = "Hola \(FirebaseController.currentAuthenticatedUserMail())"
             }
         }
-        // Get required information
-        topBar.dateLabel.text = HomepageVM.getTodaysDate()
-        topBar.greetingLabel.text = "Hola \(FirebaseController.currentAuthenticatedUserMail())"
         // Remove the navigation Bar
         self.navigationController?.isNavigationBarHidden = true
     }
