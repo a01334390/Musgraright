@@ -14,6 +14,10 @@
 		BD3AF07122B9A27C00FEECE3 /* MainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */; };
 		BD3AF07322B9B20B00FEECE3 /* ProjectMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */; };
 		BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF07422B9B21600FEECE3 /* ProjectMenuVM.swift */; };
+		BD4135A322BB1708005AF816 /* ProjectStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135A122BB1708005AF816 /* ProjectStatsTableViewCell.swift */; };
+		BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */; };
+		BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */; };
+		BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -39,6 +43,10 @@
 		BD3AF07022B9A27C00FEECE3 /* MainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItem.swift; sourceTree = "<group>"; };
 		BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuViewController.swift; sourceTree = "<group>"; };
 		BD3AF07422B9B21600FEECE3 /* ProjectMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuVM.swift; sourceTree = "<group>"; };
+		BD4135A122BB1708005AF816 /* ProjectStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatsTableViewCell.swift; sourceTree = "<group>"; };
+		BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectStatsTableViewCell.xib; sourceTree = "<group>"; };
+		BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectStatsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				BD3AF06E22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift */,
+				BD4135A122BB1708005AF816 /* ProjectStatsTableViewCell.swift */,
+				BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */,
+				BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */,
+				BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,6 +288,8 @@
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
 				BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */,
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
+				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
+				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,9 +379,11 @@
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
 				BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
+				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
 				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
+				BD4135A322BB1708005AF816 /* ProjectStatsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

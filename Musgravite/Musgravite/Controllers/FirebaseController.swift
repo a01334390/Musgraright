@@ -49,6 +49,9 @@ class FirebaseController {
     static func userIsLoggedIn() -> Bool {
         return Auth.auth().currentUser != nil
     }
+    static func currentAuthenticatedUserMail() -> String {
+        return (Auth.auth().currentUser?.email)!
+    }
     
     static func logOut(){
         do{

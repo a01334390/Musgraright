@@ -13,4 +13,5 @@ class HomeScreenCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bigImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var menuDescription: UILabel!
+  
 }
