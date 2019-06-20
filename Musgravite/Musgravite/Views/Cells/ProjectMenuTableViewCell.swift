@@ -12,6 +12,7 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     var menuItems:[MenuItem]?
+    var viewController:ProjectMenuViewController?
     
     //MARK: UITableView Protocols
     
@@ -40,5 +41,9 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         cell.bigImage.image = menuItems![indexPath.item].image!
         cell.title.text = menuItems![indexPath.item].title!
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.viewController!.printDebug(segueIdentifier: menuItems![indexPath.item].destinationSegue! + " \(indexPath.item)")
     }
 }
