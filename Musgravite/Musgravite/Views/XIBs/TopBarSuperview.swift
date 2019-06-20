@@ -14,7 +14,6 @@ class TopBarSuperview: UIView {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var greetingLabel: UILabel!
-    @IBOutlet weak var avatarLabel: UIImageView!
     
     @IBOutlet var contentView: UIView!
     
@@ -33,4 +32,17 @@ class TopBarSuperview: UIView {
         contentView.fixInView(self)
     }
 
+    @IBAction func actionSheetAction(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Que deseas hacer?", preferredStyle: .actionSheet)
+        let avatarAction = UIAlertAction(title: "Ir a ver mi Avatar", style: .default, handler:{ (UIAlertAction) in
+            print("not yet")
+        })
+        let logOut = UIAlertAction(title: "Cerrar sesion", style: .destructive, handler:{ (UIAlertAction) in
+            FirebaseController.logOut()
+        })
+        
+        optionMenu.addAction(avatarAction)
+        optionMenu.addAction(logOut)
+        UIApplication.shared.keyWindow?.rootViewController?.present(optionMenu, animated: true, completion: nil)
+    }
 }
