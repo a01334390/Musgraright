@@ -18,6 +18,10 @@
 		BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */; };
 		BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */; };
 		BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */; };
+		BD4135AB22BB308B005AF816 /* ProjectMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */; };
+		BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */; };
+		BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */; };
+		BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectStatsTableViewCell.xib; sourceTree = "<group>"; };
 		BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectStatsCollectionViewCell.xib; sourceTree = "<group>"; };
+		BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuTableViewCell.swift; sourceTree = "<group>"; };
+		BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuTableViewCell.xib; sourceTree = "<group>"; };
+		BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,10 @@
 				BD4135A222BB1708005AF816 /* ProjectStatsTableViewCell.xib */,
 				BD4135A522BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift */,
 				BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */,
+				BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */,
+				BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */,
+				BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */,
+				BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -287,9 +299,11 @@
 				BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */,
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
 				BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */,
+				BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */,
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
+				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,12 +385,14 @@
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
 				BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
+				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
+				BD4135AB22BB308B005AF816 /* ProjectMenuTableViewCell.swift in Sources */,
 				BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
