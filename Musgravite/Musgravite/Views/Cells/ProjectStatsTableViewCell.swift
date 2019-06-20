@@ -11,6 +11,7 @@ import UIKit
 class ProjectStatsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var menuItems:[MenuItem]?
     
     //MARK: UITableViewCell Protocols
     override func awakeFromNib() {
@@ -30,11 +31,14 @@ class ProjectStatsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     //MARK: UICollectionView Protocols
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return menuItems?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectStatsCVC", for: indexPath as IndexPath) as! ProjectStatsCollectionViewCell
+        cell.backgroundImage.image = menuItems![indexPath.item].image!
+        cell.numberStat.text = menuItems![indexPath.item].itemDescription!
+        cell.descriptionStat.text = menuItems![indexPath.item].title!
         return cell
     }
 }

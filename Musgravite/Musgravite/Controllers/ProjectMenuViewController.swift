@@ -37,7 +37,9 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 0) {
             tableView.rowHeight = 200
-            return tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
+            cell.menuItems = ProjectMenuVM.getStatsElements()
+            return cell
         }
         
         if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 1) || (ProjectMenuVM.getStatsElements().count == 0) {
