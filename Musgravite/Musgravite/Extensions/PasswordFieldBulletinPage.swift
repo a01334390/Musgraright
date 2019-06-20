@@ -54,9 +54,9 @@ extension PasswordFieldBulletinPage: UITextFieldDelegate {
         if isInputValid(text: textField.text) {
             textInputHandler?(self, textField.text)
         } else {
-            descriptionLabel!.textColor = .yellow
+            descriptionLabel!.textColor = .red
             descriptionLabel!.text = "Debes ingresar texto para continuar"
-            textField.backgroundColor = UIColor.yellow.withAlphaComponent(0.3)
+            textField.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         }
         
     }

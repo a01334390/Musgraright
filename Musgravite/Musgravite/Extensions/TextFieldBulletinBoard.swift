@@ -32,7 +32,7 @@ class TextFieldBulletinPage: BLTNPageItem {
 extension TextFieldBulletinPage: UITextFieldDelegate {
     
     @objc open func isInputValid(text: String?) -> Bool {
-        if text == nil || text!.isEmpty {
+        if text == nil || text!.isEmpty || !(text!.matchesRegex(regex: "[\\w]+@itesm.mx") != text!.matchesRegex(regex: "[\\w]+@tec.mx")) {
             return false
         }
         return true

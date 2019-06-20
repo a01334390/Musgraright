@@ -200,8 +200,12 @@ class FirebaseController {
         }))
     }
     
-    static func removeProjectFromTeam(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: Bool) -> Void){
-        
+    static func removeProjectFromTeam(_ teamID:String,_ project: DocumentReference, completionBlock: @escaping(_ success: Bool) -> Void){
+        //TODO: Do logic
+    }
+    
+    private static func removeProject(_ projectID:String, completionBlock: @escaping(_ success: Bool) -> Void){
+        //TODO: Do logic
     }
     
     private static func createNewProject(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
