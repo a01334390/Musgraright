@@ -34,6 +34,7 @@
 		BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890D22B8742300A8EC23 /* HomepageVM.swift */; };
 		BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */; };
 		BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D891122B8915000A8EC23 /* FirebaseController.swift */; };
+		BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6FF22BC16140043AB8E /* Proyecto.swift */; };
 		BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5F6A922BAD3710063A2E0 /* Salon.swift */; };
 		BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA238F22B9CDAF000DDE76 /* Curso.swift */; };
 		BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239222B9DFAC000DDE76 /* Grupo.swift */; };
@@ -69,6 +70,7 @@
 		BD8D890D22B8742300A8EC23 /* HomepageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVM.swift; sourceTree = "<group>"; };
 		BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldBulletinPage.swift; sourceTree = "<group>"; };
 		BD8D891122B8915000A8EC23 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		BDB0C6FF22BC16140043AB8E /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		BDC5F6A922BAD3710063A2E0 /* Salon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salon.swift; sourceTree = "<group>"; };
 		BDDA238F22B9CDAF000DDE76 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
 		BDDA239222B9DFAC000DDE76 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				BDDA239222B9DFAC000DDE76 /* Grupo.swift */,
 				BDDA239422B9EA76000DDE76 /* Equipo.swift */,
 				BDC5F6A922BAD3710063A2E0 /* Salon.swift */,
+				BDB0C6FF22BC16140043AB8E /* Proyecto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
+				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
 				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 				BD4135A322BB1708005AF816 /* ProjectStatsTableViewCell.swift in Sources */,

@@ -7,22 +7,26 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class Equipo {
     var documentID:String?
     var nombre:String?
     var integrantes:[String]?
+    var proyectos:[DocumentReference]?
     
-    init(_ documentID:String,_ nombre: String,_ integrantes:[String]){
+    init(_ documentID:String,_ nombre: String,_ integrantes:[String], _ proyectos:[DocumentReference]){
         self.documentID = documentID
         self.nombre = nombre
         self.integrantes = integrantes
+        self.proyectos = proyectos
     }
     
     func firestoreReady() -> [String:Any]{
         let dictionary: [String:Any] = [
             "nombre": self.nombre!,
-            "integrantes": self.integrantes!
+            "integrantes": self.integrantes!,
+            "proyectos" : self.proyectos!
         ]
         return dictionary
     }
