@@ -125,7 +125,8 @@ class FirebaseController {
             } else {
                 let equipo = Equipo(querySnapshot!.documentID,
                                     querySnapshot?.data()!["nombre"] as! String,
-                                    querySnapshot?.data()!["integrantes"] as! [String])
+                                    querySnapshot?.data()!["integrantes"] as! [String],
+                                    querySnapshot?.data()!["proyectos"] as! [DocumentReference])
                 completionBlock(equipo)
             }
         })
@@ -180,6 +181,38 @@ class FirebaseController {
             } else {
                 completionBlock(true)
             }
+        }
+    }
+    
+    static func addNewProjectToTeam(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: Bool) -> Void) {
+        self.createNewProject(teamID, project, completionBlock: ({(project) in
+            if project == nil {
+                completionBlock(false)
+            } else {
+                Firestore.firestore().collection("equipos").document(teamID).updateData(["proyectos":FieldValue.arrayUnion([project!])]) { err in
+                    if err != nil {
+                        completionBlock(false)
+                    } else {
+                        completionBlock(true)
+                    }
+                }
+            }
+        }))
+    }
+    
+    static func removeProjectFromTeam(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: Bool) -> Void){
+        
+    }
+    
+    private static func createNewProject(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
+        var ref:DocumentReference?
+        ref = Firestore.firestore().collection("proyectos").addDocument(data: project.firestoreReady()) { err in
+            if err != nil {
+                completionBlock(nil)
+            } else {
+                completionBlock(ref)
+            }
+            
         }
     }
 }

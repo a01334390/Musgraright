@@ -16,4 +16,11 @@ class Proyecto {
         self.documentID = documentID
         self.nombre = nombre
     }
+    
+    func firestoreReady() -> [String: Any] {
+        let dictionary: [String: Any] = [
+            "nombre" : self.nombre!
+        ]
+        return dictionary
+    }
 }
