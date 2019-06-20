@@ -11,7 +11,6 @@ import UIKit
 class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var menuItems:[MenuItem]?
     var statsItems:[Any]?
     //MARK: UIView Controller Methods
     
@@ -27,30 +26,29 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
         // TableView Custom Cells
         self.tableView.register(UINib.init(nibName: "ProjectStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectStatsTVC")
         self.tableView.register(UINib.init(nibName: "ProjectMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectMenuTVC")
-        // Menu Items query
-        menuItems = ProjectMenuVM.getMenuElements()
     }
     
     //MARK: UITableView Controller Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return ProjectMenuVM.getStatsElements().count == 0 ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.item {
-        case 0:
+        if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 0) {
             tableView.rowHeight = 200
             return tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
-        case 1:
-            tableView.rowHeight = CGFloat((Int((menuItems!.count / 2)) * 250) + 20)
+        }
+        
+        if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 1) || (ProjectMenuVM.getStatsElements().count == 0) {
+            tableView.rowHeight = CGFloat((Int((ProjectMenuVM.getMenuElements().count / 2)) * 250) + 20)
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectMenuTVC", for: indexPath as IndexPath) as! ProjectMenuTableViewCell
-            cell.menuItems = menuItems
+            cell.menuItems = ProjectMenuVM.getMenuElements()
             cell.viewController = self
             return cell
-        default:
-            return UITableViewCell()
         }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

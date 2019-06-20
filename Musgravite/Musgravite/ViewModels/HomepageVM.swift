@@ -183,7 +183,7 @@ public class HomepageVM {
         let destinationSegues:[String] = ["HomeProject"]
         
         for index in stride(from: 0, to: images.count, by: 1) {
-            let item = MenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index])
+            let item = MenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index],type: contentType.vertical)
             if menuElements == nil {
                 menuElements = [item]
             } else {
@@ -191,7 +191,7 @@ public class HomepageVM {
             }
         }
         
-        return menuElements ?? [MenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "")]
+        return menuElements ?? [MenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "",type: contentType.vertical)]
     }
     
 }

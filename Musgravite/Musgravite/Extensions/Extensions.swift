@@ -38,3 +38,9 @@ extension UIColor {
         return UIColor.rgb(red: 135, green: 174, blue: 100)
     }
 }
+
+extension Array where Element: Equatable {
+    func all(where predicate: (Element) -> Bool) -> [Element]  {
+        return self.compactMap { predicate($0) ? $0 : nil }
+    }
+}
