@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopBarSuperview" customModule="Musgravite" customModuleProvider="target">
             <connections>
+                <outlet property="avatarButtonImage" destination="6YW-hv-eAZ" id="Rgl-Mf-LOS"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="bas-fN-roG"/>
                 <outlet property="dateLabel" destination="PBe-IM-WWh" id="aQN-6K-2OR"/>
                 <outlet property="greetingLabel" destination="1Ln-xT-eDy" id="NXO-D7-c49"/>
@@ -35,9 +36,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-hv-eAZ">
-                    <rect key="frame" x="395" y="5" width="83" height="83"/>
+                    <rect key="frame" x="395" y="13" width="72" height="66"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="39.circle" catalog="system"/>
+                    <state key="normal" backgroundImage="blueprint"/>
                     <connections>
                         <action selector="actionSheetAction:" destination="-1" eventType="touchUpInside" id="ibO-lI-vuX"/>
                     </connections>
@@ -58,6 +59,6 @@
         </label>
     </objects>
     <resources>
-        <image name="39.circle" catalog="system" width="64" height="62"/>
+        <image name="blueprint" width="800" height="614"/>
     </resources>
 </document>

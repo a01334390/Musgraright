@@ -44,6 +44,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         // Get required information
         topBar.dateLabel.text = HomepageVM.getTodaysDate()
+        topBar.greetingLabel.text = "Hola \(FirebaseController.currentAuthenticatedUserMail())"
         // Remove the navigation Bar
         self.navigationController?.isNavigationBarHidden = true
     }

@@ -12,6 +12,7 @@ class TopBarSuperview: UIView {
     
     //MARK: Variables and Outlets
     
+    @IBOutlet weak var avatarButtonImage: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var greetingLabel: UILabel!
     
@@ -30,6 +31,7 @@ class TopBarSuperview: UIView {
     private func commonInitializer() {
         Bundle.main.loadNibNamed("TopBar", owner: self, options: nil)
         contentView.fixInView(self)
+        avatarButtonImage.setRounded()
     }
 
     @IBAction func actionSheetAction(_ sender: Any) {
