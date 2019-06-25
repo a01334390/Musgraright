@@ -8,7 +8,20 @@
 
 import Foundation
 
-
 class SchoolSearchVM {
     
+    static func getFloorNumber(_ salon:Salon) -> Int {
+        return salon.numero / 100
+    }
+    
+    static func getFloors(_ salones:[Salon]) -> [Int] {
+        var floors:[Int] = []
+        for salon in salones {
+            let floor = self.getFloorNumber(salon)
+            if !floors.contains(floor) {
+                floors.append(floor)
+            }
+        }
+        return floors
+    }
 }
