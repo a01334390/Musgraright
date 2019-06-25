@@ -36,6 +36,8 @@
 		BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D891122B8915000A8EC23 /* FirebaseController.swift */; };
 		BDA571A722C1A8BA00D52E8F /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */; };
 		BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571A822C1A8CA00D52E8F /* SchoolSearchVM.swift */; };
+		BDA571BD22C1C06900D52E8F /* RoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571BC22C1C06900D52E8F /* RoomsTableViewCell.swift */; };
+		BDA571BF22C1C0B400D52E8F /* FloorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571BE22C1C0B400D52E8F /* FloorsCollectionViewCell.swift */; };
 		BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6FF22BC16140043AB8E /* Proyecto.swift */; };
 		BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5F6A922BAD3710063A2E0 /* Salon.swift */; };
 		BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA238F22B9CDAF000DDE76 /* Curso.swift */; };
@@ -74,6 +76,8 @@
 		BD8D891122B8915000A8EC23 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
 		BDA571A822C1A8CA00D52E8F /* SchoolSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchVM.swift; sourceTree = "<group>"; };
+		BDA571BC22C1C06900D52E8F /* RoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewCell.swift; sourceTree = "<group>"; };
+		BDA571BE22C1C0B400D52E8F /* FloorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDB0C6FF22BC16140043AB8E /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		BDC5F6A922BAD3710063A2E0 /* Salon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salon.swift; sourceTree = "<group>"; };
 		BDDA238F22B9CDAF000DDE76 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 		BDA571AB22C1AAA600D52E8F /* School Search */ = {
 			isa = PBXGroup;
 			children = (
+				BDA571BC22C1C06900D52E8F /* RoomsTableViewCell.swift */,
+				BDA571BE22C1C0B400D52E8F /* FloorsCollectionViewCell.swift */,
 			);
 			path = "School Search";
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
+				BDA571BF22C1C0B400D52E8F /* FloorsCollectionViewCell.swift in Sources */,
 				BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
 				BD4135AB22BB308B005AF816 /* ProjectMenuTableViewCell.swift in Sources */,
@@ -425,6 +432,7 @@
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
 				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
+				BDA571BD22C1C06900D52E8F /* RoomsTableViewCell.swift in Sources */,
 				BD8D890E22B8742300A8EC23 /* HomepageVM.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 				BD4135A322BB1708005AF816 /* ProjectStatsTableViewCell.swift in Sources */,
