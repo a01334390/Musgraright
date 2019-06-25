@@ -74,7 +74,7 @@ public class ProjectMenuVM {
             ],
             "3" : [
                 "image" : "blueprint",
-                "title" : "Pide ayuda a un profesor",
+                "title" : "Busca las herramientas",
                 "destinationSegue" : "HomeProject"
             ]
         ]

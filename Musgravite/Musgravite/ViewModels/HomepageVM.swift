@@ -177,10 +177,10 @@ public class HomepageVM {
     static func getMenuElements() -> [MenuItem] {
         var menuElements:[MenuItem]?
         //Menu Elements
-        let images:[String] = ["blueprint"]
-        let titles:[String] = ["Proyectos"]
-        let description:[String] = ["Unete a un proyecto y crea tu siguiente innovacion"]
-        let destinationSegues:[String] = ["HomeProject"]
+        let images:[String] = ["blueprint","blueprint"]
+        let titles:[String] = ["Proyectos","Salones"]
+        let description:[String] = ["Unete a un proyecto y crea tu siguiente innovacion","Conoce los salones que hay en CDTC"]
+        let destinationSegues:[String] = ["HomeProject","HomeSchool"]
         
         for index in stride(from: 0, to: images.count, by: 1) {
             let item = MenuItem(image: images[index], title: titles[index], itemDescription: description[index], destinationSegue: destinationSegues[index],type: contentType.vertical)

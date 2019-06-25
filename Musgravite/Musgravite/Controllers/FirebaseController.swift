@@ -50,7 +50,7 @@ class FirebaseController {
         return Auth.auth().currentUser != nil
     }
     static func currentAuthenticatedUserMail() -> String {
-        return (Auth.auth().currentUser?.email)!
+        return "a@a.a"
     }
     
     static func logOut(){
