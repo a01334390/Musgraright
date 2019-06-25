@@ -36,14 +36,6 @@
 		BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D891122B8915000A8EC23 /* FirebaseController.swift */; };
 		BDA571A722C1A8BA00D52E8F /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */; };
 		BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571A822C1A8CA00D52E8F /* SchoolSearchVM.swift */; };
-		BDA571AE22C1AAE800D52E8F /* FloorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571AC22C1AAE800D52E8F /* FloorsTableViewCell.swift */; };
-		BDA571AF22C1AAE800D52E8F /* FloorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA571AD22C1AAE800D52E8F /* FloorsTableViewCell.xib */; };
-		BDA571B222C1AB0800D52E8F /* RoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571B022C1AB0800D52E8F /* RoomsTableViewCell.swift */; };
-		BDA571B322C1AB0900D52E8F /* RoomsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA571B122C1AB0800D52E8F /* RoomsTableViewCell.xib */; };
-		BDA571B622C1ACD100D52E8F /* FloorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571B422C1ACD100D52E8F /* FloorCollectionViewCell.swift */; };
-		BDA571B722C1ACD100D52E8F /* FloorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA571B522C1ACD100D52E8F /* FloorCollectionViewCell.xib */; };
-		BDA571BA22C1B66C00D52E8F /* RoomsPrototypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA571B822C1B66C00D52E8F /* RoomsPrototypeTableViewCell.swift */; };
-		BDA571BB22C1B66C00D52E8F /* RoomsPrototypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA571B922C1B66C00D52E8F /* RoomsPrototypeTableViewCell.xib */; };
 		BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6FF22BC16140043AB8E /* Proyecto.swift */; };
 		BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5F6A922BAD3710063A2E0 /* Salon.swift */; };
 		BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA238F22B9CDAF000DDE76 /* Curso.swift */; };
@@ -82,14 +74,6 @@
 		BD8D891122B8915000A8EC23 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
 		BDA571A822C1A8CA00D52E8F /* SchoolSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchVM.swift; sourceTree = "<group>"; };
-		BDA571AC22C1AAE800D52E8F /* FloorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorsTableViewCell.swift; sourceTree = "<group>"; };
-		BDA571AD22C1AAE800D52E8F /* FloorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloorsTableViewCell.xib; sourceTree = "<group>"; };
-		BDA571B022C1AB0800D52E8F /* RoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewCell.swift; sourceTree = "<group>"; };
-		BDA571B122C1AB0800D52E8F /* RoomsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomsTableViewCell.xib; sourceTree = "<group>"; };
-		BDA571B422C1ACD100D52E8F /* FloorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorCollectionViewCell.swift; sourceTree = "<group>"; };
-		BDA571B522C1ACD100D52E8F /* FloorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloorCollectionViewCell.xib; sourceTree = "<group>"; };
-		BDA571B822C1B66C00D52E8F /* RoomsPrototypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsPrototypeTableViewCell.swift; sourceTree = "<group>"; };
-		BDA571B922C1B66C00D52E8F /* RoomsPrototypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomsPrototypeTableViewCell.xib; sourceTree = "<group>"; };
 		BDB0C6FF22BC16140043AB8E /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		BDC5F6A922BAD3710063A2E0 /* Salon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salon.swift; sourceTree = "<group>"; };
 		BDDA238F22B9CDAF000DDE76 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
@@ -272,14 +256,6 @@
 		BDA571AB22C1AAA600D52E8F /* School Search */ = {
 			isa = PBXGroup;
 			children = (
-				BDA571AC22C1AAE800D52E8F /* FloorsTableViewCell.swift */,
-				BDA571AD22C1AAE800D52E8F /* FloorsTableViewCell.xib */,
-				BDA571B022C1AB0800D52E8F /* RoomsTableViewCell.swift */,
-				BDA571B122C1AB0800D52E8F /* RoomsTableViewCell.xib */,
-				BDA571B422C1ACD100D52E8F /* FloorCollectionViewCell.swift */,
-				BDA571B522C1ACD100D52E8F /* FloorCollectionViewCell.xib */,
-				BDA571B822C1B66C00D52E8F /* RoomsPrototypeTableViewCell.swift */,
-				BDA571B922C1B66C00D52E8F /* RoomsPrototypeTableViewCell.xib */,
 			);
 			path = "School Search";
 			sourceTree = "<group>";
@@ -345,16 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */,
-				BDA571B322C1AB0900D52E8F /* RoomsTableViewCell.xib in Resources */,
 				BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */,
-				BDA571AF22C1AAE800D52E8F /* FloorsTableViewCell.xib in Resources */,
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
 				BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */,
-				BDA571BB22C1B66C00D52E8F /* RoomsPrototypeTableViewCell.xib in Resources */,
 				BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */,
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
-				BDA571B722C1ACD100D52E8F /* FloorCollectionViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
 				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
@@ -434,7 +406,6 @@
 			files = (
 				BD3AF07122B9A27C00FEECE3 /* MenuItem.swift in Sources */,
 				BDA571A722C1A8BA00D52E8F /* SchoolSearchViewController.swift in Sources */,
-				BDA571B622C1ACD100D52E8F /* FloorCollectionViewCell.swift in Sources */,
 				BD3AF07322B9B20B00FEECE3 /* ProjectMenuViewController.swift in Sources */,
 				BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */,
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
@@ -447,11 +418,8 @@
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */,
-				BDA571BA22C1B66C00D52E8F /* RoomsPrototypeTableViewCell.swift in Sources */,
 				BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */,
 				BD4135AB22BB308B005AF816 /* ProjectMenuTableViewCell.swift in Sources */,
-				BDA571B222C1AB0800D52E8F /* RoomsTableViewCell.swift in Sources */,
-				BDA571AE22C1AAE800D52E8F /* FloorsTableViewCell.swift in Sources */,
 				BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
