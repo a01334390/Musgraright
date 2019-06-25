@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - BoringSSL-GRPC (0.0.2):
     - BoringSSL-GRPC/Implementation (= 0.0.2)
     - BoringSSL-GRPC/Interface (= 0.0.2)
@@ -102,17 +103,23 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
+  - SDWebImage (5.0.1):
+    - SDWebImage/Core (= 5.0.1)
+  - SDWebImage/Core (5.0.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Alamofire
   - BulletinBoard
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - SDWebImage
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - BoringSSL-GRPC
     - BulletinBoard
     - Firebase
@@ -130,9 +137,11 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SDWebImage
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   BulletinBoard: 927f4f9fd22503ceecd71bfc830fd65d5996593a
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
@@ -150,8 +159,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: b13d759ae492896327c138b90f988b493eb59b18
+PODFILE CHECKSUM: 6d76f6263b7847f846acd958edf10e560ae87c92
 
 COCOAPODS: 1.6.1

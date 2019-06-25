@@ -6,9 +6,14 @@ target 'Musgravite' do
   use_frameworks!
 
   # Pods for Musgravite
+	# Google Pods
 	pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+	# UI Pods
 	pod 'BulletinBoard'
 	pod 'SVProgressHUD'
+	# Networking Pods
+	pod 'SDWebImage'
+	pod 'Alamofire'
 end
