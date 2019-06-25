@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class SchoolSearchVM {
     
@@ -23,5 +24,9 @@ class SchoolSearchVM {
             }
         }
         return floors
+    }
+    
+    static func getDummyClassroom() -> [Salon] {
+        return [Salon("123","Salon de cosas feas","123", 101, 1)]
     }
 }

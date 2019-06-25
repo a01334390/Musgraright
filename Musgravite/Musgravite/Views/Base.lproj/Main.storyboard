@@ -145,9 +145,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="grouped" rowHeight="71" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KNG-ca-v1g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="grouped" rowHeight="71" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KNG-ca-v1g">
                                 <rect key="frame" x="0.0" y="332" width="414" height="530"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoomTVC" rowHeight="71" id="ADZ-Os-4vv" customClass="RoomsTableViewCell" customModule="Musgravite" customModuleProvider="target">
@@ -184,10 +183,12 @@
                                     <outlet property="delegate" destination="8SW-vM-Qt0" id="lbO-qD-IlC"/>
                                 </connections>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-OM-ICS">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-OM-ICS">
                                 <rect key="frame" x="0.0" y="140" width="414" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="tdL-yf-7bG"/>
+                                </constraints>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qw1-4b-8jK">
                                     <size key="itemSize" width="247" height="135"/>
@@ -218,6 +219,23 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="250" height="135"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="bigImage" destination="t9m-bm-xZA" id="HPD-59-rAm"/>
                                             <outlet property="bigTitle" destination="3jG-rx-OQs" id="M3q-ru-lF2"/>
@@ -231,9 +249,19 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Rhq-OM-ICS" firstAttribute="leading" secondItem="6QE-JS-Xme" secondAttribute="leading" id="1zy-re-5hZ"/>
+                            <constraint firstItem="Rhq-OM-ICS" firstAttribute="leading" secondItem="KNG-ca-v1g" secondAttribute="leading" id="MIO-SI-wv4"/>
+                            <constraint firstItem="Rhq-OM-ICS" firstAttribute="trailing" secondItem="KNG-ca-v1g" secondAttribute="trailing" id="Qjb-nc-lyu"/>
+                            <constraint firstItem="Rhq-OM-ICS" firstAttribute="top" secondItem="6QE-JS-Xme" secondAttribute="top" id="VVb-0K-A10"/>
+                            <constraint firstItem="KNG-ca-v1g" firstAttribute="top" secondItem="Rhq-OM-ICS" secondAttribute="bottom" constant="8" id="ZHZ-8s-krt"/>
+                            <constraint firstItem="Rhq-OM-ICS" firstAttribute="centerX" secondItem="FSL-7x-43r" secondAttribute="centerX" id="fmI-er-Nl8"/>
+                            <constraint firstItem="KNG-ca-v1g" firstAttribute="bottom" secondItem="6QE-JS-Xme" secondAttribute="bottom" id="iSN-kv-sBY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6QE-JS-Xme"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="Rhq-OM-ICS" id="lvS-av-4XP"/>
                         <outlet property="tableView" destination="KNG-ca-v1g" id="YCB-eq-O38"/>
                         <segue destination="8Og-WE-AMa" kind="show" identifier="SearchLab" id="5Hw-vN-Qdz"/>
                     </connections>
