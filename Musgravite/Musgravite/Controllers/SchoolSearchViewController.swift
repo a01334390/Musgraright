@@ -20,8 +20,8 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
     var searchActive: Bool = false
     var filteredSalones:[Salon]?
     
-    var salones:[Salon] = SchoolSearchVM.getDummyClassroom()
-    var salonests:[Salon] = SchoolSearchVM.getDummyClassroom()
+    var salones:[Salon] = []
+    var salonests:[Salon] = []
     var pisos:[Int] = [1]
     var selectedFloor = 1
     
@@ -66,8 +66,18 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
+            if filteredSalones!.count == 0 {
+                tableView.setEmptyView(title: "Sin laboratorios", message: "No hay laboratorios con ese nombre", messageImage: UIImage(named: "blueprint")!)
+            } else {
+                tableView.restore()
+            }
             return filteredSalones!.count
         } else {
+            if salonests.count == 0 {
+                tableView.setEmptyView(title: "Sin laboratorios", message: "No hay laboratorios con ese nombre", messageImage: UIImage(named: "blueprint")!)
+            } else {
+                tableView.restore()
+            }
              return salonests.count
         }
     }
@@ -77,6 +87,10 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
         cell.labname.text = !searchActive ? salonests[indexPath.item].nombre : filteredSalones![indexPath.item].nombre
         cell.buildingname.text = !searchActive ? "\(salonests[indexPath.item].edificio ?? "")-\(salonests[indexPath.item].numero)" : "\(filteredSalones![indexPath.item].edificio ?? "")-\(filteredSalones![indexPath.item].numero)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //MARK: Collection View Methods
