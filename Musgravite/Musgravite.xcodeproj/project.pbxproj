@@ -45,6 +45,8 @@
 		BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239422B9EA76000DDE76 /* Equipo.swift */; };
 		BDF24FB722C2F8BC00896B4E /* LabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */; };
 		BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB922C2FE2100896B4E /* ContentElement.swift */; };
+		BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */; };
+		BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		BDDA239422B9EA76000DDE76 /* Equipo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipo.swift; sourceTree = "<group>"; };
 		BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabDetailViewController.swift; sourceTree = "<group>"; };
 		BDF24FB922C2FE2100896B4E /* ContentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentElement.swift; sourceTree = "<group>"; };
+		BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterTableViewCell.swift; sourceTree = "<group>"; };
+		BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterTableViewCell.xib; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		BDF24FB822C2FC6300896B4E /* Lab Detail */ = {
 			isa = PBXGroup;
 			children = (
+				BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */,
+				BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */,
 			);
 			path = "Lab Detail";
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
+				BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */,
 				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +445,7 @@
 				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,
 				BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
+				BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
 				BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */,
