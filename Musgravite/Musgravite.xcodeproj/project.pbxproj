@@ -47,6 +47,11 @@
 		BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB922C2FE2100896B4E /* ContentElement.swift */; };
 		BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */; };
 		BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */; };
+		BDF24FC422C3177300896B4E /* ImageCarrouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */; };
+		BDF24FC522C3177300896B4E /* ImageCarrouselTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */; };
+		BDF24FC822C318BC00896B4E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */; };
+		BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */; };
+		BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,11 @@
 		BDF24FB922C2FE2100896B4E /* ContentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentElement.swift; sourceTree = "<group>"; };
 		BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterTableViewCell.swift; sourceTree = "<group>"; };
 		BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterTableViewCell.xib; sourceTree = "<group>"; };
+		BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarrouselTableViewCell.swift; sourceTree = "<group>"; };
+		BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCarrouselTableViewCell.xib; sourceTree = "<group>"; };
+		BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActionsController.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +196,7 @@
 				BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */,
 				BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */,
 				BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */,
+				BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,6 +293,10 @@
 			children = (
 				BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */,
 				BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */,
+				BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */,
+				BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */,
+				BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */,
+				BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */,
 			);
 			path = "Lab Detail";
 			sourceTree = "<group>";
@@ -346,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF24FC522C3177300896B4E /* ImageCarrouselTableViewCell.xib in Resources */,
 				BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */,
 				BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */,
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
@@ -355,6 +371,7 @@
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
 				BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */,
+				BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */,
 				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +474,9 @@
 				BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
+				BDF24FC822C318BC00896B4E /* ImageCollectionViewCell.swift in Sources */,
+				BDF24FC422C3177300896B4E /* ImageCarrouselTableViewCell.swift in Sources */,
+				BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
 				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
 				BDA571BD22C1C06900D52E8F /* RoomsTableViewCell.swift in Sources */,
