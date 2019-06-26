@@ -44,6 +44,7 @@
 		BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239222B9DFAC000DDE76 /* Grupo.swift */; };
 		BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239422B9EA76000DDE76 /* Equipo.swift */; };
 		BDF24FB722C2F8BC00896B4E /* LabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */; };
+		BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB922C2FE2100896B4E /* ContentElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		BDDA239222B9DFAC000DDE76 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		BDDA239422B9EA76000DDE76 /* Equipo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipo.swift; sourceTree = "<group>"; };
 		BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabDetailViewController.swift; sourceTree = "<group>"; };
+		BDF24FB922C2FE2100896B4E /* ContentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentElement.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		BD3AF06D22B991B600FEECE3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BDF24FB822C2FC6300896B4E /* Lab Detail */,
 				BDA571AB22C1AAA600D52E8F /* School Search */,
 				BDA571AA22C1AA9500D52E8F /* Project Menu */,
 			);
@@ -221,6 +224,7 @@
 				BDDA239422B9EA76000DDE76 /* Equipo.swift */,
 				BDC5F6A922BAD3710063A2E0 /* Salon.swift */,
 				BDB0C6FF22BC16140043AB8E /* Proyecto.swift */,
+				BDF24FB922C2FE2100896B4E /* ContentElement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +271,13 @@
 				BDA571BE22C1C0B400D52E8F /* FloorsCollectionViewCell.swift */,
 			);
 			path = "School Search";
+			sourceTree = "<group>";
+		};
+		BDF24FB822C2FC6300896B4E /* Lab Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Lab Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +440,7 @@
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
+				BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BDA571BF22C1C0B400D52E8F /* FloorsCollectionViewCell.swift in Sources */,
 				BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */,

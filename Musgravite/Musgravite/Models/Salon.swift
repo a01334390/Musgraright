@@ -12,40 +12,39 @@ import FirebaseFirestore
 enum Tipo {
     case Laboratorio
     case Aula
+    case Independiente
 }
 
 class Salon {
     var documentID:String?
-    var cursos:[DocumentReference]?
+    var cursos:[DocumentReference] = []
     var edificio:String?
     var numero:Int
     var tipo:Tipo?
     var nombre:String?
     var nombreCorto:String?
+    var contents:[ContentElement] = []
     
-    init(_ documentID:String,_ nombre: String, _ cursos:[DocumentReference],_ edificio:String,_ numero:Int,_ tipo:Int) {
+    init(_ documentID:String,_ nombre: String, _ cursos:[DocumentReference] = [],_ edificio:String,_ numero:Int,_ tipo:Int, _ contents:[ContentElement] = []) {
         self.documentID = documentID
         self.cursos = cursos
+        self.contents = contents
         self.edificio = edificio
         self.numero = numero
-        self.tipo = tipo == 0 ? Tipo.Laboratorio : Tipo.Aula
-        self.nombreCorto = nombre
-        self.nombre = self.setClassroomName(nombre)
-    }
-    
-    init(_ documentID:String,_ nombre: String,_ edificio:String,_ numero:Int,_ tipo:Int) {
-        self.documentID = documentID
-        self.edificio = edificio
-        self.numero = numero
-        self.tipo = tipo == 0 ? Tipo.Laboratorio : Tipo.Aula
+        self.tipo = tipo == 0 ? Tipo.Laboratorio : tipo == 1 ? Tipo.Aula : Tipo.Independiente
         self.nombreCorto = nombre
         self.nombre = self.setClassroomName(nombre)
     }
     
     private func setClassroomName(_ nombre:String) -> String{
-        return self.tipo == Tipo.Laboratorio ?
-        "Laboratorio de \(nombre)" :
-        "Aula de \(nombre)"
+        switch(self.tipo!) {
+        case Tipo.Aula :
+            return "Aula de \(nombre)"
+        case Tipo.Laboratorio :
+            return "Laboratorio de \(nombre)"
+        case Tipo.Independiente :
+            return nombre
+        }
     }
     
 }

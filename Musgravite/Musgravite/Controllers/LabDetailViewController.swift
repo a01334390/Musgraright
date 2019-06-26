@@ -15,7 +15,6 @@ class LabDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = selectedClassroom!.nombreCorto?.localizedCapitalized
-        // Do any additional setup after loading the view.
     }
     
 
