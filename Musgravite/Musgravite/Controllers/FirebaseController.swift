@@ -71,7 +71,8 @@ class FirebaseController {
                 var salones:[Salon]?
                 for document in querySnapshot!.documents {
                     let salon = Salon(document.documentID,
-                                      document.data()["cursos"] as! [DocumentReference],
+                                      document.data()["nombre"] as! String,
+                                      document.data()["cursos"] as! [DocumentReference] ,
                                       document.data()["edificio"] as! String,
                                       document["numero"] as! Int,
                                       document["tipo"] as! Int)
