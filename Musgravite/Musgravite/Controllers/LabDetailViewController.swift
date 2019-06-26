@@ -7,26 +7,63 @@
 //
 
 import UIKit
+import SDWebImage
 
-class LabDetailViewController: UIViewController {
+class LabDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var selectedClassroom:Salon?
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = selectedClassroom!.nombreCorto?.localizedCapitalized
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Table View Nibs
+        self.tableView.register(UINib.init(nibName: "PosterTableViewCell", bundle: nil), forCellReuseIdentifier: "PosterTVC")
+        self.tableView.register(UINib.init(nibName: "ImageCarrouselTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageCarrouselTVC")
+        // Big Title
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //MARK: Table View Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedClassroom!.contents.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dequedcontent = selectedClassroom?.contents[indexPath.item]
+        switch(dequedcontent!.contentType) {
+        case .poster :
+            tableView.rowHeight = 296
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PosterTVC", for: indexPath) as! PosterTableViewCell
+            cell.posterImage.sd_setImage(with: URL(string:dequedcontent!.posterImage), placeholderImage: UIImage(named: "blueprint"))
+            cell.classroomName.text = dequedcontent?.classroomName
+            cell.buildingName.text = "\(dequedcontent?.building ?? "") - \(dequedcontent?.buildnumb ?? 0)"
+            return cell
+            
+        case .imageCarrousel:
+            tableView.rowHeight = 320
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCarrouselTVC", for: indexPath) as! ImageCarrouselTableViewCell
+            cell.images = dequedcontent?.images
+            cell.viewController = self
+            return cell
+        
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PosterTVC", for: indexPath) as! PosterTableViewCell
+            cell.posterImage.sd_setImage(with: URL(string:"http://martinmolina.com.mx/201813/novus2018/Musgravite/pictures/dani.jpg"), placeholderImage: UIImage(named: "blueprint"))
+            cell.classroomName.text = "wow"
+            return cell
+        }
+    }
+    
 
 }

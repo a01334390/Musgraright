@@ -70,12 +70,38 @@ class FirebaseController {
             } else {
                 var salones:[Salon]?
                 for document in querySnapshot!.documents {
+                    var contentelems:[ContentElement] = []
+                    
+                    if let name = document.data()["nombre"] {
+                        let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
+                                                    classroomName: name as! String,
+                                                    building: document.data()["edificio"] as! String,
+                                                    buildnumb: document["numero"] as! Int)
+                        contentelems.append(contel)
+                    }
+                    
+                    if let imageArray = document.data()["imagenes"] {
+                        let contel = ContentElement(images: imageArray as! [String])
+                        contentelems.append(contel)
+                    }
+                    
+                    if let videoArray = document.data()["videos"] {
+                        let contel = ContentElement(videos: videoArray as! [String])
+                        contentelems.append(contel)
+                    }
+                    
+                    if let panonoImage = document.data()["imagen360"] {
+                        let contel = ContentElement(image360: panonoImage as! String)
+                        contentelems.append(contel)
+                    }
+                    
                     let salon = Salon(document.documentID,
                                       document.data()["nombre"] as! String,
-                                      document.data()["cursos"] as! [DocumentReference] ,
+                                      document.data()["cursos"] as! [DocumentReference],
                                       document.data()["edificio"] as! String,
                                       document["numero"] as! Int,
-                                      document["tipo"] as! Int)
+                                      document["tipo"] as! Int,
+                                      contentelems)
                     if salones == nil {
                         salones = [salon]
                     } else {

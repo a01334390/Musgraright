@@ -44,6 +44,14 @@
 		BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239222B9DFAC000DDE76 /* Grupo.swift */; };
 		BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA239422B9EA76000DDE76 /* Equipo.swift */; };
 		BDF24FB722C2F8BC00896B4E /* LabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */; };
+		BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FB922C2FE2100896B4E /* ContentElement.swift */; };
+		BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */; };
+		BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */; };
+		BDF24FC422C3177300896B4E /* ImageCarrouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */; };
+		BDF24FC522C3177300896B4E /* ImageCarrouselTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */; };
+		BDF24FC822C318BC00896B4E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */; };
+		BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */; };
+		BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +93,14 @@
 		BDDA239222B9DFAC000DDE76 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		BDDA239422B9EA76000DDE76 /* Equipo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipo.swift; sourceTree = "<group>"; };
 		BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabDetailViewController.swift; sourceTree = "<group>"; };
+		BDF24FB922C2FE2100896B4E /* ContentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentElement.swift; sourceTree = "<group>"; };
+		BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterTableViewCell.swift; sourceTree = "<group>"; };
+		BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterTableViewCell.xib; sourceTree = "<group>"; };
+		BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarrouselTableViewCell.swift; sourceTree = "<group>"; };
+		BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCarrouselTableViewCell.xib; sourceTree = "<group>"; };
+		BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActionsController.swift; sourceTree = "<group>"; };
 		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
 		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +138,7 @@
 		BD3AF06D22B991B600FEECE3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BDF24FB822C2FC6300896B4E /* Lab Detail */,
 				BDA571AB22C1AAA600D52E8F /* School Search */,
 				BDA571AA22C1AA9500D52E8F /* Project Menu */,
 			);
@@ -179,6 +196,7 @@
 				BD3AF07222B9B20B00FEECE3 /* ProjectMenuViewController.swift */,
 				BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */,
 				BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */,
+				BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +239,7 @@
 				BDDA239422B9EA76000DDE76 /* Equipo.swift */,
 				BDC5F6A922BAD3710063A2E0 /* Salon.swift */,
 				BDB0C6FF22BC16140043AB8E /* Proyecto.swift */,
+				BDF24FB922C2FE2100896B4E /* ContentElement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +286,19 @@
 				BDA571BE22C1C0B400D52E8F /* FloorsCollectionViewCell.swift */,
 			);
 			path = "School Search";
+			sourceTree = "<group>";
+		};
+		BDF24FB822C2FC6300896B4E /* Lab Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BDF24FBB22C3079900896B4E /* PosterTableViewCell.swift */,
+				BDF24FBC22C3079900896B4E /* PosterTableViewCell.xib */,
+				BDF24FC222C3177300896B4E /* ImageCarrouselTableViewCell.swift */,
+				BDF24FC322C3177300896B4E /* ImageCarrouselTableViewCell.xib */,
+				BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */,
+				BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */,
+			);
+			path = "Lab Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF24FC522C3177300896B4E /* ImageCarrouselTableViewCell.xib in Resources */,
 				BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */,
 				BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */,
 				BD56824D22B715E300263E46 /* Assets.xcassets in Resources */,
@@ -337,6 +370,8 @@
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
+				BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */,
+				BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */,
 				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,8 +462,10 @@
 				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,
 				BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
+				BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
 				BDDA239022B9CDAF000DDE76 /* Curso.swift in Sources */,
+				BDF24FBA22C2FE2100896B4E /* ContentElement.swift in Sources */,
 				BD8D891022B8836100A8EC23 /* PasswordFieldBulletinPage.swift in Sources */,
 				BDA571BF22C1C0B400D52E8F /* FloorsCollectionViewCell.swift in Sources */,
 				BDDA239522B9EA76000DDE76 /* Equipo.swift in Sources */,
@@ -437,6 +474,9 @@
 				BDC5F6AA22BAD3710063A2E0 /* Salon.swift in Sources */,
 				BD3AF06F22B991E000FEECE3 /* HomeScreenCollectionViewCell.swift in Sources */,
 				BD4135A722BB1DC0005AF816 /* ProjectStatsCollectionViewCell.swift in Sources */,
+				BDF24FC822C318BC00896B4E /* ImageCollectionViewCell.swift in Sources */,
+				BDF24FC422C3177300896B4E /* ImageCarrouselTableViewCell.swift in Sources */,
+				BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
 				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
 				BDA571BD22C1C06900D52E8F /* RoomsTableViewCell.swift in Sources */,
