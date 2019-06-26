@@ -21,22 +21,31 @@ class Salon {
     var numero:Int
     var tipo:Tipo?
     var nombre:String?
+    var nombreCorto:String?
     
     init(_ documentID:String,_ nombre: String, _ cursos:[DocumentReference],_ edificio:String,_ numero:Int,_ tipo:Int) {
         self.documentID = documentID
-        self.nombre = nombre
         self.cursos = cursos
         self.edificio = edificio
         self.numero = numero
         self.tipo = tipo == 0 ? Tipo.Laboratorio : Tipo.Aula
+        self.nombreCorto = nombre
+        self.nombre = self.setClassroomName(nombre)
     }
     
     init(_ documentID:String,_ nombre: String,_ edificio:String,_ numero:Int,_ tipo:Int) {
         self.documentID = documentID
-        self.nombre = nombre
         self.edificio = edificio
         self.numero = numero
         self.tipo = tipo == 0 ? Tipo.Laboratorio : Tipo.Aula
+        self.nombreCorto = nombre
+        self.nombre = self.setClassroomName(nombre)
+    }
+    
+    private func setClassroomName(_ nombre:String) -> String{
+        return self.tipo == Tipo.Laboratorio ?
+        "Laboratorio de \(nombre)" :
+        "Aula de \(nombre)"
     }
     
 }

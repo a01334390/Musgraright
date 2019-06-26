@@ -270,30 +270,14 @@
             </objects>
             <point key="canvasLocation" x="1863.7681159420292" y="-569.19642857142856"/>
         </scene>
-        <!--Laboratorio de Captura de Movimiento-->
+        <!--Captura de Movimiento-->
         <scene sceneID="yTh-Lg-gL7">
             <objects>
-                <viewController title="Laboratorio de Captura de Movimiento" id="8Og-WE-AMa" sceneMemberID="viewController">
+                <viewController title="Captura de Movimiento" id="8Og-WE-AMa" customClass="LabDetailViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nEm-lY-LR4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-ux-Oz7">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
-                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="8Og-WE-AMa" id="Xj1-j7-3Ov"/>
-                                    <outlet property="delegate" destination="8Og-WE-AMa" id="4vI-CM-ads"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="gs6-ux-Oz7" firstAttribute="trailing" secondItem="w4r-qs-gDu" secondAttribute="trailing" id="Ae6-se-Vqv"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="gs6-ux-Oz7" secondAttribute="bottom" id="Gsb-nD-alS"/>
-                            <constraint firstItem="gs6-ux-Oz7" firstAttribute="top" secondItem="w4r-qs-gDu" secondAttribute="top" id="fYM-T2-4Yz"/>
-                            <constraint firstItem="gs6-ux-Oz7" firstAttribute="leading" secondItem="w4r-qs-gDu" secondAttribute="leading" id="rTd-Wd-8vj"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w4r-qs-gDu"/>
                     </view>
                 </viewController>

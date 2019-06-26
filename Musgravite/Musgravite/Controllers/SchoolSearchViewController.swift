@@ -93,6 +93,10 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SearchLab", sender: self)
+    }
+    
     //MARK: Collection View Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -108,6 +112,18 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedFloor = pisos[indexPath.item]
         filterClassrooms()
+    }
+    
+    //MARK: Segue Override
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedPath = tableView.indexPathForSelectedRow else { return }
+        if let target = segue.destination as? LabDetailViewController {
+            if searchActive {
+                target.selectedClassroom = filteredSalones![selectedPath.item]
+            } else {
+                target.selectedClassroom = salonests[selectedPath.item]
+            }
+        }
     }
     
     //MARK: Other methods
