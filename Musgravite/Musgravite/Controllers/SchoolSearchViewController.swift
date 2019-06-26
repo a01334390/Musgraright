@@ -9,17 +9,23 @@
 import UIKit
 import SVProgressHUD
 
-class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating {
     
-    
+    // Collection and Table View Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    // Search View Required Methods and Outlets
+    var searchController:UISearchController? = nil
+    var searchActive: Bool = false
+    var filteredSalones:[Salon]?
+    
     var salones:[Salon] = SchoolSearchVM.getDummyClassroom()
     var salonests:[Salon] = SchoolSearchVM.getDummyClassroom()
     var pisos:[Int] = [1]
     var selectedFloor = 1
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -41,18 +47,35 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
         })
         )
         // Navigation Bar UI Setup
-        self.setupNavigationBar()
+        self.searchController = self.setupNavigationBar()
+    }
+    
+    //MARK: Search View Methods
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            self.filteredSalones = self.salones.filter{($0.nombre?.lowercased().contains(text.lowercased()))!}
+            self.searchActive = true
+        } else {
+            self.searchActive = false
+            self.filteredSalones = []
+        }
+        self.tableView.reloadData()
     }
 
     // MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return salonests.count
+        if searchActive {
+            return filteredSalones!.count
+        } else {
+             return salonests.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTVC", for: indexPath as IndexPath) as! RoomsTableViewCell
-        cell.labname.text = salonests[indexPath.item].nombre
-        cell.buildingname.text = "\(salonests[indexPath.item].edificio ?? "")-\(salonests[indexPath.item].numero)"
+        cell.labname.text = !searchActive ? salonests[indexPath.item].nombre : filteredSalones![indexPath.item].nombre
+        cell.buildingname.text = !searchActive ? "\(salonests[indexPath.item].edificio ?? "")-\(salonests[indexPath.item].numero)" : "\(filteredSalones![indexPath.item].edificio ?? "")-\(filteredSalones![indexPath.item].numero)"
         return cell
     }
     
@@ -79,11 +102,15 @@ class SchoolSearchViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.reloadData()
     }
     
-    func setupNavigationBar() {
+    func setupNavigationBar() -> UISearchController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.placeholder = "Search for Classrooms"
         navigationItem.searchController = searchController
+        return searchController
     }
     
 }
