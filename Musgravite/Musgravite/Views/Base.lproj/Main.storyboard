@@ -305,20 +305,34 @@
             <point key="canvasLocation" x="2630.434782608696" y="-569.19642857142856"/>
         </scene>
         <!--Image360 View Controller-->
-        <scene sceneID="6Oe-9V-f5H">
+        <scene sceneID="heU-Tb-wSk">
             <objects>
-                <viewController storyboardIdentifier="Image360ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dzp-DF-JQy" customClass="Image360ViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nsC-JP-ogu">
+                <viewController storyboardIdentifier="Image360ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9nO-8Q-U9k" customClass="Image360ViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1A4-RH-MzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Rn-5A-dgC"/>
+                        <viewLayoutGuide key="safeArea" id="25n-la-46Q"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rah-fJ-fVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="b1X-YA-Eg9"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4P-gC-uyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3406" y="-569"/>
+            <point key="canvasLocation" x="3523" y="-769"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="CbC-Ja-hHf">
+            <objects>
+                <viewController storyboardIdentifier="ARVideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hSv-rd-uID" customClass="ARVideoViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ett-f8-i1r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="d5r-4Z-gSy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z1e-V9-2TN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4190" y="-769"/>
         </scene>
         <!--Proyectos-->
         <scene sceneID="5Gh-MW-8JI">

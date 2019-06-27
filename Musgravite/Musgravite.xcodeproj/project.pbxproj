@@ -33,6 +33,7 @@
 		BD46D6C422C516E200288FA4 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD46D6C322C516E200288FA4 /* Art.scnassets */; };
 		BD46D6C622C5183E00288FA4 /* Image360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */; };
 		BD46D6C822C5198300288FA4 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */; };
+		BD46D6CA22C52D6600288FA4 /* ARVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C922C52D6600288FA4 /* ARVideoViewController.swift */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -91,6 +92,7 @@
 		BD46D6C322C516E200288FA4 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image360ViewController.swift; sourceTree = "<group>"; };
 		BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		BD46D6C922C52D6600288FA4 /* ARVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVideoViewController.swift; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */,
 				BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */,
 				BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */,
+				BD46D6C922C52D6600288FA4 /* ARVideoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				BD46D6C622C5183E00288FA4 /* Image360ViewController.swift in Sources */,
 				BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */,
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
+				BD46D6CA22C52D6600288FA4 /* ARVideoViewController.swift in Sources */,
 				BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,

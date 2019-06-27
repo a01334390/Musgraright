@@ -54,7 +54,10 @@ class VideoTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch(visualMode.selectedSegmentIndex){
         case 0:
-            print("AR")
+            let vc = ARVideoViewController()
+            vc.videoURL = URL(string: self.videoURI![indexPath.item])!
+            UIApplication.shared.keyWindow?.rootViewController!.storyboard?.instantiateViewController(withIdentifier: "ARVideoViewController")
+            UIApplication.shared.keyWindow?.rootViewController!.present(vc, animated: true, completion: nil)
         case 1:
             let item:URL = URL(string: self.videoURI![indexPath.item])!
             let player = AVPlayer(url: item)
