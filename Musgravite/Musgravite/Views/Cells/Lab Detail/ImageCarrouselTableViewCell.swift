@@ -16,7 +16,6 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
     
     var images:[String]?
     var viewController:LabDetailViewController?
-    private var quickLookController = QLPreviewController()
     private var slsimage:NSURL?
     
     override func awakeFromNib() {
@@ -25,10 +24,6 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib.init(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCVC")
-        self.quickLookController.dataSource = self
-        self.quickLookController.delegate = self
-        
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,8 +49,11 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
             if fileURL == nil {
                 fatalError()
             } else {
+                let quickLookController = QLPreviewController()
+                quickLookController.dataSource = self
+                quickLookController.delegate = self
                 self.slsimage = fileURL
-                self.viewController?.navigationController?.pushViewController(self.quickLookController, animated: true)
+                self.viewController?.navigationController?.pushViewController(quickLookController, animated: true)
             }
         }))
     }
