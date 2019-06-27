@@ -15,7 +15,6 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images:[String]?
-    var viewController:LabDetailViewController?
     private var slsimage:NSURL?
     
     override func awakeFromNib() {
@@ -53,7 +52,7 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
                 quickLookController.dataSource = self
                 quickLookController.delegate = self
                 self.slsimage = fileURL
-                self.viewController?.navigationController?.pushViewController(quickLookController, animated: true)
+                UIApplication.shared.keyWindow?.rootViewController!.present(quickLookController, animated: true)
             }
         }))
     }
