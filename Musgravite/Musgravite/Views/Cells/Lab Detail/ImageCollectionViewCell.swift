@@ -11,6 +11,7 @@ import UIKit
 class ImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var imageType: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

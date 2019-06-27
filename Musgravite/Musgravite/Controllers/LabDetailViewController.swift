@@ -56,6 +56,9 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             tableView.rowHeight = 380
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCarrouselTVC", for: indexPath) as! ImageCarrouselTableViewCell
             cell.images = dequedcontent?.images
+            if dequedcontent?.image360 != "" {
+                cell.image360 = dequedcontent?.image360
+            }
             return cell
             
         case .videoCarrousel:

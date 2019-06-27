@@ -27,9 +27,10 @@ class ContentElement {
     var buildnumb:Int = 0
     var documents:[String]?
     
-    init(images: [String]) {
+    init(images: [String], image360:String = "") {
         self.contentType = .imageCarrousel
         self.images = images
+        self.image360 = image360
     }
     
     init(videos: [String]) {
@@ -37,13 +38,12 @@ class ContentElement {
         self.videos = videos
     }
     
-    init(posterImage: String, classroomName: String, building: String, buildnumb: Int, image360:String = "") {
+    init(posterImage: String, classroomName: String, building: String, buildnumb: Int) {
         self.contentType = .poster
         self.posterImage = posterImage
         self.classroomName = classroomName
         self.building = building
         self.buildnumb = buildnumb
-        self.image360 = image360
     }
     
     init(documents: [String]) {
