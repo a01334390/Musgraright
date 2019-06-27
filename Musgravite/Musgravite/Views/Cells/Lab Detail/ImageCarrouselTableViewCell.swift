@@ -9,6 +9,8 @@
 import UIKit
 import SDWebImage
 import QuickLook
+import SVProgressHUD
+import Alamofire
 
 class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, QLPreviewControllerDelegate, QLPreviewControllerDataSource {
     
@@ -40,7 +42,7 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCVC", for: indexPath) as! ImageCollectionViewCell
         if indexPath.item == 0 && image360 != nil {
-            cell.imageType.text = "3D"
+            cell.imageType.text = "AR"
             cell.posterImage.sd_setImage(with: URL(string: image360!), placeholderImage: UIImage(named: "blueprint"))
         } else {
             cell.imageType.text = ""
@@ -53,7 +55,19 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if image360 != nil && indexPath.item == 0 {
-           print("Wait for a hotfix")
+            let imageURL:URL = URL(string: (image360!))!
+            SVProgressHUD.show(withStatus: "Downloading Image")
+            Alamofire.request(imageURL).responseData(completionHandler: {(response) in
+                if response.error == nil {
+                    if let data = response.data {
+                        let vc = Image360ViewController()
+                        vc.image360 = UIImage(data: data,scale: 1)
+                        SVProgressHUD.dismiss()
+                    UIApplication.shared.keyWindow?.rootViewController!.storyboard?.instantiateViewController(withIdentifier: "Image360ViewController")
+                    UIApplication.shared.keyWindow?.rootViewController!.present(vc, animated: true, completion: nil)
+                    }
+                }
+            })
         } else {
             let imageURL:URL = URL(string: (images?[indexPath.item])!)!
             NetworkActionsController.downloadImage(imageURL, completionBlock: ({(fileURL) in

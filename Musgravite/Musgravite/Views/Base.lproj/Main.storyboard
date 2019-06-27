@@ -304,6 +304,22 @@
             </objects>
             <point key="canvasLocation" x="2630.434782608696" y="-569.19642857142856"/>
         </scene>
+        <!--Image360 View Controller-->
+        <scene sceneID="6Oe-9V-f5H">
+            <objects>
+                <viewController storyboardIdentifier="Image360ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dzp-DF-JQy" customClass="Image360ViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nsC-JP-ogu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Rn-5A-dgC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rah-fJ-fVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="b1X-YA-Eg9"/>
+            </objects>
+            <point key="canvasLocation" x="3406" y="-569"/>
+        </scene>
         <!--Proyectos-->
         <scene sceneID="5Gh-MW-8JI">
             <objects>

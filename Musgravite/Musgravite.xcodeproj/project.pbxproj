@@ -30,6 +30,9 @@
 		BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */; };
 		BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */; };
 		BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */; };
+		BD46D6C422C516E200288FA4 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD46D6C322C516E200288FA4 /* Art.scnassets */; };
+		BD46D6C622C5183E00288FA4 /* Image360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */; };
+		BD46D6C822C5198300288FA4 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */; };
 		BD56824322B715E200263E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824222B715E200263E46 /* AppDelegate.swift */; };
 		BD56824522B715E200263E46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56824422B715E200263E46 /* ViewController.swift */; };
 		BD56824822B715E200263E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824622B715E200263E46 /* Main.storyboard */; };
@@ -85,6 +88,9 @@
 		BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuTableViewCell.xib; sourceTree = "<group>"; };
 		BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		BD46D6C322C516E200288FA4 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
+		BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image360ViewController.swift; sourceTree = "<group>"; };
+		BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		BD56823F22B715E200263E46 /* Musgravite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musgravite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56824222B715E200263E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56824422B715E200263E46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 				BDA571A622C1A8BA00D52E8F /* SchoolSearchViewController.swift */,
 				BDF24FB622C2F8BC00896B4E /* LabDetailViewController.swift */,
 				BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */,
+				BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				BD56824C22B715E300263E46 /* Assets.xcassets */,
+				BD46D6C322C516E200288FA4 /* Art.scnassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 		BD8D88FE22B83AA000A8EC23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */,
 				BD3AF07022B9A27C00FEECE3 /* MenuItem.swift */,
 				BDDA238F22B9CDAF000DDE76 /* Curso.swift */,
 				BDDA239222B9DFAC000DDE76 /* Grupo.swift */,
@@ -395,6 +404,7 @@
 				BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */,
 				BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */,
 				BD56824822B715E200263E46 /* Main.storyboard in Resources */,
+				BD46D6C422C516E200288FA4 /* Art.scnassets in Resources */,
 				BD0C7C4422C470850039DC81 /* ResourcesModifiedTableViewCell.xib in Resources */,
 				BD4135A422BB1708005AF816 /* ProjectStatsTableViewCell.xib in Resources */,
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
@@ -483,12 +493,14 @@
 				BD3AF07122B9A27C00FEECE3 /* MenuItem.swift in Sources */,
 				BDA571A722C1A8BA00D52E8F /* SchoolSearchViewController.swift in Sources */,
 				BD3AF07322B9B20B00FEECE3 /* ProjectMenuViewController.swift in Sources */,
+				BD46D6C622C5183E00288FA4 /* Image360ViewController.swift in Sources */,
 				BD8D891222B8915000A8EC23 /* FirebaseController.swift in Sources */,
 				BD56824522B715E200263E46 /* ViewController.swift in Sources */,
 				BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
 				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,
 				BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */,
+				BD46D6C822C5198300288FA4 /* Resnet50.mlmodel in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,
 				BDF24FBD22C3079900896B4E /* PosterTableViewCell.swift in Sources */,
 				BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */,
