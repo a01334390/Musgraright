@@ -65,7 +65,7 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
             
         case .documentCarrousel:
-            tableView.rowHeight = 500
+            tableView.rowHeight = CGFloat(150 + (dequedcontent?.documents?.count)! * 50)
             let cell = tableView.dequeueReusableCell(withIdentifier: "ResourcesTVC", for: indexPath) as! ResourcesTableViewCell
             cell.documents = dequedcontent?.documents
             return cell
