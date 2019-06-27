@@ -51,7 +51,7 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
             
         case .imageCarrousel:
-            tableView.rowHeight = 320
+            tableView.rowHeight = 380
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCarrouselTVC", for: indexPath) as! ImageCarrouselTableViewCell
             cell.images = dequedcontent?.images
             cell.viewController = self
