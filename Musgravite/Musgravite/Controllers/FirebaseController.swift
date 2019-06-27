@@ -73,11 +73,21 @@ class FirebaseController {
                     var contentelems:[ContentElement] = []
                     
                     if let name = document.data()["nombre"] {
-                        let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
-                                                    classroomName: name as! String,
-                                                    building: document.data()["edificio"] as! String,
-                                                    buildnumb: document["numero"] as! Int)
-                        contentelems.append(contel)
+                        if let panonoImage = document.data()["imagen360"] {
+                            let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
+                                                        classroomName: name as! String,
+                                                        building: document.data()["edificio"] as! String,
+                                                        buildnumb: document["numero"] as! Int, image360: panonoImage as! String)
+                            contentelems.append(contel)
+                        } else {
+                            let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
+                                                        classroomName: name as! String,
+                                                        building: document.data()["edificio"] as! String,
+                                                        buildnumb: document["numero"] as! Int)
+                            contentelems.append(contel)
+                        }
+                        
+                        
                     }
                     
                     if let imageArray = document.data()["imagenes"] {
@@ -90,8 +100,8 @@ class FirebaseController {
                         contentelems.append(contel)
                     }
                     
-                    if let panonoImage = document.data()["imagen360"] {
-                        let contel = ContentElement(image360: panonoImage as! String)
+                    if let documentArray = document.data()["documentos"] {
+                        let contel = ContentElement(documents: documentArray as! [String])
                         contentelems.append(contel)
                     }
                     

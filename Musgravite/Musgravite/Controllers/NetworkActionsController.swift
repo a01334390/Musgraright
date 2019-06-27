@@ -12,7 +12,25 @@ import SVProgressHUD
 
 class NetworkActionsController {
     static func downloadImage(_ url: URL, completionBlock: @escaping (_ success: NSURL?) -> Void) {
-        SVProgressHUD.show(withStatus:"Descargando en HD")
+        SVProgressHUD.show(withStatus:"Downloading Image")
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            documentsURL.appendPathComponent(url.lastPathComponent)
+            return (documentsURL,[.removePreviousFile])
+        }
+        
+        Alamofire.download(url, to: destination).responseData { response in
+            SVProgressHUD.dismiss()
+            if let destinationUrl = response.destinationURL {
+                completionBlock(destinationUrl as NSURL)
+            } else {
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    static func downloadFile(_ url: URL, completionBlock: @escaping (_ success: NSURL?) -> Void) {
+        SVProgressHUD.show(withStatus:"Downloading File")
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             documentsURL.appendPathComponent(url.lastPathComponent)

@@ -45,7 +45,9 @@ class VideoTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
                 cell.posterImage.image = dimage
             }
         }
-        cell.videoTitle.text = URL(string: self.videoURI![indexPath.item])?.lastPathComponent
+        let cellnames = SchoolSearchVM.extractAndBreakFilenameInComponents(fileURL: URL(string: self.videoURI![indexPath.item])!)
+        cell.videoTitle.text = cellnames.0
+        cell.filetype.text = "\(cellnames.1) file"
         return cell
     }
     

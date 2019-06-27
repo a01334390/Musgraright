@@ -12,6 +12,8 @@ class VideoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
+    @IBOutlet weak var filetype: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

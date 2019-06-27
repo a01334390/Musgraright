@@ -25,9 +25,10 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.register(UINib.init(nibName: "PosterTableViewCell", bundle: nil), forCellReuseIdentifier: "PosterTVC")
         self.tableView.register(UINib.init(nibName: "ImageCarrouselTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageCarrouselTVC")
         self.tableView.register(UINib.init(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTVC")
+        self.tableView.register(UINib.init(nibName: "ResourcesTableViewCell", bundle: nil), forCellReuseIdentifier: "ResourcesTVC")
         // Big Title
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +64,11 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.videoURI = dequedcontent?.videos
             return cell
             
+        case .documentCarrousel:
+            tableView.rowHeight = 500
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResourcesTVC", for: indexPath) as! ResourcesTableViewCell
+            cell.documents = dequedcontent?.documents
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PosterTVC", for: indexPath) as! PosterTableViewCell
             cell.posterImage.sd_setImage(with: URL(string:"http://martinmolina.com.mx/201813/novus2018/Musgravite/pictures/dani.jpg"), placeholderImage: UIImage(named: "blueprint"))
