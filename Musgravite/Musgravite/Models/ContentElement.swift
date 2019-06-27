@@ -11,9 +11,9 @@ import Foundation
 enum ContentType {
     case unknown
     case poster
-    case image360
     case imageCarrousel
     case videoCarrousel
+    case documentCarrousel
 }
 
 class ContentElement {
@@ -25,20 +25,17 @@ class ContentElement {
     var classroomName:String = ""
     var building:String = ""
     var buildnumb:Int = 0
+    var documents:[String]?
     
-    init(images: [String]) {
+    init(images: [String], image360:String = "") {
         self.contentType = .imageCarrousel
         self.images = images
+        self.image360 = image360
     }
     
     init(videos: [String]) {
         self.contentType = .videoCarrousel
         self.videos = videos
-    }
-    
-    init(image360: String) {
-        self.contentType = .image360
-        self.image360 = image360
     }
     
     init(posterImage: String, classroomName: String, building: String, buildnumb: Int) {
@@ -47,6 +44,11 @@ class ContentElement {
         self.classroomName = classroomName
         self.building = building
         self.buildnumb = buildnumb
+    }
+    
+    init(documents: [String]) {
+        self.contentType = .documentCarrousel
+        self.documents = documents
     }
     
 }

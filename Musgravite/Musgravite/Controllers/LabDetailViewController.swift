@@ -24,9 +24,11 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         //Table View Nibs
         self.tableView.register(UINib.init(nibName: "PosterTableViewCell", bundle: nil), forCellReuseIdentifier: "PosterTVC")
         self.tableView.register(UINib.init(nibName: "ImageCarrouselTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageCarrouselTVC")
+        self.tableView.register(UINib.init(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTVC")
+        self.tableView.register(UINib.init(nibName: "ResourcesTableViewCell", bundle: nil), forCellReuseIdentifier: "ResourcesTVC")
         // Big Title
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,12 +53,25 @@ class LabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
             
         case .imageCarrousel:
-            tableView.rowHeight = 320
+            tableView.rowHeight = 380
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCarrouselTVC", for: indexPath) as! ImageCarrouselTableViewCell
             cell.images = dequedcontent?.images
-            cell.viewController = self
+            if dequedcontent?.image360 != "" {
+                cell.image360 = dequedcontent?.image360
+            }
             return cell
-        
+            
+        case .videoCarrousel:
+            tableView.rowHeight = 380
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTVC", for: indexPath) as! VideoTableViewCell
+            cell.videoURI = dequedcontent?.videos
+            return cell
+            
+        case .documentCarrousel:
+            tableView.rowHeight = CGFloat(150 + (dequedcontent?.documents?.count)! * 50)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResourcesTVC", for: indexPath) as! ResourcesTableViewCell
+            cell.documents = dequedcontent?.documents
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PosterTVC", for: indexPath) as! PosterTableViewCell
             cell.posterImage.sd_setImage(with: URL(string:"http://martinmolina.com.mx/201813/novus2018/Musgravite/pictures/dani.jpg"), placeholderImage: UIImage(named: "blueprint"))

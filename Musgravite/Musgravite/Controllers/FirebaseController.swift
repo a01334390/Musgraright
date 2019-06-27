@@ -50,7 +50,7 @@ class FirebaseController {
         return Auth.auth().currentUser != nil
     }
     static func currentAuthenticatedUserMail() -> String {
-        return "a@a.a"
+        return Auth.auth().currentUser?.email ?? ""
     }
     
     static func logOut(){
@@ -73,16 +73,23 @@ class FirebaseController {
                     var contentelems:[ContentElement] = []
                     
                     if let name = document.data()["nombre"] {
-                        let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
-                                                    classroomName: name as! String,
-                                                    building: document.data()["edificio"] as! String,
-                                                    buildnumb: document["numero"] as! Int)
-                        contentelems.append(contel)
+                            let contel = ContentElement(posterImage: document.data()["posterImage"] as! String,
+                                                        classroomName: name as! String,
+                                                        building: document.data()["edificio"] as! String,
+                                                        buildnumb: document["numero"] as! Int)
+                            contentelems.append(contel)
+
                     }
                     
                     if let imageArray = document.data()["imagenes"] {
-                        let contel = ContentElement(images: imageArray as! [String])
-                        contentelems.append(contel)
+                        if let panonoImage = document.data()["imagen360"] {
+                            let contel = ContentElement(images: imageArray as! [String],
+                                                        image360: panonoImage as! String)
+                            contentelems.append(contel)
+                        } else {
+                            let contel = ContentElement(images: imageArray as! [String])
+                            contentelems.append(contel)
+                        }
                     }
                     
                     if let videoArray = document.data()["videos"] {
@@ -90,8 +97,8 @@ class FirebaseController {
                         contentelems.append(contel)
                     }
                     
-                    if let panonoImage = document.data()["imagen360"] {
-                        let contel = ContentElement(image360: panonoImage as! String)
+                    if let documentArray = document.data()["documentos"] {
+                        let contel = ContentElement(documents: documentArray as! [String])
                         contentelems.append(contel)
                     }
                     

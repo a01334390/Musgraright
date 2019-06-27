@@ -9,14 +9,15 @@
 import UIKit
 import SDWebImage
 import QuickLook
+import SVProgressHUD
+import Alamofire
 
 class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, QLPreviewControllerDelegate, QLPreviewControllerDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images:[String]?
-    var viewController:LabDetailViewController?
-    private var quickLookController = QLPreviewController()
+    var image360:String?
     private var slsimage:NSURL?
     
     override func awakeFromNib() {
@@ -25,10 +26,6 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib.init(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCVC")
-        self.quickLookController.dataSource = self
-        self.quickLookController.delegate = self
-        
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,25 +36,54 @@ class ImageCarrouselTableViewCell: UITableViewCell, UICollectionViewDelegate, UI
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images?.count ?? 0
+        return images?.count ?? 0 + (image360?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCVC", for: indexPath) as! ImageCollectionViewCell
-        cell.posterImage.sd_setImage(with: URL(string: images![indexPath.item]), placeholderImage: UIImage(named: "blueprint"))
+        if indexPath.item == 0 && image360 != nil {
+            cell.imageType.text = "AR"
+            cell.posterImage.sd_setImage(with: URL(string: image360!), placeholderImage: UIImage(named: "blueprint"))
+        } else {
+            cell.imageType.text = ""
+            cell.posterImage.sd_setImage(with: URL(string: images![indexPath.item]), placeholderImage: UIImage(named: "blueprint"))
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let imageURL = URL(string: (images?[indexPath.item])!)!
-        NetworkActionsController.downloadImage(imageURL, completionBlock: ({(fileURL) in
-            if fileURL == nil {
-                fatalError()
-            } else {
-                self.slsimage = fileURL
-                self.viewController?.navigationController?.pushViewController(self.quickLookController, animated: true)
-            }
-        }))
+        
+        if image360 != nil && indexPath.item == 0 {
+            let imageURL:URL = URL(string: (image360!))!
+            SVProgressHUD.show(withStatus: "Downloading Image")
+            Alamofire.request(imageURL).responseData(completionHandler: {(response) in
+                if response.error == nil {
+                    if let data = response.data {
+                        let vc = Image360ViewController()
+                        vc.image360 = UIImage(data: data,scale: 1)
+                        SVProgressHUD.dismiss()
+                    UIApplication.shared.keyWindow?.rootViewController!.storyboard?.instantiateViewController(withIdentifier: "Image360ViewController")
+                    UIApplication.shared.keyWindow?.rootViewController!.present(vc, animated: true, completion: nil)
+                    }
+                }
+            })
+        } else {
+            let imageURL:URL = URL(string: (images?[indexPath.item])!)!
+            NetworkActionsController.downloadImage(imageURL, completionBlock: ({(fileURL) in
+                if fileURL == nil {
+                    fatalError()
+                } else {
+                    let quickLookController = QLPreviewController()
+                    quickLookController.dataSource = self
+                    quickLookController.delegate = self
+                    self.slsimage = fileURL
+                    UIApplication.shared.keyWindow?.rootViewController!.present(quickLookController, animated: true)
+                }
+            }))
+        }
+        
+        
     }
     
     //MARK: Quick Look Delegates
