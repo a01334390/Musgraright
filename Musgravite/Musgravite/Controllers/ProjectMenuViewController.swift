@@ -36,14 +36,14 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 0) {
-            tableView.rowHeight = 200
+            tableView.rowHeight = 280
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
             cell.menuItems = ProjectMenuVM.getStatsElements()
             return cell
         }
         
         if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 1) || (ProjectMenuVM.getStatsElements().count == 0) {
-            tableView.rowHeight = CGFloat((Int((ProjectMenuVM.getMenuElements().count / 2)) * 250) + 20)
+            tableView.rowHeight = 295
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectMenuTVC", for: indexPath as IndexPath) as! ProjectMenuTableViewCell
             cell.menuItems = ProjectMenuVM.getMenuElements()
             cell.viewController = self

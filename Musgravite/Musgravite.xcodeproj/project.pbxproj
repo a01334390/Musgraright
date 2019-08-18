@@ -28,8 +28,6 @@
 		BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */; };
 		BD4135AB22BB308B005AF816 /* ProjectMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */; };
 		BD4135AC22BB308B005AF816 /* ProjectMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */; };
-		BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */; };
-		BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */; };
 		BD46D6C422C516E200288FA4 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD46D6C322C516E200288FA4 /* Art.scnassets */; };
 		BD46D6C622C5183E00288FA4 /* Image360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */; };
 		BD46D6C822C5198300288FA4 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */; };
@@ -87,8 +85,6 @@
 		BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectStatsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuTableViewCell.swift; sourceTree = "<group>"; };
 		BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuTableViewCell.xib; sourceTree = "<group>"; };
-		BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMenuCollectionViewCell.swift; sourceTree = "<group>"; };
-		BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD46D6C322C516E200288FA4 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		BD46D6C522C5183E00288FA4 /* Image360ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image360ViewController.swift; sourceTree = "<group>"; };
 		BD46D6C722C5198300288FA4 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -301,8 +297,6 @@
 				BD4135A622BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib */,
 				BD4135A922BB308B005AF816 /* ProjectMenuTableViewCell.swift */,
 				BD4135AA22BB308B005AF816 /* ProjectMenuTableViewCell.xib */,
-				BD4135AD22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift */,
-				BD4135AE22BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib */,
 			);
 			path = "Project Menu";
 			sourceTree = "<group>";
@@ -413,7 +407,6 @@
 				BD4135A822BB1DC0005AF816 /* ProjectStatsCollectionViewCell.xib in Resources */,
 				BDF24FBE22C3079900896B4E /* PosterTableViewCell.xib in Resources */,
 				BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */,
-				BD4135B022BB31B4005AF816 /* ProjectMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +495,6 @@
 				BD46D6CA22C52D6600288FA4 /* ARVideoViewController.swift in Sources */,
 				BD3AF07522B9B21600FEECE3 /* ProjectMenuVM.swift in Sources */,
 				BD8D890C22B85BB700A8EC23 /* TextFieldBulletinBoard.swift in Sources */,
-				BD4135AF22BB31B4005AF816 /* ProjectMenuCollectionViewCell.swift in Sources */,
 				BDA571A922C1A8CA00D52E8F /* SchoolSearchVM.swift in Sources */,
 				BD46D6C822C5198300288FA4 /* Resnet50.mlmodel in Sources */,
 				BD56824322B715E200263E46 /* AppDelegate.swift in Sources */,

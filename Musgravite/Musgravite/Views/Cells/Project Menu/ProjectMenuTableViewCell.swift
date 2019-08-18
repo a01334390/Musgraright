@@ -21,7 +21,7 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         // Initialization code
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(UINib.init(nibName: "ProjectMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProjectMenuCVC")
+        self.collectionView.register(UINib.init(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VideoCVC")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,9 +37,7 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectMenuCVC", for: indexPath as IndexPath) as! ProjectMenuCollectionViewCell
-        cell.bigImage.image = menuItems![indexPath.item].image!
-        cell.title.text = menuItems![indexPath.item].title!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCVC", for: indexPath as IndexPath) as! VideoCollectionViewCell
         return cell
     }
     
