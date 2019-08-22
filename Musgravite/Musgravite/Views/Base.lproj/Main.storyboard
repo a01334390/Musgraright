@@ -369,12 +369,12 @@
             </objects>
             <point key="canvasLocation" x="1864" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Courses View Controller-->
         <scene sceneID="FhZ-Ib-WRL">
             <objects>
-                <viewController id="cce-dC-nJ1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoursesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cce-dC-nJ1" customClass="CoursesViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2n-28-15B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M78-r2-Jqi">
@@ -382,68 +382,78 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5e-7o-xJq">
-                                        <rect key="frame" x="354" y="23" width="25" height="24"/>
+                                        <rect key="frame" x="338" y="25" width="25" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="informationPressed:" destination="cce-dC-nJ1" eventType="touchUpInside" id="HsY-6q-kaO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blueprint" translatesAutoresizingMaskIntoConstraints="NO" id="qsv-Bi-kk4">
-                                <rect key="frame" x="122" y="180" width="170" height="170"/>
+                                <rect key="frame" x="102" y="180" width="170" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile Applications using Swift" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mR9-xI-nkH">
-                                <rect key="frame" x="20" y="358" width="374" height="78"/>
+                                <rect key="frame" x="0.0" y="358" width="374" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TC-3212" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-It-kGD">
-                                <rect key="frame" x="154" y="438" width="106" height="21"/>
+                                <rect key="frame" x="134" y="444" width="106" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d7Q-eV-T3b">
+                                <rect key="frame" x="0.0" y="547" width="375" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zhp-v3-fhp">
+                                        <rect key="frame" x="15" y="55.333332061767578" width="345" height="1.1920928955078125e-07"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zhp-v3-fhp" id="SZP-fy-wOr">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="1.1920928955078125e-07"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cce-dC-nJ1" id="yPb-TS-j0R"/>
+                                    <outlet property="delegate" destination="cce-dC-nJ1" id="NIo-5u-oWy"/>
+                                </connections>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZe-LE-mpJ">
-                                <rect key="frame" x="30" y="503" width="364" height="36"/>
+                                <rect key="frame" x="5" y="503" width="364" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d7Q-eV-T3b">
-                                <rect key="frame" x="0.0" y="547" width="414" height="349"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zhp-v3-fhp">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="1.1920928955078125e-07"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zhp-v3-fhp" id="SZP-fy-wOr">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="1.1920928955078125e-07"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="YIi-pj-gfO"/>
                     </view>
                     <navigationItem key="navigationItem" id="URD-7b-3qi"/>
                     <connections>
+                        <outlet property="courseCode" destination="tz5-It-kGD" id="e43-bL-Gf3"/>
+                        <outlet property="courseName" destination="mR9-xI-nkH" id="qTJ-Nl-4hQ"/>
+                        <outlet property="tableview" destination="d7Q-eV-T3b" id="60a-CA-iZM"/>
                         <segue destination="Sqc-ij-77w" kind="show" id="gGf-y5-fic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VV-bK-gi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589" y="103"/>
+            <point key="canvasLocation" x="2592.8000000000002" y="86.453201970443359"/>
         </scene>
         <!--Group 1-->
         <scene sceneID="mHj-3B-0dX">
             <objects>
-                <viewController title="Group 1" id="Sqc-ij-77w" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" title="Group 1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sqc-ij-77w" customClass="GroupViewController" customModule="Musgravite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="701-GZ-bYu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,6 +518,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="See Classroom"/>
                                 <connections>
+                                    <action selector="seeClassroom:" destination="Sqc-ij-77w" eventType="touchUpInside" id="mAO-VG-u2w"/>
                                     <segue destination="8Og-WE-AMa" kind="show" id="ddV-vc-8hS"/>
                                 </connections>
                             </button>
@@ -516,6 +527,9 @@
                         <viewLayoutGuide key="safeArea" id="DB6-Nn-JlU"/>
                     </view>
                     <connections>
+                        <outlet property="scheduleLabel" destination="2CO-cE-qot" id="5jk-ce-shg"/>
+                        <outlet property="studentsCollection" destination="MbT-Sb-9Mt" id="76p-BO-7Mb"/>
+                        <outlet property="teamsTable" destination="nSk-Eb-bfE" id="5oH-1m-ZNw"/>
                         <segue destination="cQL-Yq-e3U" kind="show" id="n5E-Tw-4az"/>
                     </connections>
                 </viewController>

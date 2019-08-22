@@ -250,7 +250,6 @@ class FirebaseController {
             } else {
                 completionBlock(ref)
             }
-            
         }
     }
 }
