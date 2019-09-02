@@ -16,21 +16,23 @@ class Proyecto {
     var fase:Any?
     var descripcion:String?
     var tareas:[DocumentReference]?
-    var tareasCompletadas:DocumentReference?
     
-    init(_ documentID:String,_ nombre:String,_ metodologia: Any,_ fase:Any,_ descripcion: String,_ tareas:[DocumentReference],_ tareasCompletadas:DocumentReference){
+    init(_ documentID:String,_ nombre:String,_ metodologia: Any,_ fase:Any,_ descripcion: String,_ tareas:[DocumentReference]){
         self.documentID = documentID
         self.nombre = nombre
         self.metodologia = metodologia
         self.fase = fase
         self.descripcion = descripcion
         self.tareas = tareas
-        self.tareasCompletadas = tareasCompletadas
     }
     
     func firestoreReady() -> [String: Any] {
         let dictionary: [String: Any] = [
-            "nombre" : self.nombre!
+            "nombre" : self.nombre!,
+            "metodologia": self.metodologia!,
+            "fase" : self.fase!,
+            "descripcion" : self.descripcion!,
+            "tareas" : self.tareas!
         ]
         return dictionary
     }
