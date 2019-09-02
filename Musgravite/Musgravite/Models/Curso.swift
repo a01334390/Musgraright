@@ -10,14 +10,20 @@ import Foundation
 import FirebaseFirestore
 
 class Curso {
-     var documentID:String?
-     var nombre:String?
-     var grupos:[DocumentReference]?
+    var documentID:String?
+    var nombre:String?
+    var nombreProfesor:String?
+    var semestre:Int?
+    var grupos:[DocumentReference]?
+    var salones:[DocumentReference]?
 
-    init(_ documentID:String, _ nombre:String,_ grupos:[DocumentReference]) {
+    init(_ documentID:String, _ nombre:String,_ nombreProfesor:String,_ semestre:Int, _ grupos:[DocumentReference],_ salones:[DocumentReference]) {
         self.documentID = documentID
         self.nombre = nombre
+        self.nombreProfesor = nombreProfesor
+        self.semestre = semestre
         self.grupos = grupos
+        self.salones = salones
     }
     
 }

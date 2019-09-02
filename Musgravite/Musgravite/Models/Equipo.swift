@@ -12,10 +12,10 @@ import FirebaseFirestore
 class Equipo {
     var documentID:String?
     var nombre:String?
-    var integrantes:[String]?
+    var integrantes:[DocumentReference]?
     var proyectos:[DocumentReference]?
     
-    init(_ documentID:String,_ nombre: String,_ integrantes:[String], _ proyectos:[DocumentReference]){
+    init(_ documentID:String,_ nombre: String,_ integrantes:[DocumentReference], _ proyectos:[DocumentReference]){
         self.documentID = documentID
         self.nombre = nombre
         self.integrantes = integrantes
