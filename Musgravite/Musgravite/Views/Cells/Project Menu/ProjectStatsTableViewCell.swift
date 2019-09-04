@@ -19,7 +19,6 @@ class ProjectStatsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib.init(nibName: "ProjectStatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProjectStatsCVC")
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

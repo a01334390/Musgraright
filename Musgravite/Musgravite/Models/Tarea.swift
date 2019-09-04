@@ -15,11 +15,11 @@ class Tarea {
     var descripcion:String?
     var fechaInicio:Date?
     var fechaFin:Date?
-    var fase:Any?
+    var fase:String?
     var status:String?
     var responsable:DocumentReference?
     
-    init(_ id:String,_ nombre:String,_ descripcion:String,_ fechaInicio:Date,_ fechaFin:Date,_ fase:Any,_ status:String,_ responsable:DocumentReference) {
+    init(_ id:String,_ nombre:String,_ descripcion:String,_ fechaInicio:Date,_ fechaFin:Date,_ fase:String,_ status:String,_ responsable:DocumentReference) {
         self.id = id
         self.nombre = nombre
         self.descripcion = descripcion

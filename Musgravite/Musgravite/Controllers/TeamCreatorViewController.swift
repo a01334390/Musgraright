@@ -10,8 +10,6 @@ import UIKit
 
 class TeamCreatorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    
-
     // MARK: Variables
     @IBOutlet weak var teammatesTable: UITableView!
     @IBOutlet weak var teamName: UITextField!
@@ -24,11 +22,11 @@ class TeamCreatorViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           <#code#>
+           return 0
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           <#code#>
+           return UITableViewCell()
        }
     
     //MARK: Actions

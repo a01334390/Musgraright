@@ -24,11 +24,11 @@ class TeamViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: Tasks CV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        return UICollectionViewCell()
     }
     
     // MARK: Actions

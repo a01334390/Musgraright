@@ -10,85 +10,63 @@ import Foundation
 
 public class ProjectMenuVM {
     
+    static let signedUser = FirebaseController.currentAuthenticatedUserMail()
+    
+    static let defaultVerticalItem = MenuItem(image: "blueprint",
+                                              title: "I'm downloading data", itemDescription: "Let's wait a sec.", destinationSegue: "HomeProject", type: contentType.vertical)
+    static let defaultHorizontalItem = MenuItem(image: "blueprint",
+    title: "I'm downloading data", itemDescription: "Let's wait a sec.", destinationSegue: "HomeProject", type: contentType.vertical)
+    
     //MARK: Menu Elements
     
-    static func getAllMenuElements() -> [MenuItem] {
-        return getMenuElements() + getStatsElements()
+    static func getAllMenuElements(completionBlock: @escaping(_ success: [MenuItem]) -> Void) {
+        getMenuElements(completionBlock: ({(menuelems) in
+            getStatsElements(completionBlock: ({(statelems) in
+                completionBlock(menuelems + statelems)
+            }))
+        }))
     }
     
-    static func getStatsElements() -> [MenuItem] {
+    static func getStatsElements(completionBlock: @escaping(_ success: [MenuItem]) -> Void) {
         var menuElements:[MenuItem]?
-        let menu:[String:[String:String]] = [
-            "0": [
-                "image" : "blueprint",
-                "title" : "Tareas terminadas a tiempo",
-                "description" : "25",
-                "destinationSegue" : "HomeProject"
-            ],
-            "1" : [
-                "image" : "blueprint",
-                "title" : "Equipos de trabajo",
-                "description" : "42",
-                "destinationSegue" : "HomeProject"
-            ],
-            "2" : [
-                "image" : "blueprint",
-                "title" : "Horas antes a terminar",
-                "description" : "43",
-                "destinationSegue" : "HomeProject"
-            ]
-        ]
-        for index in stride(from: 0, to: menu.count, by: 1) {
-            let item = MenuItem(image: menu[String(index)]!["image"]!,
-                                title: menu[String(index)]!["title"]!,
-                                itemDescription: menu[String(index)]!["description"]!,
-                                destinationSegue: menu[String(index)]!["destinationSegue"]!, type: contentType.horizontal)
-            if menuElements == nil {
-                menuElements = [item]
-            } else {
-                menuElements?.append(item)
-            }
-        }
-        
-        return menuElements ?? [MenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "", type: contentType.horizontal)]
+        FirebaseController.getStudentData(studentID: signedUser, completionBlock: ({(estudiante) in
+            FirebaseController.getTareasData(estudiante!.tareas!, completionBlock: ({(tareas) in
+                for tarea in tareas! {
+                    let item = MenuItem(image: "blueprint", title: tarea.nombre!,
+                                        itemDescription: "\(tarea.daysLeft()) days left",
+                    destinationSegue: "HomeProject",
+                    type: contentType.horizontal)
+                    
+                    if menuElements == nil {
+                        menuElements = [item]
+                    } else {
+                        menuElements?.append(item)
+                    }
+                }
+                completionBlock(menuElements!)
+            }))
+        }))
     }
     
-    static func getMenuElements() -> [MenuItem] {
+    static func getMenuElements(completionBlock: @escaping(_ success: [MenuItem]) -> Void) {
         var menuElements:[MenuItem]?
         //Menu Elements
-        let menu:[String:[String:String]] = [
-            "0": [
-                "image" : "blueprint",
-                "title" : "Crea un nuevo proyecto",
-                "destinationSegue" : "HomeProject"
-            ],
-            "1" : [
-                "image" : "blueprint",
-                "title" : "Ve tus proyectos actuales",
-                "destinationSegue" : "HomeProject"
-            ],
-            "2" : [
-                "image" : "blueprint",
-                "title" : "Ve tus tareas actuales",
-                "destinationSegue" : "HomeProject"
-            ],
-            "3" : [
-                "image" : "blueprint",
-                "title" : "Busca las herramientas",
-                "destinationSegue" : "HomeProject"
-            ]
-        ]
-        for index in stride(from: 0, to: menu.count, by: 1) {
-            let item = MenuItem(image: menu[String(index)]!["image"]!,
-                                title: menu[String(index)]!["title"]!,
-                                destinationSegue: menu[String(index)]!["destinationSegue"]!, type: contentType.vertical)
-            if menuElements == nil {
-                menuElements = [item]
-            } else {
-                menuElements?.append(item)
-            }
-        }
-        
-        return menuElements ?? [MenuItem(title: "Error", itemDescription: "No hay elementos a desplegar. Intentelo nuevamente mas tarde", destinationSegue: "", type: contentType.vertical)]
+        FirebaseController.getStudentData(studentID: signedUser, completionBlock: ({(estudiante) in
+            FirebaseController.getTareasData(estudiante!.tareas!, completionBlock: ({(tareas) in
+                for tarea in tareas! {
+                    let item = MenuItem(image: "blueprint", title: tarea.nombre!,
+                                        itemDescription: "\(tarea.daysLeft()) days left",
+                    destinationSegue: "HomeProject",
+                    type: contentType.vertical)
+                    
+                    if menuElements == nil {
+                        menuElements = [item]
+                    } else {
+                        menuElements?.append(item)
+                    }
+                }
+                completionBlock(menuElements!)
+            }))
+        }))
     }
 }
