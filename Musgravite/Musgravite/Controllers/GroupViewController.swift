@@ -27,8 +27,6 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    
-    
     //MARK: Students Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0

@@ -42,6 +42,6 @@ class ProjectMenuTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.viewController!.printDebug(segueIdentifier: menuItems![indexPath.item].destinationSegue! + " \(indexPath.item)")
+        
     }
 }
