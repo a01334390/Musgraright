@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
-    var statsItems:[Any]?
-    //MARK: UIView Controller Methods
+    var equipos:[String] = ["No se han encontrado equipos..."]
+    var grupos:[String] = ["No se han encontrado grupos..."]
+    var cursos:[String] = ["No se han encontrado cursos..."]
+    var selectedCourse:Curso?
+    
+    @IBOutlet weak var grupoTV: UITableView!
+    @IBOutlet weak var equiposTV: UITableView!
+    @IBOutlet weak var cursosTV: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.grupoTV.dataSource = self
+        self.grupoTV.delegate = self
+        grupoTV.register(UITableViewCell.self, forCellReuseIdentifier: "simpleTVC")
+        equiposTV.register(UITableViewCell.self, forCellReuseIdentifier: "simpleTVC")
+        cursosTV.register(UITableViewCell.self, forCellReuseIdentifier: "simpleTVC")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,41 +34,94 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // TableView Custom Cells
-        self.tableView.register(UINib.init(nibName: "ProjectStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectStatsTVC")
-        self.tableView.register(UINib.init(nibName: "ProjectMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectMenuTVC")
+        SVProgressHUD.show(withStatus: "Obteniendo la informacion del estudiante...")
+        FirebaseController.getStudentData(studentID: FirebaseController.currentAuthenticatedUserMail(), completionBlock: ({(estudiante) in
+            SVProgressHUD.show(withStatus: "Obteniendo los grupos del estudiante...")
+            if((estudiante?.grupos!.count)! > 0){
+                self.grupos.removeAll()
+            }
+            
+            for grupo in estudiante!.grupos! {
+                self.grupos.append(grupo.documentID)
+            }
+            
+            if((estudiante?.cursos!.count)! > 0) {
+                self.cursos.removeAll()
+            }
+            
+            for curso in estudiante!.cursos! {
+                self.cursos.append(curso.documentID)
+            }
+            
+            SVProgressHUD.show(withStatus: "Obteniendo los equipos del estudiante...")
+            if((estudiante?.equipos!.count)! > 0) {
+                self.equipos.removeAll()
+            }
+            for equipo in estudiante!.equipos! {
+                self.equipos.append(equipo.documentID)
+            }
+            self.grupoTV.reloadData()
+            self.equiposTV.reloadData()
+            self.cursosTV.reloadData()
+            SVProgressHUD.dismiss()
+        }))
     }
     
-    //MARK: UITableView Controller Methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProjectMenuVM.getStatsElements().count == 0 ? 1 : 2
+        switch(tableView){
+            case self.equiposTV:
+                return equipos.count
+        case self.grupoTV:
+            return grupos.count
+        case self.cursosTV:
+            return cursos.count
+        default:
+            fatalError()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 0) {
-            tableView.rowHeight = 200
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectStatsTVC", for: indexPath as IndexPath) as! ProjectStatsTableViewCell
-            cell.menuItems = ProjectMenuVM.getStatsElements()
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "simpleTVC",for: indexPath) as UITableViewCell
+        switch(tableView){
+            case self.equiposTV:
+                    cell.textLabel?.text = equipos[indexPath.item]
+                    return cell
+            case self.grupoTV:
+                cell.textLabel?.text = grupos[indexPath.item]
+                return cell
+            case self.cursosTV:
+                cell.textLabel?.text = cursos[indexPath.item]
+                return cell
+            default:
+                fatalError()
         }
-        
-        if (ProjectMenuVM.getStatsElements().count != 0 && indexPath.item == 1) || (ProjectMenuVM.getStatsElements().count == 0) {
-            tableView.rowHeight = CGFloat((Int((ProjectMenuVM.getMenuElements().count / 2)) * 250) + 20)
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectMenuTVC", for: indexPath as IndexPath) as! ProjectMenuTableViewCell
-            cell.menuItems = ProjectMenuVM.getMenuElements()
-            cell.viewController = self
-            return cell
-        }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.item)
+        switch(tableView){
+            case self.equiposTV:
+                   print()
+            case self.grupoTV:
+                print()
+            case self.cursosTV:
+                SVProgressHUD.show(withStatus: "Descargando informacion del curso...")
+                FirebaseController.getCourseData(cursos[indexPath.item], completionBlock: ({(curso) in
+                    SVProgressHUD.dismiss()
+                    self.selectedCourse = curso
+                    self.performSegue(withIdentifier: "ProjectCourse", sender: self)
+                }))
+            default:
+                fatalError()
+        }
     }
     
-    func printDebug(segueIdentifier:String){
-        print(segueIdentifier)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch(segue.identifier){
+        case "ProjectCourse":
+            let courseVC = segue.destination as! CoursesViewController
+            courseVC.course = selectedCourse
+        default:
+            fatalError()
+        }
     }
 }

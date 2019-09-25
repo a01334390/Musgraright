@@ -12,6 +12,7 @@ class ProjectStatsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var numberStat: UILabel!
     @IBOutlet weak var descriptionStat: UILabel!
+    @IBOutlet var courseName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

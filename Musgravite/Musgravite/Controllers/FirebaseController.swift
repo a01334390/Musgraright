@@ -61,7 +61,7 @@ class FirebaseController {
         }
     }
     
-    //MARK: Firestore Methods
+    //MARK: Firestore GET Methods
     
     static func getClassroomData(completionBlock: @escaping (_ success: [Salon]?) -> Void){
         Firestore.firestore().collection("salon").getDocuments(completion: {(querySnapshot,error) in
@@ -120,36 +120,110 @@ class FirebaseController {
         })
     }
     
-    static func getCourseData(_ curso: DocumentReference, completionBlock: @escaping (_ success: Curso?) -> Void) {
-        Firestore.firestore().collection("cursos").document(curso.documentID).getDocument(completion: {(querySnapshot,error) in
+    static func getCourseData(_ cursoId: String, completionBlock: @escaping (_ success: Curso?) -> Void) {
+        Firestore.firestore().collection("curso").document(cursoId).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
-                if let document = querySnapshot {
-                    let curso = Curso(document.documentID,
-                                      document.data()!["nombre"] as! String,
-                                      document.data()!["grupos"] as! [DocumentReference])
+                print(querySnapshot!.data()!["nombre"] as! String)
+                let curso = Curso(querySnapshot!.documentID,
+                                      querySnapshot!.data()!["nombre"] as! String,
+                                      querySnapshot!.data()!["nombreProfesor"] as! String,
+                                      querySnapshot!.data()!["semestre"] as! String,
+                                      querySnapshot!.data()!["grupos"] as! [DocumentReference],
+                                      querySnapshot!.data()!["salones"] as! [DocumentReference])
                     completionBlock(curso)
-                } else {
-                    completionBlock(nil)
-                }
+                
             }
         })
     }
     
-    static func getGroupData(_ grupo:DocumentReference, completionBlock: @escaping (_ success: Grupo?) -> Void) {
-        Firestore.firestore().collection("grupos").document(grupo.documentID).getDocument(completion: {(querySnapshot,error) in
+    static func getGroupData(_ grupoId:String, completionBlock: @escaping (_ success: Grupo?) -> Void) {
+        Firestore.firestore().collection("grupo").document(grupoId).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
                 let document = querySnapshot!.data()
                 let grupo = Grupo(querySnapshot!.documentID,
-                                  querySnapshot?.data()!["equipos"] as! [DocumentReference],
+                                  document!["equipos"] as! [DocumentReference],
                                   document!["horaInicio"] as! Int,
                                   document!["duracion"] as! Int)
                 completionBlock(grupo)
             }
         })
+    }
+    
+    static func getGroupsInCourse(_ grupos:[String], completionBlock: @escaping (_ success: [Grupo]?) -> Void){
+        var returnGrupo:[Grupo]?
+        for grupo in grupos {
+            self.getGroupData(grupo, completionBlock: ({(retrievedGrupo) in
+                if retrievedGrupo != nil {
+                    if returnGrupo == nil {
+                        returnGrupo = [retrievedGrupo!]
+                    } else {
+                        returnGrupo?.append(retrievedGrupo!)
+                    }
+                    completionBlock(returnGrupo)
+                } else {
+                    completionBlock(nil)
+                }
+            }))
+        }
+    }
+    
+    static func getStudentsInCourse(_ estudiantes:[DocumentReference], completionBlock: @escaping (_ success: [Estudiante]?) -> Void){
+        var returnStudents:[Estudiante]?
+        for estudiante in estudiantes {
+            self.getStudentData(studentReference: estudiante, completionBlock: ({(retrievedStudent) in
+                if retrievedStudent != nil {
+                    if returnStudents == nil {
+                        returnStudents = [retrievedStudent!]
+                    } else {
+                        returnStudents?.append(retrievedStudent!)
+                    }
+                    completionBlock(returnStudents)
+                } else {
+                    completionBlock(nil)
+                }
+            }))
+        }
+    }
+    
+    
+    
+    static func getTeamsInCourse(_ equipos:[DocumentReference], completionBlock: @escaping (_ success: [Estudiante]?) -> Void){
+        var returnTeams:[Equipo]?
+        for equipo in equipos {
+            self.getTeamData(equipo, completionBlock: ({(retrievedTeam) in
+                if retrievedTeam != nil{
+                    if returnTeams == nil {
+                        returnTeams = [retrievedTeam!]
+                    } else {
+                        returnTeams?.append(retrievedTeam!)
+                    }
+                } else{
+                    completionBlock(nil)
+                }
+            }))
+        }
+    }
+    
+    static func getTasksInProject(_ tareas:[DocumentReference], completionBlock: @escaping (_ success: [Tarea]?) -> Void ){
+        var returnTasks:[Tarea]?
+        for tarea in tareas {
+            self.getTareaData(tarea, completionBlock: ({(retrievedTarea) in
+                if retrievedTarea != nil {
+                    if returnTasks == nil {
+                        returnTasks = [retrievedTarea!]
+                    } else {
+                        returnTasks?.append(retrievedTarea!)
+                    }
+                    completionBlock(returnTasks)
+                } else {
+                    completionBlock(nil)
+                }
+            }))
+        }
     }
     
     static func getTeamData(_ team:DocumentReference, completionBlock: @escaping(_ success: Equipo?) -> Void) {
@@ -159,12 +233,118 @@ class FirebaseController {
             } else {
                 let equipo = Equipo(querySnapshot!.documentID,
                                     querySnapshot?.data()!["nombre"] as! String,
-                                    querySnapshot?.data()!["integrantes"] as! [String],
+                                    querySnapshot?.data()!["integrantes"] as! [DocumentReference],
                                     querySnapshot?.data()!["proyectos"] as! [DocumentReference])
                 completionBlock(equipo)
             }
         })
     }
+    
+    static func getStudentData(studentID:String, completionBlock: @escaping(_ success: Estudiante?) -> Void){
+        Firestore.firestore().collection("estudiante").document(studentID).getDocument(completion: {(querySnapshot, error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                let estudiante = Estudiante(querySnapshot!.documentID,
+                                            querySnapshot?.data()!["mail"] as! String,
+                                            querySnapshot?.data()!["nombre"] as! String,
+                                            querySnapshot?.data()!["apellidos"] as! String,
+                                            querySnapshot?.data()!["matricula"] as! String,
+                                            querySnapshot?.data()!["equipos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["proyectos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["grupos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["tareas"] as! [DocumentReference],
+                                            querySnapshot?.data()!["cursos"] as! [DocumentReference]
+                                            )
+                completionBlock(estudiante)
+            }
+        })
+    }
+    
+    static func getStudentData(studentReference:DocumentReference, completionBlock: @escaping(_ success: Estudiante?) -> Void){
+        Firestore.firestore().collection("estudiante").document(studentReference.documentID).getDocument(completion: {(querySnapshot, error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                let estudiante = Estudiante(querySnapshot!.documentID,
+                                            querySnapshot?.data()!["mail"] as! String,
+                                            querySnapshot?.data()!["nombre"] as! String,
+                                            querySnapshot?.data()!["apellidos"] as! String,
+                                            querySnapshot?.data()!["matricula"] as! String,
+                                            querySnapshot?.data()!["equipos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["proyectos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["grupos"] as! [DocumentReference],
+                                            querySnapshot?.data()!["tareas"] as! [DocumentReference],
+                                            querySnapshot?.data()!["cursos"] as! [DocumentReference])
+                completionBlock(estudiante)
+            }
+        })
+    }
+    
+    static func getTareaData(_ tarea:DocumentReference, completionBlock: @escaping(_ success: Tarea?) -> Void){
+        Firestore.firestore().collection("tareas").document(tarea.documentID).getDocument(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            } else {
+                let tarea = Tarea(querySnapshot!.documentID,
+                                  querySnapshot?.data()!["nombre"] as! String,
+                                   querySnapshot?.data()!["descripcion"] as! String,
+                                   (querySnapshot?.data()!["fechaInicio"] as! Timestamp).dateValue(),
+                                   (querySnapshot?.data()!["fechaFin"] as! Timestamp).dateValue(),
+                                   querySnapshot?.data()!["fase"] as! String,
+                                   querySnapshot?.data()!["status"] as! String,
+                                querySnapshot?.data()!["responsable"] as! DocumentReference)
+                completionBlock(tarea)
+            }
+        })
+    }
+    
+    static func getTareasData(_ tareas:[DocumentReference], completionBlock: @escaping(_ success: [Tarea]?) -> Void){
+        var tareasToStore:[Tarea]?
+        for tarea in tareas {
+            Firestore.firestore().collection("tareas").document(tarea.documentID).getDocument(completion: {(querySnapshot,error) in
+                if error != nil {
+                    completionBlock(nil)
+                } else {
+                    let tareax = Tarea(querySnapshot!.documentID,
+                                      querySnapshot?.data()!["nombre"] as! String,
+                                       querySnapshot?.data()!["descripcion"] as! String,
+                                       (querySnapshot?.data()!["fechaInicio"] as! Timestamp).dateValue(),
+                                       (querySnapshot?.data()!["fechaFin"] as! Timestamp).dateValue(),
+                                       querySnapshot?.data()!["fase"] as! String,
+                                       querySnapshot?.data()!["status"] as! String,
+                                    querySnapshot?.data()!["responsable"] as! DocumentReference)
+                    if tareasToStore == nil {
+                        tareasToStore = [tareax]
+                    } else {
+                        tareasToStore!.append(tareax)
+                    }
+                    
+                    if tarea.isEqual(tareas.last!) {
+                        completionBlock(tareasToStore)
+                    }
+                }
+            })
+        }
+       }
+    
+    static func getProyectoData(_ proyecto: DocumentReference,completionBlock: @escaping(_ success: Proyecto?) -> Void){
+        Firestore.firestore().collection("proyectos").document(proyecto.documentID).getDocument(completion: {(querySnapshot,error) in
+                   if error != nil {
+                       completionBlock(nil)
+                   } else {
+                    let proyecto = Proyecto(querySnapshot!.documentID,
+                                            querySnapshot?.data()!["nombre"] as! String,
+                                            querySnapshot?.data()!["metodologia"] as Any,
+                                            querySnapshot?.data()!["fase"] as Any,
+                                            querySnapshot?.data()!["descripcion"] as! String,
+                                            querySnapshot?.data()!["tareas"] as! [DocumentReference])
+                    completionBlock(proyecto)
+                   }
+               })
+    }
+    
+    //MARK: Firestore PUT Methods
     
     static func addTeamToGroup(_ team: Equipo,_ grupoID: String, completionBlock: @escaping(_ success: Bool) -> Void) {
         self.createNewTeam(team, completionBlock: ({(teamID) in
@@ -234,14 +414,6 @@ class FirebaseController {
         }))
     }
     
-    static func removeProjectFromTeam(_ teamID:String,_ project: DocumentReference, completionBlock: @escaping(_ success: Bool) -> Void){
-        //TODO: Do logic
-    }
-    
-    private static func removeProject(_ projectID:String, completionBlock: @escaping(_ success: Bool) -> Void){
-        //TODO: Do logic
-    }
-    
     private static func createNewProject(_ teamID:String,_ project: Proyecto, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
         var ref:DocumentReference?
         ref = Firestore.firestore().collection("proyectos").addDocument(data: project.firestoreReady()) { err in
@@ -250,7 +422,28 @@ class FirebaseController {
             } else {
                 completionBlock(ref)
             }
-            
+        }
+    }
+    
+    // MARK: Firestore Update Methods
+    
+    static func changeTaskStatus(_ taskID:String,_ taskStatus:String, completionBlock: @escaping(_ success: Bool) -> Void){
+        Firestore.firestore().collection("tareas").document(taskID).updateData(["status": taskStatus]) { err in
+            if err != nil {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
+            }
+        }
+    }
+    
+    static func changeTaskResponsible(taskID:String,_ taskResponsible: DocumentReference, completionBlock: @escaping(_ success: Bool) -> Void) {
+        Firestore.firestore().collection("tareas").document(taskID).updateData(["responsable": taskResponsible.documentID]) { err in
+            if err != nil {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
+            }
         }
     }
 }
