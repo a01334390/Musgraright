@@ -120,34 +120,32 @@ class FirebaseController {
         })
     }
     
-    static func getCourseData(_ curso: DocumentReference, completionBlock: @escaping (_ success: Curso?) -> Void) {
-        Firestore.firestore().collection("cursos").document(curso.documentID).getDocument(completion: {(querySnapshot,error) in
+    static func getCourseData(_ cursoId: String, completionBlock: @escaping (_ success: Curso?) -> Void) {
+        Firestore.firestore().collection("curso").document(cursoId).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
-                if let document = querySnapshot {
-                    let curso = Curso(document.documentID,
-                                      document.data()!["nombre"] as! String,
-                                      document.data()!["nombreProfesor"] as! String,
-                                      document.data()!["semestre"] as! Int,
-                                      document.data()!["grupos"] as! [DocumentReference],
-                                      document.data()!["salones"] as! [DocumentReference])
+                print(querySnapshot!.data()!["nombre"] as! String)
+                let curso = Curso(querySnapshot!.documentID,
+                                      querySnapshot!.data()!["nombre"] as! String,
+                                      querySnapshot!.data()!["nombreProfesor"] as! String,
+                                      querySnapshot!.data()!["semestre"] as! String,
+                                      querySnapshot!.data()!["grupos"] as! [DocumentReference],
+                                      querySnapshot!.data()!["salones"] as! [DocumentReference])
                     completionBlock(curso)
-                } else {
-                    completionBlock(nil)
-                }
+                
             }
         })
     }
     
-    static func getGroupData(_ grupo:DocumentReference, completionBlock: @escaping (_ success: Grupo?) -> Void) {
-        Firestore.firestore().collection("grupos").document(grupo.documentID).getDocument(completion: {(querySnapshot,error) in
+    static func getGroupData(_ grupoId:String, completionBlock: @escaping (_ success: Grupo?) -> Void) {
+        Firestore.firestore().collection("grupo").document(grupoId).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
                 let document = querySnapshot!.data()
                 let grupo = Grupo(querySnapshot!.documentID,
-                                  querySnapshot?.data()!["equipos"] as! [DocumentReference],
+                                  document!["equipos"] as! [DocumentReference],
                                   document!["horaInicio"] as! Int,
                                   document!["duracion"] as! Int)
                 completionBlock(grupo)
@@ -155,7 +153,7 @@ class FirebaseController {
         })
     }
     
-    static func getGroupsInCourse(_ grupos:[DocumentReference], completionBlock: @escaping (_ success: [Grupo]?) -> Void){
+    static func getGroupsInCourse(_ grupos:[String], completionBlock: @escaping (_ success: [Grupo]?) -> Void){
         var returnGrupo:[Grupo]?
         for grupo in grupos {
             self.getGroupData(grupo, completionBlock: ({(retrievedGrupo) in
@@ -255,7 +253,9 @@ class FirebaseController {
                                             querySnapshot?.data()!["equipos"] as! [DocumentReference],
                                             querySnapshot?.data()!["proyectos"] as! [DocumentReference],
                                             querySnapshot?.data()!["grupos"] as! [DocumentReference],
-                                            querySnapshot?.data()!["tareas"] as! [DocumentReference])
+                                            querySnapshot?.data()!["tareas"] as! [DocumentReference],
+                                            querySnapshot?.data()!["cursos"] as! [DocumentReference]
+                                            )
                 completionBlock(estudiante)
             }
         })
@@ -274,7 +274,8 @@ class FirebaseController {
                                             querySnapshot?.data()!["equipos"] as! [DocumentReference],
                                             querySnapshot?.data()!["proyectos"] as! [DocumentReference],
                                             querySnapshot?.data()!["grupos"] as! [DocumentReference],
-                                            querySnapshot?.data()!["tareas"] as! [DocumentReference])
+                                            querySnapshot?.data()!["tareas"] as! [DocumentReference],
+                                            querySnapshot?.data()!["cursos"] as! [DocumentReference])
                 completionBlock(estudiante)
             }
         })

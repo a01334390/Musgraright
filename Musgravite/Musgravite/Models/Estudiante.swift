@@ -19,8 +19,9 @@ class Estudiante {
     var proyectos:[DocumentReference]?
     var grupos:[DocumentReference]?
     var tareas:[DocumentReference]?
+    var cursos:[DocumentReference]?
     
-    init(_ id:String,_ mail:String,_ nombre:String,_ apellidos:String,_ matricula: String,_ equipos:[DocumentReference],_ proyectos:[DocumentReference],_ grupos:[DocumentReference],_ tareas:[DocumentReference]) {
+    init(_ id:String,_ mail:String,_ nombre:String,_ apellidos:String,_ matricula: String,_ equipos:[DocumentReference],_ proyectos:[DocumentReference],_ grupos:[DocumentReference],_ tareas:[DocumentReference], _ cursos:[DocumentReference]) {
         self.id = id
         self.mail = mail
         self.nombre = nombre
@@ -30,5 +31,6 @@ class Estudiante {
         self.proyectos = proyectos
         self.grupos = grupos
         self.tareas = tareas
+        self.cursos = cursos
     }
 }
