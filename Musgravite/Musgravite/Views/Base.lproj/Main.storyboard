@@ -295,6 +295,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w4r-qs-gDu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="D4O-LX-y0Z"/>
                     <connections>
                         <outlet property="tableView" destination="loh-W9-4hf" id="KcK-FR-BQN"/>
                     </connections>
@@ -503,7 +504,7 @@
                         <outlet property="courseCode" destination="tz5-It-kGD" id="e43-bL-Gf3"/>
                         <outlet property="courseName" destination="mR9-xI-nkH" id="qTJ-Nl-4hQ"/>
                         <outlet property="tableview" destination="d7Q-eV-T3b" id="60a-CA-iZM"/>
-                        <segue destination="Sqc-ij-77w" kind="show" id="gGf-y5-fic"/>
+                        <segue destination="Sqc-ij-77w" kind="show" identifier="CourseGroup" id="gGf-y5-fic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VV-bK-gi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -525,25 +526,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-Sb-9Mt">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-Sb-9Mt">
                                 <rect key="frame" x="16" y="258" width="346" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8ys-Om-gI5">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8ys-Om-gI5">
                                     <size key="itemSize" width="107" height="133"/>
+                                    <size key="estimatedItemSize" width="107" height="133"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="w4l-dN-58B">
-                                        <rect key="frame" x="10" y="10" width="107" height="133"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="studentCVC" id="w4l-dN-58B" customClass="StudentCollectionViewCell" customModule="Musgravite" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="11.666666666666666" width="107" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kr3-Et-xN0">
                                             <rect key="frame" x="0.0" y="0.0" width="107" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Completo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-uS-WKN">
+                                                    <rect key="frame" x="8" y="35" width="91" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="107" height="133"/>
+                                        <connections>
+                                            <outlet property="name" destination="7ei-uS-WKN" id="ZqQ-dE-vKr"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -565,12 +580,22 @@
                                 <rect key="frame" x="12" y="467" width="350" height="304"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamsTVC" id="HBk-Hj-stJ">
+                                        <rect key="frame" x="0.0" y="28" width="350" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HBk-Hj-stJ" id="STX-1s-QpT">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-dW-F7L">
                                 <rect key="frame" x="334" y="429" width="24.666666666666668" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="zAc-M8-PUp" kind="show" id="tWd-7b-UY2"/>
+                                    <action selector="addTeam:" destination="Sqc-ij-77w" eventType="touchUpInside" id="IKH-wt-E7N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGU-qw-sJJ">
@@ -579,7 +604,6 @@
                                 <state key="normal" title="See Classroom"/>
                                 <connections>
                                     <action selector="seeClassroom:" destination="Sqc-ij-77w" eventType="touchUpInside" id="mAO-VG-u2w"/>
-                                    <segue destination="8Og-WE-AMa" kind="show" id="ddV-vc-8hS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -588,14 +612,18 @@
                     </view>
                     <connections>
                         <outlet property="scheduleLabel" destination="2CO-cE-qot" id="5jk-ce-shg"/>
+                        <outlet property="studentsCV" destination="MbT-Sb-9Mt" id="Mvq-bk-tgb"/>
                         <outlet property="studentsCollection" destination="MbT-Sb-9Mt" id="76p-BO-7Mb"/>
+                        <outlet property="teamsTV" destination="nSk-Eb-bfE" id="omb-f5-Kc5"/>
                         <outlet property="teamsTable" destination="nSk-Eb-bfE" id="5oH-1m-ZNw"/>
                         <segue destination="cQL-Yq-e3U" kind="show" id="n5E-Tw-4az"/>
+                        <segue destination="8Og-WE-AMa" kind="show" identifier="GroupClassroom" id="VsZ-Hf-esn"/>
+                        <segue destination="zAc-M8-PUp" kind="show" identifier="GroupTeamCreation" id="hsK-Bs-E40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tee-id-qYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3305" y="72"/>
+            <point key="canvasLocation" x="3305" y="71"/>
         </scene>
         <!--Create a Team-->
         <scene sceneID="NhY-db-WiW">
@@ -633,10 +661,20 @@
                                     <action selector="createTeam:" destination="zAc-M8-PUp" eventType="touchUpInside" id="qbp-Lu-toe"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daz-U7-fWc">
-                                <rect key="frame" x="16" y="240" width="343" height="496"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daz-U7-fWc">
+                                <rect key="frame" x="16" y="247" width="343" height="489"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentsTVC" id="bal-xk-WM4">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bal-xk-WM4" id="ZzQ-ZR-5M7">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="zAc-M8-PUp" id="Sit-jq-85g"/>
                                     <outlet property="delegate" destination="zAc-M8-PUp" id="oNx-p3-rwV"/>
@@ -646,6 +684,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="UxA-Tz-RXT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="931-ir-vhk"/>
                     <connections>
                         <outlet property="teamName" destination="4QZ-AZ-8YO" id="slR-Rw-BBB"/>
                         <outlet property="teammatesTable" destination="daz-U7-fWc" id="jVE-7i-00o"/>
@@ -653,7 +692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYx-xz-v47" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="71"/>
+            <point key="canvasLocation" x="3973.5999999999999" y="70.935960591133011"/>
         </scene>
         <!--Infiniteam-->
         <scene sceneID="Map-GY-dJe">
@@ -859,6 +898,6 @@
         <image name="blueprint" width="800" height="614"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ddV-vc-8hS"/>
+        <segue reference="VsZ-Hf-esn"/>
     </inferredMetricsTieBreakers>
 </document>
