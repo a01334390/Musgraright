@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import SVProgressHUD
 
 class CoursesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class CoursesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var course:Curso?
     var groups:[Grupo] = []
+    private var selectedGroup:Grupo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,26 @@ class CoursesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "simpleTVC", for: indexPath)
         cell.textLabel!.text = groups[indexPath.item].documentID
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SVProgressHUD.show(withStatus: "Descargando informacion del grupo...")
+        FirebaseController.getGroupData(groups[indexPath.item].documentID!, completionBlock: ({(group) in
+            SVProgressHUD.dismiss()
+            self.selectedGroup = group
+            self.performSegue(withIdentifier: "CourseGroup", sender: self)
+        }))
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch(segue.identifier){
+        case "CourseGroup":
+            let groupVC = segue.destination as! GroupViewController
+            groupVC.group = self.selectedGroup
+            break
+        default:
+            fatalError()
+        }
     }
     
     private func prepareUIParameters(){

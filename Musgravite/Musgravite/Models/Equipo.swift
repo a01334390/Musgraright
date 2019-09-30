@@ -23,11 +23,13 @@ class Equipo {
     }
     
     func firestoreReady() -> [String:Any]{
-        let dictionary: [String:Any] = [
+        var dictionary: [String:Any] = [
             "nombre": self.nombre!,
-            "integrantes": self.integrantes!,
-            "proyectos" : self.proyectos!
+            "integrantes": self.integrantes!
         ]
+        if !proyectos!.isEmpty {
+            dictionary["proyectos"] = self.proyectos!
+        }
         return dictionary
     }
 }

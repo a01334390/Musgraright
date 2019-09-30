@@ -63,8 +63,59 @@ class FirebaseController {
     
     //MARK: Firestore GET Methods
     
+    static func getClassData(_ classroomID:String,completionBlock: @escaping (_ success: Salon?) -> Void){
+        Firestore.firestore().collection("salon").document(classroomID).getDocument(completion: {(querySnapshot,error) in
+            if error != nil {
+                completionBlock(nil)
+            }
+            if let document = querySnapshot {
+                var contentelems:[ContentElement] = []
+                
+                if let name = document.data()!["nombre"] {
+                    let contel = ContentElement(posterImage: document.data()!["posterImage"] as! String,
+                                                    classroomName: name as! String,
+                                                    building: document.data()!["edificio"] as! String,
+                                                    buildnumb: document["numero"] as! Int)
+                        contentelems.append(contel)
+
+                }
+                
+                if let imageArray = document.data()!["imagenes"] {
+                    if let panonoImage = document.data()!["imagen360"] {
+                        let contel = ContentElement(images: imageArray as! [String],
+                                                    image360: panonoImage as! String)
+                        contentelems.append(contel)
+                    } else {
+                        let contel = ContentElement(images: imageArray as! [String])
+                        contentelems.append(contel)
+                    }
+                }
+                
+                if let videoArray = document.data()!["videos"] {
+                    let contel = ContentElement(videos: videoArray as! [String])
+                    contentelems.append(contel)
+                }
+                
+                if let documentArray = document.data()!["documentos"] {
+                    let contel = ContentElement(documents: documentArray as! [String])
+                    contentelems.append(contel)
+                }
+                
+                let salon = Salon(document.documentID,
+                                  document.data()!["nombre"] as! String,
+                                  document.data()!["cursos"] as! [DocumentReference],
+                                  document.data()!["edificio"] as! String,
+                                  document["numero"] as! Int,
+                                  document["tipo"] as! Int,
+                                  contentelems)
+                completionBlock(salon)
+            }
+        })
+    }
+    
     static func getClassroomData(completionBlock: @escaping (_ success: [Salon]?) -> Void){
         Firestore.firestore().collection("salon").getDocuments(completion: {(querySnapshot,error) in
+            print(querySnapshot)
             if error != nil {
                 completionBlock(nil)
             } else {
@@ -146,8 +197,12 @@ class FirebaseController {
                 let document = querySnapshot!.data()
                 let grupo = Grupo(querySnapshot!.documentID,
                                   document!["equipos"] as! [DocumentReference],
+                                  document!["estudiantes"] as! [DocumentReference],
+                                  document!["proyecto"] as! DocumentReference,
                                   document!["horaInicio"] as! Int,
-                                  document!["duracion"] as! Int)
+                                  document!["duracion"] as! Int,
+                                  document!["numero"] as! Int,
+                                  document!["salon"] as! DocumentReference)
                 completionBlock(grupo)
             }
         })
@@ -163,7 +218,9 @@ class FirebaseController {
                     } else {
                         returnGrupo?.append(retrievedGrupo!)
                     }
-                    completionBlock(returnGrupo)
+                    if returnGrupo!.count == grupos.count {
+                        completionBlock(returnGrupo)
+                    }
                 } else {
                     completionBlock(nil)
                 }
@@ -181,9 +238,12 @@ class FirebaseController {
                     } else {
                         returnStudents?.append(retrievedStudent!)
                     }
-                    completionBlock(returnStudents)
                 } else {
                     completionBlock(nil)
+                }
+                
+                if estudiantes.count == returnStudents?.count {
+                    completionBlock(returnStudents)
                 }
             }))
         }
@@ -191,7 +251,7 @@ class FirebaseController {
     
     
     
-    static func getTeamsInCourse(_ equipos:[DocumentReference], completionBlock: @escaping (_ success: [Estudiante]?) -> Void){
+    static func getTeamsInCourse(_ equipos:[DocumentReference], completionBlock: @escaping (_ success: [Equipo]?) -> Void){
         var returnTeams:[Equipo]?
         for equipo in equipos {
             self.getTeamData(equipo, completionBlock: ({(retrievedTeam) in
@@ -204,8 +264,13 @@ class FirebaseController {
                 } else{
                     completionBlock(nil)
                 }
+                
+                if returnTeams?.count == equipos.count {
+                    completionBlock(returnTeams)
+                }
             }))
         }
+        
     }
     
     static func getTasksInProject(_ tareas:[DocumentReference], completionBlock: @escaping (_ success: [Tarea]?) -> Void ){
@@ -227,7 +292,7 @@ class FirebaseController {
     }
     
     static func getTeamData(_ team:DocumentReference, completionBlock: @escaping(_ success: Equipo?) -> Void) {
-        Firestore.firestore().collection("equipos").document(team.documentID).getDocument(completion: {(querySnapshot,error) in
+        Firestore.firestore().collection("equipo").document(team.documentID).getDocument(completion: {(querySnapshot,error) in
             if error != nil {
                 completionBlock(nil)
             } else {
@@ -349,7 +414,7 @@ class FirebaseController {
     static func addTeamToGroup(_ team: Equipo,_ grupoID: String, completionBlock: @escaping(_ success: Bool) -> Void) {
         self.createNewTeam(team, completionBlock: ({(teamID) in
             if teamID != nil {
-                let groupREF = Firestore.firestore().collection("grupos").document(grupoID)
+                let groupREF = Firestore.firestore().collection("grupo").document(grupoID)
                 groupREF.updateData([
                     "equipos" : FieldValue.arrayUnion([teamID!])
                 ]) { err in
@@ -367,7 +432,7 @@ class FirebaseController {
     
     private static func createNewTeam(_ team: Equipo, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
         var ref:DocumentReference? = nil
-        ref = Firestore.firestore().collection("equipos").addDocument(data: team.firestoreReady()) { err in
+        ref = Firestore.firestore().collection("equipo").addDocument(data: team.firestoreReady()) { err in
             if err != nil {
                 completionBlock(nil)
             } else {
