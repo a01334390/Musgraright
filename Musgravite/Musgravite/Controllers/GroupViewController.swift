@@ -84,7 +84,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             let result = selectableStudents()
             creatorVC.students = result.0
             creatorVC.studentsDR = result.1
-            creatorVC.groupID = self.group?.documentID
+            creatorVC.group = self.group
         default:
             print("Not implemented")
         }

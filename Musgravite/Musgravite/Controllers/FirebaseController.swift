@@ -198,6 +198,7 @@ class FirebaseController {
                 let grupo = Grupo(querySnapshot!.documentID,
                                   document!["equipos"] as! [DocumentReference],
                                   document!["estudiantes"] as! [DocumentReference],
+                                  document!["proyecto"] as! DocumentReference,
                                   document!["horaInicio"] as! Int,
                                   document!["duracion"] as! Int,
                                   document!["numero"] as! Int,
@@ -264,7 +265,7 @@ class FirebaseController {
                     completionBlock(nil)
                 }
                 
-                if equipo.isEqual(equipos.last){
+                if returnTeams?.count == equipos.count {
                     completionBlock(returnTeams)
                 }
             }))
@@ -413,7 +414,7 @@ class FirebaseController {
     static func addTeamToGroup(_ team: Equipo,_ grupoID: String, completionBlock: @escaping(_ success: Bool) -> Void) {
         self.createNewTeam(team, completionBlock: ({(teamID) in
             if teamID != nil {
-                let groupREF = Firestore.firestore().collection("grupos").document(grupoID)
+                let groupREF = Firestore.firestore().collection("grupo").document(grupoID)
                 groupREF.updateData([
                     "equipos" : FieldValue.arrayUnion([teamID!])
                 ]) { err in
@@ -431,7 +432,7 @@ class FirebaseController {
     
     private static func createNewTeam(_ team: Equipo, completionBlock: @escaping(_ success: DocumentReference?) -> Void){
         var ref:DocumentReference? = nil
-        ref = Firestore.firestore().collection("equipos").addDocument(data: team.firestoreReady()) { err in
+        ref = Firestore.firestore().collection("equipo").addDocument(data: team.firestoreReady()) { err in
             if err != nil {
                 completionBlock(nil)
             } else {

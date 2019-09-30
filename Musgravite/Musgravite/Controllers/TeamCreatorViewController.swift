@@ -17,7 +17,7 @@ class TeamCreatorViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var teamName: UITextField!
     var students:[Estudiante]?
     var studentsDR:[DocumentReference]?
-    var groupID:String?
+    var group:Grupo?
     var limit = 3
     
     override func viewDidLoad() {
@@ -98,10 +98,10 @@ class TeamCreatorViewController: UIViewController, UITableViewDataSource, UITabl
         for row in teammatesTable.indexPathsForSelectedRows! {
             selectedStudents.append((self.studentsDR?[row[1]])!)
         }
-        let team = Equipo("", teamName.text! , selectedStudents, [])
+        let team = Equipo("", teamName.text! , selectedStudents, [self.group!.proyecto])
        
         SVProgressHUD.show(withStatus: "Creating Team....")
-        FirebaseController.addTeamToGroup(team, self.groupID!, completionBlock: ({(happened) in
+        FirebaseController.addTeamToGroup(team, self.group!.documentID!, completionBlock: ({(happened) in
             if happened {
                 SVProgressHUD.showInfo(withStatus: "Success!")
                 SVProgressHUD.dismiss(withDelay: 3, completion: {
@@ -110,7 +110,6 @@ class TeamCreatorViewController: UIViewController, UITableViewDataSource, UITabl
             } else {
                SVProgressHUD.showError(withStatus: "Error!\nCouldn't create team")
                 SVProgressHUD.dismiss(withDelay: 3, completion: {
-                    self.navigationController!.popViewController(animated: true)
                 })
 
             }
