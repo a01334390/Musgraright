@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45C354023AA046526B011EC4 /* Pods_Musgravite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */; };
+		BD009AA823540A5A00710EE4 /* Pods_Musgravite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */; };
 		BD0C7C3722C44D380039DC81 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0C7C3522C44D380039DC81 /* VideoTableViewCell.swift */; };
 		BD0C7C3822C44D380039DC81 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0C7C3622C44D380039DC81 /* VideoTableViewCell.xib */; };
 		BD0C7C3B22C452B10039DC81 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0C7C3922C452B10039DC81 /* VideoCollectionViewCell.swift */; };
@@ -16,6 +16,9 @@
 		BD0C7C4022C465E10039DC81 /* ResourcesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0C7C3E22C465E10039DC81 /* ResourcesTableViewCell.xib */; };
 		BD0C7C4322C470850039DC81 /* ResourcesModifiedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0C7C4122C470850039DC81 /* ResourcesModifiedTableViewCell.swift */; };
 		BD0C7C4422C470850039DC81 /* ResourcesModifiedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0C7C4222C470850039DC81 /* ResourcesModifiedTableViewCell.xib */; };
+		BD1904C22353DDE300C6FDCC /* Pods_Musgravite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */; };
+		BD1904FA2353DF3A00C6FDCC /* Pods_Musgravite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */; };
+		BD1905052353E12A00C6FDCC /* Pods_Musgravite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD1B72CC23415ACC00E65713 /* StudentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B72CB23415ACC00E65713 /* StudentCollectionViewCell.swift */; };
 		BD3AF06A22B9829700FEECE3 /* TopBarSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF06922B9829700FEECE3 /* TopBarSuperview.swift */; };
 		BD3AF06C22B982DC00FEECE3 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF06B22B982DC00FEECE3 /* TopBar.xib */; };
@@ -39,6 +42,7 @@
 		BD56824B22B715E200263E46 /* Musgravite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD56824922B715E200263E46 /* Musgravite.xcdatamodeld */; };
 		BD56824D22B715E300263E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD56824C22B715E300263E46 /* Assets.xcassets */; };
 		BD56825022B715E300263E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56824E22B715E300263E46 /* LaunchScreen.storyboard */; };
+		BD6F3B5E23555D5E00086392 /* Metodologia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6F3B5D23555D5E00086392 /* Metodologia.swift */; };
 		BD809FA2231C8147002FC6FC /* Estudiante.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD809FA1231C8147002FC6FC /* Estudiante.swift */; };
 		BD809FA4231C822B002FC6FC /* Tarea.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD809FA3231C822B002FC6FC /* Tarea.swift */; };
 		BD8D890122B83AC100A8EC23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */; };
@@ -72,7 +76,23 @@
 		BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BD1905062353E12A00C6FDCC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BD1905052353E12A00C6FDCC /* Pods_Musgravite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3FEC9FDB86B9186078B3D08E /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
+		684415F59A4B3F7BB59E8D98 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0C7C3522C44D380039DC81 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		BD0C7C3622C44D380039DC81 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		BD0C7C3922C452B10039DC81 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -81,6 +101,26 @@
 		BD0C7C3E22C465E10039DC81 /* ResourcesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTableViewCell.xib; sourceTree = "<group>"; };
 		BD0C7C4122C470850039DC81 /* ResourcesModifiedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesModifiedTableViewCell.swift; sourceTree = "<group>"; };
 		BD0C7C4222C470850039DC81 /* ResourcesModifiedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesModifiedTableViewCell.xib; sourceTree = "<group>"; };
+		BD1904C52353DF3900C6FDCC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904C62353DF3900C6FDCC /* BLTNBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BLTNBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904C72353DF3900C6FDCC /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904C82353DF3900C6FDCC /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904C92353DF3900C6FDCC /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CA2353DF3900C6FDCC /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CB2353DF3900C6FDCC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CC2353DF3900C6FDCC /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CD2353DF3900C6FDCC /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CE2353DF3900C6FDCC /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904CF2353DF3900C6FDCC /* grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D02353DF3900C6FDCC /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "gRPCCertificates-Cpp.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D12353DF3900C6FDCC /* grpcpp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpcpp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D22353DF3900C6FDCC /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D32353DF3900C6FDCC /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D42353DF3900C6FDCC /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D52353DF3900C6FDCC /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D62353DF3900C6FDCC /* protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D72353DF3900C6FDCC /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1904D82353DF3900C6FDCC /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1B72CB23415ACC00E65713 /* StudentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD3AF06922B9829700FEECE3 /* TopBarSuperview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarSuperview.swift; sourceTree = "<group>"; };
 		BD3AF06B22B982DC00FEECE3 /* TopBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
@@ -106,6 +146,7 @@
 		BD56824C22B715E300263E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD56824F22B715E300263E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD56825122B715E300263E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD6F3B5D23555D5E00086392 /* Metodologia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metodologia.swift; sourceTree = "<group>"; };
 		BD809FA1231C8147002FC6FC /* Estudiante.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estudiante.swift; sourceTree = "<group>"; };
 		BD809FA3231C822B002FC6FC /* Tarea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarea.swift; sourceTree = "<group>"; };
 		BD8D890022B83AC100A8EC23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -137,9 +178,7 @@
 		BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActionsController.swift; sourceTree = "<group>"; };
-		E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.release.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.release.xcconfig"; sourceTree = "<group>"; };
-		FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musgravite.debug.xcconfig"; path = "Target Support Files/Pods-Musgravite/Pods-Musgravite.debug.xcconfig"; sourceTree = "<group>"; };
+		FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,26 +186,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45C354023AA046526B011EC4 /* Pods_Musgravite.framework in Frameworks */,
+				BD1904C22353DDE300C6FDCC /* Pods_Musgravite.framework in Frameworks */,
+				BD1904FA2353DF3A00C6FDCC /* Pods_Musgravite.framework in Frameworks */,
+				BD009AA823540A5A00710EE4 /* Pods_Musgravite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1421ADC5E71EEADEC57FB50E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E2F0CB80EFFB8B5FC972874A /* Pods_Musgravite.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8D7ED3AE2F92B864854E7379 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */,
-				E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */,
+				684415F59A4B3F7BB59E8D98 /* Pods-Musgravite.debug.xcconfig */,
+				3FEC9FDB86B9186078B3D08E /* Pods-Musgravite.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,7 +229,7 @@
 				BD56824122B715E200263E46 /* Musgravite */,
 				BD56824022B715E200263E46 /* Products */,
 				8D7ED3AE2F92B864854E7379 /* Pods */,
-				1421ADC5E71EEADEC57FB50E /* Frameworks */,
+				D21C62C624C47B9E180A1AB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,6 +329,7 @@
 				BDF24FB922C2FE2100896B4E /* ContentElement.swift */,
 				BD809FA1231C8147002FC6FC /* Estudiante.swift */,
 				BD809FA3231C822B002FC6FC /* Tarea.swift */,
+				BD6F3B5D23555D5E00086392 /* Metodologia.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +397,34 @@
 			path = "Lab Detail";
 			sourceTree = "<group>";
 		};
+		D21C62C624C47B9E180A1AB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD1904C52353DF3900C6FDCC /* Alamofire.framework */,
+				BD1904C62353DF3900C6FDCC /* BLTNBoard.framework */,
+				BD1904C72353DF3900C6FDCC /* FirebaseAuth.framework */,
+				BD1904C82353DF3900C6FDCC /* FirebaseCore.framework */,
+				BD1904C92353DF3900C6FDCC /* FirebaseCoreDiagnostics.framework */,
+				BD1904CA2353DF3900C6FDCC /* FirebaseFirestore.framework */,
+				BD1904CB2353DF3900C6FDCC /* FirebaseInstanceID.framework */,
+				BD1904CC2353DF3900C6FDCC /* GoogleDataTransport.framework */,
+				BD1904CD2353DF3900C6FDCC /* GoogleDataTransportCCTSupport.framework */,
+				BD1904CE2353DF3900C6FDCC /* GoogleUtilities.framework */,
+				BD1904CF2353DF3900C6FDCC /* grpc.framework */,
+				BD1904D02353DF3900C6FDCC /* gRPCCertificates-Cpp.bundle */,
+				BD1904D12353DF3900C6FDCC /* grpcpp.framework */,
+				BD1904D22353DF3900C6FDCC /* GTMSessionFetcher.framework */,
+				BD1904D32353DF3900C6FDCC /* leveldb.framework */,
+				BD1904D42353DF3900C6FDCC /* nanopb.framework */,
+				BD1904D52353DF3900C6FDCC /* openssl_grpc.framework */,
+				BD1904D62353DF3900C6FDCC /* protobuf.framework */,
+				BD1904D72353DF3900C6FDCC /* SDWebImage.framework */,
+				BD1904D82353DF3900C6FDCC /* SVProgressHUD.framework */,
+				FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -370,11 +432,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD56825422B715E300263E46 /* Build configuration list for PBXNativeTarget "Musgravite" */;
 			buildPhases = (
-				A12F9AFA6579ACF0580508F5 /* [CP] Check Pods Manifest.lock */,
+				874A5605A95A27586CF776DD /* [CP] Check Pods Manifest.lock */,
 				BD56823B22B715E200263E46 /* Sources */,
 				BD56823C22B715E200263E46 /* Frameworks */,
 				BD56823D22B715E200263E46 /* Resources */,
-				795C7E9D8D34E4AE9B4DEEF3 /* [CP] Embed Pods Frameworks */,
+				4CCC8FE0224BCE022CFE90F6 /* [CP] Embed Pods Frameworks */,
+				BD1905062353E12A00C6FDCC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -445,7 +508,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		795C7E9D8D34E4AE9B4DEEF3 /* [CP] Embed Pods Frameworks */ = {
+		4CCC8FE0224BCE022CFE90F6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -462,7 +525,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Musgravite/Pods-Musgravite-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A12F9AFA6579ACF0580508F5 /* [CP] Check Pods Manifest.lock */ = {
+		874A5605A95A27586CF776DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,6 +589,7 @@
 				BDA36F65230EE9ED00A2164A /* TaskViewController.swift in Sources */,
 				BDD911B3230EE61800BD7E24 /* TeamViewController.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
+				BD6F3B5E23555D5E00086392 /* Metodologia.swift in Sources */,
 				BD94603D230E3EE700119F5A /* CoursesViewController.swift in Sources */,
 				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
 				BDA571BD22C1C06900D52E8F /* RoomsTableViewCell.swift in Sources */,
@@ -680,9 +744,10 @@
 		};
 		BD56825522B715E300263E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD3628F4507041B1CCD2B9B6 /* Pods-Musgravite.debug.xcconfig */;
+			baseConfigurationReference = 684415F59A4B3F7BB59E8D98 /* Pods-Musgravite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R935X42Z66;
 				INFOPLIST_FILE = Musgravite/Info.plist;
@@ -690,8 +755,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aabotech.Musgravite;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aabotechn.Musgravite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -699,9 +765,10 @@
 		};
 		BD56825622B715E300263E46 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FE8E8CC0FCE93244E0C1FC /* Pods-Musgravite.release.xcconfig */;
+			baseConfigurationReference = 3FEC9FDB86B9186078B3D08E /* Pods-Musgravite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R935X42Z66;
 				INFOPLIST_FILE = Musgravite/Info.plist;
@@ -709,8 +776,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aabotech.Musgravite;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aabotechn.Musgravite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

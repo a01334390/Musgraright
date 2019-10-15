@@ -9,10 +9,12 @@
 import UIKit
 
 class TeamViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var team:Equipo?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupStaticData()
         // Do any additional setup after loading the view.
     }
     
@@ -21,6 +23,10 @@ class TeamViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var phaseImage: UIImageView!
     @IBOutlet weak var tasksCollection: UICollectionView!
     @IBOutlet weak var yourTasksCollection: UICollectionView!
+    
+    func setupStaticData(){
+        self.title = self.team?.nombre
+    }
     
     // MARK: Tasks CV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

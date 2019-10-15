@@ -400,13 +400,55 @@ class FirebaseController {
                    } else {
                     let proyecto = Proyecto(querySnapshot!.documentID,
                                             querySnapshot?.data()!["nombre"] as! String,
-                                            querySnapshot?.data()!["metodologia"] as Any,
-                                            querySnapshot?.data()!["fase"] as Any,
-                                            querySnapshot?.data()!["descripcion"] as! String,
-                                            querySnapshot?.data()!["tareas"] as! [DocumentReference])
+                                            querySnapshot?.data()!["metodologia"] as! DocumentReference,
+                                            querySnapshot?.data()!["descripcion"] as! String)
                     completionBlock(proyecto)
                    }
                })
+    }
+    
+    static func getMetodologiaData(_ id: String, completionBlock: @escaping(_ success: Metodologia?) -> Void){
+        Firestore.firestore().collection("metodologias").document(id).getDocument(completion: ({(querySnapshot, error) in
+            if error != nil {
+                completionBlock(nil)
+            }
+            var addableStages:[Etapa] = []
+            
+            if let etapas = querySnapshot?.data()!["etapas"] as! [Any]? {
+                for etapa in etapas {
+                    if let editableStage = etapa as? [String:Any] {
+                        var addableTareas:[TareaMet] = []
+                        if let tareas = editableStage["tareas"] as! [Any]? {
+                            for tarea in tareas {
+                                if let editableTarea = tarea as? [String:Any] {
+                                    if let herramientas = editableTarea["herramientas"] as! [String:Any]?{
+                                        let herramienta = Herramienta(laboratorio: herramientas["laboratorio"] as? DocumentReference,
+                                                                      libro: URL(string: herramientas["libro"] as! String),
+                                                                      link: URL(string: herramientas["link"] as! String),
+                                                                      mooc: URL(string: herramientas["mooc"] as! String))
+                                        
+                                        let addableTarea:TareaMet = TareaMet(nombre: editableTarea["titulo"] as? String,
+                                                                             descripcion: editableTarea["descripcion"] as? String,
+                                                                             herramientas: herramienta)
+                                        addableTareas.append(addableTarea)
+                                    }
+                                }
+                            }
+                        }
+                        let addableStage:Etapa = Etapa(titulo: editableStage["titulo"] as? String,
+                                                       descripcion: editableStage["descripcion"] as? String,
+                                                       tareas: addableTareas)
+                        addableStages.append(addableStage)
+                    }
+                }
+            }
+            let metodologia:Metodologia = Metodologia(querySnapshot!.documentID,
+                                                      querySnapshot?.data()!["nombre"] as! String,
+                                                      querySnapshot?.data()!["descripcion"] as! String,
+                                                      addableStages)
+            completionBlock(metodologia)
+            
+        }))
     }
     
     //MARK: Firestore PUT Methods

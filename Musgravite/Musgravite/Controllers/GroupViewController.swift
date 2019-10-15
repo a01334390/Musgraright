@@ -35,6 +35,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var group:Grupo?
     var selectedSalon:Salon?
+    var selectedTeam:Equipo?
     var students:[Estudiante] = []
     var teams:[Equipo] = []
     
@@ -85,6 +86,9 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             creatorVC.students = result.0
             creatorVC.studentsDR = result.1
             creatorVC.group = self.group
+        case "GroupTeam":
+            let teamVC = segue.destination as! TeamViewController
+            teamVC.team = self.selectedTeam
         default:
             print("Not implemented")
         }
@@ -131,5 +135,10 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamsTVC", for: indexPath)
         cell.textLabel?.text = self.teams[indexPath.item].nombre
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTeam = self.teams[indexPath.item]
+        self.performSegue(withIdentifier: "GroupTeam", sender: self)
     }
 }

@@ -12,27 +12,21 @@ import FirebaseFirestore
 class Proyecto {
     var documentID:String?
     var nombre:String?
-    var metodologia:Any?
-    var fase:Any?
+    var metodologia:DocumentReference?
     var descripcion:String?
-    var tareas:[DocumentReference]?
     
-    init(_ documentID:String,_ nombre:String,_ metodologia: Any,_ fase:Any,_ descripcion: String,_ tareas:[DocumentReference]){
+    init(_ documentID:String,_ nombre:String,_ metodologia: DocumentReference,_ descripcion: String){
         self.documentID = documentID
         self.nombre = nombre
         self.metodologia = metodologia
-        self.fase = fase
         self.descripcion = descripcion
-        self.tareas = tareas
     }
     
     func firestoreReady() -> [String: Any] {
         let dictionary: [String: Any] = [
             "nombre" : self.nombre!,
             "metodologia": self.metodologia!,
-            "fase" : self.fase!,
-            "descripcion" : self.descripcion!,
-            "tareas" : self.tareas!
+            "descripcion" : self.descripcion!
         ]
         return dictionary
     }
