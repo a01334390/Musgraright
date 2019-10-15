@@ -33,7 +33,7 @@ public class ProjectMenuVM {
             FirebaseController.getTareasData(estudiante!.tareas!, completionBlock: ({(tareas) in
                 for tarea in tareas! {
                     let item = MenuItem(image: "blueprint", title: tarea.nombre!,
-                                        itemDescription: "\(tarea.daysLeft()) days left",
+                                        itemDescription: " days left",
                     destinationSegue: "HomeProject",
                     type: contentType.horizontal)
                     
@@ -55,7 +55,7 @@ public class ProjectMenuVM {
             FirebaseController.getTareasData(estudiante!.tareas!, completionBlock: ({(tareas) in
                 for tarea in tareas! {
                     let item = MenuItem(image: "blueprint", title: tarea.nombre!,
-                                        itemDescription: "\(tarea.daysLeft()) days left",
+                                        itemDescription: "days left",
                     destinationSegue: "HomeProject",
                     type: contentType.vertical)
                     

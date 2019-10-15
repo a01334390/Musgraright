@@ -16,14 +16,16 @@ class Curso {
     var semestre:String?
     var grupos:[DocumentReference]?
     var salones:[DocumentReference]?
+    var metodologia:DocumentReference?
 
-    init(_ documentID:String, _ nombre:String,_ nombreProfesor:String,_ semestre:String, _ grupos:[DocumentReference],_ salones:[DocumentReference]) {
+    init(_ documentID:String, _ nombre:String,_ nombreProfesor:String,_ semestre:String, _ grupos:[DocumentReference],_ salones:[DocumentReference],_ metodologia:DocumentReference) {
         self.documentID = documentID
         self.nombre = nombre
         self.nombreProfesor = nombreProfesor
         self.semestre = semestre
         self.grupos = grupos
         self.salones = salones
+        self.metodologia = metodologia
     }
     
 }

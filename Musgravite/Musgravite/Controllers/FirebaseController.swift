@@ -182,7 +182,8 @@ class FirebaseController {
                                       querySnapshot!.data()!["nombreProfesor"] as! String,
                                       querySnapshot!.data()!["semestre"] as! String,
                                       querySnapshot!.data()!["grupos"] as! [DocumentReference],
-                                      querySnapshot!.data()!["salones"] as! [DocumentReference])
+                                      querySnapshot!.data()!["salones"] as! [DocumentReference],
+                                      querySnapshot!.data()!["metodologia"] as! DocumentReference)
                     completionBlock(curso)
                 
             }
@@ -354,11 +355,10 @@ class FirebaseController {
                 let tarea = Tarea(querySnapshot!.documentID,
                                   querySnapshot?.data()!["nombre"] as! String,
                                    querySnapshot?.data()!["descripcion"] as! String,
-                                   (querySnapshot?.data()!["fechaInicio"] as! Timestamp).dateValue(),
                                    (querySnapshot?.data()!["fechaFin"] as! Timestamp).dateValue(),
                                    querySnapshot?.data()!["fase"] as! String,
                                    querySnapshot?.data()!["status"] as! String,
-                                querySnapshot?.data()!["responsable"] as! DocumentReference)
+                                querySnapshot?.data()!["responsable"] as! String)
                 completionBlock(tarea)
             }
         })
@@ -374,11 +374,10 @@ class FirebaseController {
                     let tareax = Tarea(querySnapshot!.documentID,
                                       querySnapshot?.data()!["nombre"] as! String,
                                        querySnapshot?.data()!["descripcion"] as! String,
-                                       (querySnapshot?.data()!["fechaInicio"] as! Timestamp).dateValue(),
                                        (querySnapshot?.data()!["fechaFin"] as! Timestamp).dateValue(),
                                        querySnapshot?.data()!["fase"] as! String,
                                        querySnapshot?.data()!["status"] as! String,
-                                    querySnapshot?.data()!["responsable"] as! DocumentReference)
+                                    querySnapshot?.data()!["responsable"] as! String)
                     if tareasToStore == nil {
                         tareasToStore = [tareax]
                     } else {
@@ -470,6 +469,27 @@ class FirebaseController {
                 completionBlock(false)
             }
         }))
+    }
+    
+    static func createMultipleTasksAndJoin(team:Equipo, tareas:[Tarea], completionBlock: @escaping(_ success: Bool) -> Void){
+        for tarea in tareas {
+//            Firestore.firestore().collection("tareas").addDocument(data: tar)
+        }
+        
+          
+        //        for tarea in tareas {
+        //            self.getTareaData(tarea, completionBlock: ({(retrievedTarea) in
+        //                if retrievedTarea != nil {
+        //                    if returnTasks == nil {
+        //                        returnTasks = [retrievedTarea!]
+        //                    } else {
+        //                        returnTasks?.append(retrievedTarea!)
+        //                    }
+        //                    completionBlock(returnTasks)
+        //                } else {
+        //                    completionBlock(nil)
+        //                }
+        //            }))
     }
     
     private static func createNewTeam(_ team: Equipo, completionBlock: @escaping(_ success: DocumentReference?) -> Void){

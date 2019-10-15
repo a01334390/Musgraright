@@ -40,4 +40,21 @@ class Metodologia {
         self.descripcion = descripcion
         self.etapas = etapas
     }
+    
+    func TareaMet2Tarea() -> [Tarea] {
+        var tareas:[Tarea] = []
+        for etapa in self.etapas! {
+            for tarea in etapa.tareas! {
+                let addableTarea:Tarea = Tarea("",
+                                               tarea.nombre!,
+                                               tarea.descripcion!,
+                                               Date(),
+                                               etapa.titulo!,
+                                               "UNASIGNED",
+                                               "")
+                tareas.append(addableTarea)
+            }
+        }
+        return tareas
+    }
 }
