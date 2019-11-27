@@ -1,42 +1,41 @@
 //
-//  TextFieldBulletinPage.swift
+//  NameFieldBulletinBoard.swift
 //  Musgravite
 //
-//  Created by Fernando Martin Garcia Del Angel on 11/11/18.
-//  Copyright © 2018 Aabo Technologies. All rights reserved.
+//  Created by Luis Eduardo Brime Gomez on 11/26/19.
+//  Copyright © 2019 Aabo Technologies. All rights reserved.
 //
 import Foundation
 import BLTNBoard
 
-class TextFieldBulletinPage: BLTNPageItem {
-    @objc public var textField: UITextField!
+class LastnameFieldBulletinPage: BLTNPageItem {
+    @objc public var nameField: UITextField!
+    @objc public var surField: UITextField!
     @objc public var textInputHandler: ((BLTNActionItem, String?) -> Void)? = nil
     
     override func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
-        textField = interfaceBuilder.makeTextField(placeholder: "borre@itesm.mx", returnKey: .done, delegate: self)
-        return [textField]
+        nameField = interfaceBuilder.makeTextField(placeholder: "Gutierritos", returnKey: .done, delegate: self)
+        
+        return [nameField]
     }
     
     override func tearDown() {
         super.tearDown()
-        textField?.delegate = nil
+        nameField?.delegate = nil
     }
     
     override func actionButtonTapped(sender: UIButton) {
-        textField.resignFirstResponder()
+        nameField.resignFirstResponder()
         super.actionButtonTapped(sender: sender)
     }
-    
 }
 
-extension TextFieldBulletinPage: UITextFieldDelegate {
-    
+extension LastnameFieldBulletinPage: UITextFieldDelegate {
     @objc open func isInputValid(text: String?) -> Bool {
-        if text == nil || text!.isEmpty || !(text!.matchesRegex(regex: "[\\w]+@itesm.mx") != text!.matchesRegex(regex: "[\\w]+@tec.mx")) {
+        if text == nil || text!.isEmpty {
             return false
         }
         return true
-        
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -53,10 +52,9 @@ extension TextFieldBulletinPage: UITextFieldDelegate {
             textInputHandler?(self, textField.text)
         } else {
             descriptionLabel!.textColor = .red
-            descriptionLabel!.text = "Debes ingresar texto o un correo del Tec para continuar"
+            descriptionLabel!.text = "Debes ingresar tus datos para continuar"
             textField.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         }
         
     }
-    
 }

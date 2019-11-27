@@ -10,6 +10,9 @@ import Firebase
 import FirebaseFirestore
 
 class FirebaseController {
+    //MARK: Async handler
+    static let dispatchG = DispatchGroup()
+    static let dispatchG2 = DispatchGroup()
     
     //MARK: Authentication methods
     static func signUp(_ email:String,_ password:String, completionBlock: @escaping (_ success: Bool) -> Void){
@@ -499,6 +502,87 @@ class FirebaseController {
                 completionBlock(nil)
             } else {
                 completionBlock(ref)
+            }
+        }
+    }
+    
+    static func addStudentAfterSignUp(_ mail: String, completionBlock: @escaping(_ success: Bool) -> Void) {
+        print("Entering adding")
+        let lowerMail = mail.lowercased()
+        
+        self.createStudent(lowerMail, completionBlock: ({(studentId) in
+            if studentId != nil {
+                print("Return after creating")
+                
+                self.dispatchG2.notify(queue: .main) {
+                    Firestore.firestore().collectionGroup("grupo").whereField("estudiantes", arrayContains: studentId!).getDocuments() { (querySnapshot, err) in
+                        if err != nil {
+                            print("Error finding grupos \(String(describing: err))")
+                            self.dispatchG.leave()
+                        }
+                        if (querySnapshot!.isEmpty) {
+                            print("No grupos found")
+                            completionBlock(true)
+                            self.dispatchG.leave()
+                        } else {
+                            print("Found grupos")
+                            for document in querySnapshot!.documents {
+                                print("\(document)")
+                                let data = document.data() as [String:Any]
+                                studentId?.updateData([
+                                    "cursos": FieldValue.arrayUnion([data["curso"] as Any]),
+                                    "grupos": FieldValue.arrayUnion([document.reference as Any ])
+                                ]) { err in
+                                    if err != nil {
+                                        print(err!)
+                                        completionBlock(false)
+                                        self.dispatchG.leave()
+                                    }
+                                }
+                            }
+                            completionBlock(true)
+                            self.dispatchG.leave()
+                        }
+                    }
+                }
+            } else {
+                completionBlock(false)
+                self.dispatchG.leave()
+            }
+        }))
+    }
+    
+    static func createStudent(_ mail: String, completionBlock: @escaping(_ success: DocumentReference?) -> Void) {
+        print("Entering creating")
+        self.dispatchG2.enter()
+        var ref:DocumentReference? = nil
+        
+        ref = Firestore.firestore().collection("estudiante").document("\(mail)")
+        let matricula = mail.components(separatedBy: "@")[0].uppercased()
+        ref?.setData(["mail": mail, "matricula": matricula]) { err in
+            if let err = err {
+                print("Error creating \(err)")
+                completionBlock(nil)
+                self.dispatchG2.leave()
+            } else {
+                print("Document created")
+                completionBlock(ref)
+                self.dispatchG2.leave()
+            }
+        }
+    }
+    
+    static func updateStudentName(_ studentID: String, _ name: String, _ lastname: String, completionBlock: @escaping(_ success: Bool) -> Void) {
+        self.dispatchG.enter()
+        Firestore.firestore().collection("estudiante").document(studentID).updateData([
+            "nombre": name,
+            "apellidos": lastname
+        ]) { err in
+            if err != nil {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
+                self.dispatchG.leave()
             }
         }
     }

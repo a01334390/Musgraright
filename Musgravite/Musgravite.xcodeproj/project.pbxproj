@@ -74,6 +74,8 @@
 		BDF24FC822C318BC00896B4E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */; };
 		BDF24FC922C318BC00896B4E /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */; };
 		BDF24FCB22C31D9000896B4E /* NetworkActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */; };
+		F460A659238D9FE600A05699 /* NameFieldBulletinBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460A658238D9FE600A05699 /* NameFieldBulletinBoard.swift */; };
+		F460A65B238E14D500A05699 /* LastnameFieldBulletinBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460A65A238E14D500A05699 /* LastnameFieldBulletinBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +180,8 @@
 		BDF24FC622C318BC00896B4E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDF24FC722C318BC00896B4E /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		BDF24FCA22C31D9000896B4E /* NetworkActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActionsController.swift; sourceTree = "<group>"; };
+		F460A658238D9FE600A05699 /* NameFieldBulletinBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFieldBulletinBoard.swift; sourceTree = "<group>"; };
+		F460A65A238E14D500A05699 /* LastnameFieldBulletinBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastnameFieldBulletinBoard.swift; sourceTree = "<group>"; };
 		FD26D1EE410E1C0E2699F68C /* Pods_Musgravite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musgravite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -339,6 +343,8 @@
 			children = (
 				BD8D890322B8498300A8EC23 /* Extensions.swift */,
 				BD8D890B22B85BB700A8EC23 /* TextFieldBulletinBoard.swift */,
+				F460A658238D9FE600A05699 /* NameFieldBulletinBoard.swift */,
+				F460A65A238E14D500A05699 /* LastnameFieldBulletinBoard.swift */,
 				BD8D890F22B8836100A8EC23 /* PasswordFieldBulletinPage.swift */,
 			);
 			path = Extensions;
@@ -589,6 +595,7 @@
 				BDA36F65230EE9ED00A2164A /* TaskViewController.swift in Sources */,
 				BDD911B3230EE61800BD7E24 /* TeamViewController.swift in Sources */,
 				BDDA239322B9DFAC000DDE76 /* Grupo.swift in Sources */,
+				F460A659238D9FE600A05699 /* NameFieldBulletinBoard.swift in Sources */,
 				BD6F3B5E23555D5E00086392 /* Metodologia.swift in Sources */,
 				BD94603D230E3EE700119F5A /* CoursesViewController.swift in Sources */,
 				BDB0C70022BC16140043AB8E /* Proyecto.swift in Sources */,
@@ -597,6 +604,7 @@
 				BD0C7C4322C470850039DC81 /* ResourcesModifiedTableViewCell.swift in Sources */,
 				BD0C7C3B22C452B10039DC81 /* VideoCollectionViewCell.swift in Sources */,
 				BD0C7C3F22C465E10039DC81 /* ResourcesTableViewCell.swift in Sources */,
+				F460A65B238E14D500A05699 /* LastnameFieldBulletinBoard.swift in Sources */,
 				BD8D890422B8498300A8EC23 /* Extensions.swift in Sources */,
 				BD4135A322BB1708005AF816 /* ProjectStatsTableViewCell.swift in Sources */,
 				BDF24FB722C2F8BC00896B4E /* LabDetailViewController.swift in Sources */,

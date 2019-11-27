@@ -69,6 +69,40 @@ public class HomepageVM {
         return page
     }
     
+    static func createNamePage(_ email: String) -> BLTNPageItem {
+        let page = NameFieldBulletinPage(title: "Completa tus datos")
+        page.isDismissable = false
+        page.descriptionText = "Ingresa tu nombre (sin apellidos)"
+        page.actionButtonTitle = "Continuar"
+        
+        page.textInputHandler = {(item, text) in
+            item.manager?.displayActivityIndicator()
+            page.next = createLastnamePage(text!, email)
+            item.manager?.displayNextItem()
+        }
+        
+        return page
+    }
+    
+    static func createLastnamePage(_ name: String, _ email: String) -> BLTNPageItem {
+        let page = LastnameFieldBulletinPage(title: "Completa tus datos parte 2")
+        page.isDismissable = false
+        page.descriptionText = "Ingresa tus apellidos"
+        page.actionButtonTitle = "Guardar"
+        
+        page.textInputHandler = {(item, text) in
+            item.manager?.displayActivityIndicator()
+            FirebaseController.updateStudentName(email.lowercased(), name, text!, completionBlock: ({(success) in
+                page.next = createLocationServicesPage()
+            }))
+            FirebaseController.dispatchG.notify(queue: .main) {
+                item.manager?.displayNextItem()
+            }
+        }
+        
+        return page
+    }
+    
     static func createGetPasswordPage(_ signup: Bool,_ email:String) -> BLTNPageItem {
         let page = PasswordFieldBulletinPage(title: "Ingresa tu contraseña")
         page.isDismissable = false
@@ -85,11 +119,21 @@ public class HomepageVM {
             if signup {
                 FirebaseController.signUp(email, text!, completionBlock: ({ (success) in
                     if success {
-                        page.next = createLocationServicesPage()
+                        FirebaseController.dispatchG.enter()
+                        FirebaseController.addStudentAfterSignUp(email, completionBlock: ({ (inDb) in
+                            print("After adding")
+                            if inDb {
+                                page.next = createNamePage(email)
+                            } else {
+                                page.next = createErrorPage()
+                            }
+                        }))
                     } else {
                         page.next = createErrorPage()
                     }
-                    item.manager?.displayNextItem()
+                    FirebaseController.dispatchG.notify(queue: .main) {
+                        item.manager?.displayNextItem()
+                    }
                 }))
             } else {
                 FirebaseController.signIn(email, text!, completionBlock: ({(success) in
