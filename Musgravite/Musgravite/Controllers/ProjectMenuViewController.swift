@@ -35,7 +35,7 @@ class ProjectMenuViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         SVProgressHUD.show(withStatus: "Obteniendo la informacion del estudiante...")
-        FirebaseController.getStudentData(studentID: FirebaseController.currentAuthenticatedUserMail(), completionBlock: ({(estudiante) in
+        FirebaseController.getStudentData(studentID: FirebaseController.currentAuthenticatedUserMail().lowercased(), completionBlock: ({(estudiante) in
             SVProgressHUD.show(withStatus: "Obteniendo los grupos del estudiante...")
             if((estudiante?.grupos!.count)! > 0){
                 self.grupos.removeAll()

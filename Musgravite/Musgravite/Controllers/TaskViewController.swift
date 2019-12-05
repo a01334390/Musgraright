@@ -23,6 +23,8 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var daysRemaining: UILabel!
     @IBOutlet weak var taskDescription: UITextView!
     
+    var task: Tarea?
+    
     //Actions
 
     @IBAction func changeStatus(_ sender: Any) {
